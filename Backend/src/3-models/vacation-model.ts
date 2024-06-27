@@ -1,6 +1,7 @@
-import mongoose, { Document, ObjectId, Schema, model } from "mongoose";
+import mongoose, { Document, Schema, model } from "mongoose";
 import { Role } from "./enums";
 import { UserModel } from "./user-model";
+import { IImageModel } from "./images-model";
 
 export interface IVacationModel extends Document {
   destination: string;
@@ -8,8 +9,8 @@ export interface IVacationModel extends Document {
   startDate: Date;
   endDate: Date;
   price: Number;
-  image: string;
-  likes: mongoose.Types.ObjectId[];
+  image: mongoose.Types.ObjectId | IImageModel;
+  likesIds: mongoose.Types.ObjectId[];
 }
 
 export const VacationSchema = new Schema<IVacationModel>(
@@ -46,21 +47,29 @@ export const VacationSchema = new Schema<IVacationModel>(
       min: [0, "Price cannot be negative."],
     },
     image: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Image",
       required: [true, "Missing vacation image."],
     },
-    likes: [
+    likesIds: [
       {
         type: Schema.Types.ObjectId,
-        ref: UserModel,
       },
     ],
   },
   {
-    versionKey: false,
+    versionKey: false, // Do not create a "__v" field in new documents.
     timestamps: true,
+    toJSON: { virtuals: true }, // Allow to get virtual fields.
+    id: false, // Don't duplicate _id into id.
   }
 );
+
+VacationSchema.virtual("likes", {
+  ref: UserModel, // the model we are connected to.
+  localField: "likesIds",
+  foreignField: "_id",
+});
 
 export const VacationModel = model<IVacationModel>(
   "VacationModel",

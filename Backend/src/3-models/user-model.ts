@@ -1,12 +1,14 @@
-import { Document, Schema, model } from "mongoose";
+import mongoose, { Document, Schema, model } from "mongoose";
 import { Role } from "./enums";
+import { VacationModel } from "./vacation-model";
 
 export interface IUserModel extends Document {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
-  role: Role;
+  roleId: Role;
+  likedList: mongoose.Types.ObjectId[];
 }
 
 export const UserSchema = new Schema<IUserModel>(
@@ -43,18 +45,30 @@ export const UserSchema = new Schema<IUserModel>(
       trim: true,
       required: [true, "Missing password"],
       minlength: [4, "Password cannot ne shorter than 4 characters."],
-      maxlength: [20, "Password cannot exceed 20 characters."],
     },
-    role: {
+    roleId: {
       type: Number,
       required: [true, "Missing role"],
       enum: [Role.Admin, Role.RegularUser],
     },
+    likedList: [
+      {
+        type: mongoose.Types.ObjectId,
+      },
+    ],
   },
   {
     versionKey: false,
     timestamps: true,
+    toJSON: { virtuals: true }, // Allow to get virtual fields.
+    id: false, // Don't duplicate _id into id.
   }
 );
+
+UserSchema.virtual("vacationsLiked", {
+  ref: VacationModel,
+  localField: "LikedList",
+  foreignField: "_id",
+});
 
 export const UserModel = model<IUserModel>("UserModel", UserSchema, "users");
