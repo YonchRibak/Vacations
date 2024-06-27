@@ -92,3 +92,23 @@ Stack: Error: Failed to add like to vacation: Cast to ObjectId failed for value 
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
 ---------------------------------------
 
+Time: Thu Jun 27 2024 10:35:23 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+
+Time: Thu Jun 27 2024 10:38:21 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+
+Time: Thu Jun 27 2024 10:38:38 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+
+Time: Thu Jun 27 2024 10:39:54 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+

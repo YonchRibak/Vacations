@@ -4,6 +4,7 @@ import { StatusCode } from "../3-models/enums";
 import { vacationService } from "../5-services/vacation-service";
 import { VacationModel } from "../3-models/vacation-model";
 import mongoose, { ObjectId } from "mongoose";
+import { securityMiddleware } from "../4-middleware/security-middleware";
 
 // Vacation controller:
 class VacationController {
@@ -17,11 +18,31 @@ class VacationController {
 
   // Register routes:
   private registerRoutes(): void {
-    this.router.get("/vacations", this.getAllVacations);
-    this.router.get("/vacations/:_id([0-9a-fA-F]{24})", this.getVacationById);
-    this.router.get("/vacations/liked-by-me", this.getVacationsLikedByUser);
-    this.router.post("/vacations", this.addVacation);
-    this.router.post("/vacations/many", this.addManyVacations);
+    this.router.get(
+      "/vacations",
+      securityMiddleware.verifyLoggedIn,
+      this.getAllVacations
+    );
+    this.router.get(
+      "/vacations/:_id([0-9a-fA-F]{24})",
+      securityMiddleware.verifyLoggedIn,
+      this.getVacationById
+    );
+    this.router.get(
+      "/vacations/liked-by-me",
+      securityMiddleware.verifyLoggedIn,
+      this.getVacationsLikedByUser
+    );
+    this.router.post(
+      "/vacations",
+      securityMiddleware.verifyLoggedIn,
+      this.addVacation
+    );
+    this.router.post(
+      "/vacations/many",
+      securityMiddleware.verifyLoggedIn,
+      this.addManyVacations
+    );
     this.router.patch(
       "/vacations/:_id([0-9a-fA-F]{24})/like",
       this.toggleLikeAtVacation
