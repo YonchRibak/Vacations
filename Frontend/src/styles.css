@@ -1,6 +1,50 @@
-html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  position: relative;
+  width: 300px;
+  border: 1px solid;
+  text-align: left;
+  padding: 10px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px;
+}
+
+form > input,
+form > button {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: large;
+}
+
+form > .error {
+  color: rgb(245, 57, 57);
+  position: absolute;
+  margin-left: 20px;
+  width: 100%;
+}
+form > .weak {
+  color: rgb(249, 184, 80);
+  position: absolute;
+  margin-left: 20px;
+  width: 100%;
+}
+form > .strong {
+  color: rgb(104, 237, 120);
+  position: absolute;
+  margin-left: 20px;
+  width: 100%;
 }

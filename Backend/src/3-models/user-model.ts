@@ -48,7 +48,6 @@ export const UserSchema = new Schema<IUserModel>(
     },
     roleId: {
       type: Number,
-      required: [true, "Missing role"],
       enum: [Role.Admin, Role.RegularUser],
     },
     likedList: [

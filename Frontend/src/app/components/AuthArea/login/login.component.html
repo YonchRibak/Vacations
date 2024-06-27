@@ -1,0 +1,39 @@
+<div>
+  <form (ngSubmit)="send()" #loginForm="ngForm">
+    <label for="email">email</label>
+    <input
+      type="email"
+      name="email"
+      #emailBox="ngModel"
+      [(ngModel)]="credentials.email"
+      required
+    />
+    <span
+      *ngIf="emailBox.touched && emailBox.errors?.['required']"
+      class="error"
+      >Missing email</span
+    >
+
+    <label for="password">password</label>
+    <input
+      type="password"
+      name="password"
+      #passwordBox="ngModel"
+      [(ngModel)]="credentials.password"
+      required
+      minlength="4"
+    />
+    <span
+      *ngIf="passwordBox.touched && passwordBox.errors?.['required']"
+      class="error"
+      >Missing password</span
+    >
+    <span
+      *ngIf="passwordBox.touched && passwordBox.errors?.['minLength']"
+      class="error"
+      >Password has to be longer than 4 characters</span
+    >
+
+    <button [disabled]="loginForm.invalid">Register</button>
+  </form>
+</div>
