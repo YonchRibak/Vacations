@@ -18,6 +18,8 @@ class VacationController {
   // Register routes:
   private registerRoutes(): void {
     this.router.get("/vacations", this.getAllVacations);
+    this.router.get("/vacations/:_id([0-9a-fA-F]{24})", this.getVacationById);
+    this.router.get("/vacations/liked-by-me", this.getVacationsLikedByUser);
     this.router.post("/vacations", this.addVacation);
     this.router.post("/vacations/many", this.addManyVacations);
     this.router.patch(
@@ -26,15 +28,48 @@ class VacationController {
     );
   }
 
-  // GET http://localhost:4000/api/vacations
+  // Get http://localhost:4000/api/vacations?page=1&limit=9
   private async getAllVacations(
     request: Request,
     response: Response,
     next: NextFunction
   ): Promise<void> {
     try {
-      const vacations = await vacationService.getAllVacations();
+      const page = parseInt(request.query.page as string) || 1;
+      const limit = parseInt(request.query.limit as string) || 9;
+
+      const vacations = await vacationService.getAllVacations(page, limit);
       response.status(StatusCode.OK).json(vacations);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  // GET http://localhost:4000/api/vacations/:_id
+  private async getVacationById(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { _id } = request.params;
+      const vacation = await vacationService.getVacationById(_id);
+      response.status(StatusCode.OK).json(vacation);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  // GET http://localhost:4000/api/vacation/liked-by-me
+  private async getVacationsLikedByUser(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { userId } = request.body;
+      const vacation = await vacationService.getVacationsLikedByUser(userId);
+      response.status(StatusCode.OK).json(vacation);
     } catch (err: any) {
       next(err);
     }

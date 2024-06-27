@@ -21,11 +21,37 @@ class VacationService {
     }
   }
 
-  public async getAllVacations(): Promise<IVacationModel[]> {
-    const vacations = await VacationModel.find().exec();
-    return vacations;
+  public async getAllVacations(page: number = 1, limit: number = 9): Promise<IVacationModel[]> {
+    try {
+      const skip = (page - 1) * limit;
+      const vacations = await VacationModel.find()
+        .skip(skip)
+        .limit(limit)
+        .exec();
+      return vacations;
+    } catch (error) {
+      throw new Error(`Failed to get vacations: ${error.message}`);
+    }
+  }
+  public async getVacationById(_id: string): Promise<IVacationModel> {
+    const vacation = await VacationModel.findById(_id).exec();
+    return vacation;
   }
 
+  public async getVacationsLikedByUser(
+    userId: string
+  ): Promise<IVacationModel[]> {
+    try {
+      const vacations = await VacationModel.find({
+        likesIds: { $in: [userId] },
+      }).exec();
+      return vacations;
+    } catch (error) {
+      throw new Error(
+        `Failed to get vacations liked by user: ${error.message}`
+      );
+    }
+  }
   public async toggleLikeAtVacation(
     vacationId: string,
     userId: string
@@ -37,16 +63,6 @@ class VacationService {
       if (!vacation) {
         throw new Error("Vacation not found");
       }
-
-      //   // Check if userId is already in likesIds array
-      //   const userIdStr = userId.toString(); // Convert userId to string for comparison
-      //   const hasLiked = vacation.likesIds.some((id) =>
-      //     new mongoose.Types.ObjectId(id).equals(userIdStr)
-      //   );
-
-      //   if (!hasLiked) {
-      //     vacation.likesIds.push(new mongoose.Types.ObjectId(userIdStr)); // Add userId to likesIds array
-      //   }
 
       // Check if userId is already in likesIds array
       const index = vacation.likesIds.indexOf(
