@@ -4,7 +4,7 @@ export class VacationModel {
   description: string;
   startDate: Date;
   endDate: Date;
-  price: Number;
+  price: number;
   image: File;
   likesIds: string[];
 }

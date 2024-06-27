@@ -1,0 +1,15 @@
+<div>
+  <h3>{{ vacation?.destination }}</h3>
+  <p>{{ vacation?.description?.substring(0, 300) }}...</p>
+  <span
+    >Start Date: {{ vacation?.startDate?.getDay() }}/{{
+      vacation?.startDate?.getMonth()
+    }}/{{ vacation?.startDate?.getFullYear() }}</span
+  >
+  <span
+    >End Date:
+    {{ ${vacation?.endDate?.getDay()}/${vacation?.endDate?.getMonth()}/${vacation?.endDate?.getFullYear()}`}}</span
+  >
+  <span>{{ vacation?.price | currency : "EUR" }}</span>
+  <img src="{{ vacation?.image }}" alt="Vacation image" />
+</div>
