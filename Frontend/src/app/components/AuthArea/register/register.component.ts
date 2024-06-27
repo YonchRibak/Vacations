@@ -2,8 +2,8 @@ import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { UserModel } from "../../../models/UserModel";
-import { AuthService } from "../../../services/auth.service";
 import { TokenService } from "../../../services/token.service";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: "app-register",
@@ -50,8 +50,8 @@ export class RegisterComponent {
   public async send(): Promise<void> {
     try {
       const token = await this.authService.register(this.newUser);
-        localStorage.setItem("token", token)
-        this.tokenService.setToken(token);
+      localStorage.setItem("token", token);
+      this.tokenService.setToken(token);
     } catch (err: any) {
       alert(err.message);
     }

@@ -21,6 +21,7 @@ export class LayoutComponent implements OnInit {
   public ngOnInit(): void {
     if (localStorage.getItem("token")) {
       this.tokenService.setToken(localStorage.getItem("token"));
+      this.authService.isLoggedIn = true;
     }
   }
 
