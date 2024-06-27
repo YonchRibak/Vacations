@@ -1,4 +1,4 @@
-import mongoose, { ObjectId } from "mongoose";
+import mongoose from "mongoose";
 import { ValidationError } from "../3-models/client-errors";
 import { IVacationModel, VacationModel } from "../3-models/vacation-model";
 
@@ -21,7 +21,10 @@ class VacationService {
     }
   }
 
-  public async getAllVacations(page: number = 1, limit: number = 9): Promise<IVacationModel[]> {
+  public async getAllVacations(
+    page: number = 1,
+    limit: number = 9
+  ): Promise<IVacationModel[]> {
     try {
       const skip = (page - 1) * limit;
       const vacations = await VacationModel.find()

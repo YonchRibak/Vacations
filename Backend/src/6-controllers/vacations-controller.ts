@@ -1,9 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
-import { userService } from "../5-services/user-service";
 import { StatusCode } from "../3-models/enums";
 import { vacationService } from "../5-services/vacation-service";
 import { VacationModel } from "../3-models/vacation-model";
-import mongoose, { ObjectId } from "mongoose";
 import { securityMiddleware } from "../4-middleware/security-middleware";
 
 // Vacation controller:
