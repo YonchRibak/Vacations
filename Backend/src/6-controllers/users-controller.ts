@@ -39,7 +39,7 @@ class UserController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const token = request.body;
+      const { token } = request.body;
       const user = await userService.getUserByToken(token);
       response.status(StatusCode.OK).json(user);
     } catch (err: any) {

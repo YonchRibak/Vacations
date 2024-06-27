@@ -14,9 +14,9 @@ class UserService {
   public async getUserByToken(token: string): Promise<IUserModel> {
     // Extract container from token:
     const container = jwt.decode(token) as { user: IUserModel };
-
+    console.log(container);
     // Extract user:
-    const user = container.user;
+    const user = container?.user;
 
     return user;
   }

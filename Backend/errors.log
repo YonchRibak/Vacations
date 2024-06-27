@@ -272,3 +272,238 @@ Stack: TypeError: Cannot read properties of null (reading 'user')
     at new Promise (<anonymous>)
 ---------------------------------------
 
+Time: Thu Jun 27 2024 14:17:54 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:18:17 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:19:10 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:19:28 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:19:49 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:19:58 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:20:08 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:20:09 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:20:38 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:21:03 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:21:56 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:24:05 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:24:41 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:25:54 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of null (reading 'user')
+Stack: TypeError: Cannot read properties of null (reading 'user')
+    at UserService.<anonymous> (C:\code\Vacations\Backend\src\5-services\user-service.ts:19:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\user-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\user-service.ts:4:12)
+    at UserService.getUserByToken (C:\code\Vacations\Backend\src\5-services\user-service.ts:32:16)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:43:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\users-controller.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:27:19 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected token '"', "#" is not valid JSON
+Stack: SyntaxError: Unexpected token '"', "#" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at createStrictSyntaxError (C:\code\Vacations\Backend\node_modules\body-parser\lib\types\json.js:160:10)
+    at parse (C:\code\Vacations\Backend\node_modules\body-parser\lib\types\json.js:83:15)
+    at C:\code\Vacations\Backend\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:206:9)
+    at invokeCallback (C:\code\Vacations\Backend\node_modules\raw-body\index.js:231:16)
+    at done (C:\code\Vacations\Backend\node_modules\raw-body\index.js:220:7)
+    at IncomingMessage.onEnd (C:\code\Vacations\Backend\node_modules\raw-body\index.js:280:7)
+    at IncomingMessage.emit (node:events:514:28)
+    at IncomingMessage.emit (node:domain:488:12)
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:42:27 GMT+0300 (שעון ישראל (קיץ))
+Message: Incorrect email or password.
+Stack: undefined
+---------------------------------------
+
+Time: Thu Jun 27 2024 14:42:47 GMT+0300 (שעון ישראל (קיץ))
+Message: Incorrect email or password.
+Stack: undefined
+---------------------------------------
+

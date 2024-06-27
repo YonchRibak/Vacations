@@ -12,17 +12,27 @@ import { AuthService } from "../../../services/auth.service";
   templateUrl: "./layout.component.html",
   styleUrl: "./layout.component.css",
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnChanges {
   public constructor(
     private tokenService: TokenService,
     public authService: AuthService
   ) {}
 
+  public async ngOnChanges(changes: SimpleChanges): Promise<void> {
+    if (changes["this.authService.isLoggedOn"]) {
+      this.authService.user = await this.authService.retrieveUser(
+        localStorage.getItem("token")
+      );
+    }
+  }
+
   public async ngOnInit(): Promise<void> {
     if (localStorage.getItem("token")) {
       this.tokenService.setToken(localStorage.getItem("token"));
       this.authService.isLoggedIn = true;
-      await this.authService.retrieveUser(localStorage.getItem("token"));
+      this.authService.user = await this.authService.retrieveUser(
+        localStorage.getItem("token")
+      );
     }
   }
 

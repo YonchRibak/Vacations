@@ -40,12 +40,11 @@ export class AuthService {
   }
 
   public async retrieveUser(token: string): Promise<UserModel> {
-    const observable = this.http.post<UserModel>(
-      appConfig.usersUrl + "me",
-      token
-    );
+    const observable = this.http.post<UserModel>(appConfig.usersUrl + "me", {
+      token: token,
+    });
     const user = await firstValueFrom(observable);
-    this.user = user;
+
     return user;
   }
 }

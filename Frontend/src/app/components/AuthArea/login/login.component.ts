@@ -26,7 +26,8 @@ export class LoginComponent {
     const token = await this.authService.login(this.credentials);
     localStorage.setItem("token", token);
     this.tokenService.setToken(token);
-    
+    this.authService.user = await this.authService.retrieveUser(token);
+
     this.router.navigateByUrl("/home");
   }
 }

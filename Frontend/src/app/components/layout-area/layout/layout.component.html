@@ -12,7 +12,7 @@
     <span> | </span>
     <a routerLink="/about">About Us</a>
     <span> | </span>
-    <p>Hi {{ authService.user.firstName }}</p>
+    <span>Hi {{ authService.user?.firstName }}</span>
   </nav>
 
   <header>

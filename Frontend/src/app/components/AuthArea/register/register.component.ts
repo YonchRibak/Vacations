@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { UserModel } from "../../../models/UserModel";
 import { TokenService } from "../../../services/token.service";
 import { AuthService } from "../../../services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -22,7 +23,8 @@ export class RegisterComponent {
 
   public constructor(
     private authService: AuthService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    public router: Router
   ) {}
 
   public checkPasswordStrength() {
@@ -52,6 +54,8 @@ export class RegisterComponent {
       const token = await this.authService.register(this.newUser);
       localStorage.setItem("token", token);
       this.tokenService.setToken(token);
+      this.authService.user = await this.authService.retrieveUser(token);
+      this.router.navigateByUrl("/home");
     } catch (err: any) {
       alert(err.message);
     }
