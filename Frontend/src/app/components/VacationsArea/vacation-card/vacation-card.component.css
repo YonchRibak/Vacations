@@ -1,0 +1,17 @@
+.card {
+  position: relative;
+  padding: 1rem;
+}
+.likes {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+.likes > span {
+  position: absolute;
+}
+.heart-icon {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}

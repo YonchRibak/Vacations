@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="vacations-grid">
+    <app-vacation-card
+      (likeHasBeenToggled)="receivedChangeFromChild($event)"
+      *ngFor="let v of vacations"
+      [vacation]="v"
+    />
+  </div>
+  <div class="pagination-btns">
+    <button [disabled]="currPage <= 1" (click)="backwards()">Backwards</button>
+    <button [disabled]="currPage >= 4" (click)="forwards()">Forwards</button>
+  </div>
+</div>

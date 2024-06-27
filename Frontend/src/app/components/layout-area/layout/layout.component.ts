@@ -20,9 +20,7 @@ export class LayoutComponent implements OnInit, OnChanges {
 
   public async ngOnChanges(changes: SimpleChanges): Promise<void> {
     if (changes["this.authService.isLoggedOn"]) {
-      this.authService.user = await this.authService.retrieveUser(
-        localStorage.getItem("token")
-      );
+      this.authService.user = await this.authService.retrieveUser();
     }
   }
 
@@ -30,9 +28,7 @@ export class LayoutComponent implements OnInit, OnChanges {
     if (localStorage.getItem("token")) {
       this.tokenService.setToken(localStorage.getItem("token"));
       this.authService.isLoggedIn = true;
-      this.authService.user = await this.authService.retrieveUser(
-        localStorage.getItem("token")
-      );
+      this.authService.user = await this.authService.retrieveUser();
     }
   }
 

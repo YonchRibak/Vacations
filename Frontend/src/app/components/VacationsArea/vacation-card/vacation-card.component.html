@@ -1,15 +1,13 @@
-<div>
+<div class="card">
+  <div class="likes">
+    <i-tabler name="heart" class="heart-icon" (click)="toggle()" />
+    <span *ngIf="vacation?.likesIds?.length">{{
+      vacation?.likesIds.length
+    }}</span>
+  </div>
   <h3>{{ vacation?.destination }}</h3>
   <p>{{ vacation?.description?.substring(0, 300) }}...</p>
-  <span
-    >Start Date: {{ vacation?.startDate?.getDay() }}/{{
-      vacation?.startDate?.getMonth()
-    }}/{{ vacation?.startDate?.getFullYear() }}</span
-  >
-  <span
-    >End Date:
-    {{ ${vacation?.endDate?.getDay()}/${vacation?.endDate?.getMonth()}/${vacation?.endDate?.getFullYear()}`}}</span
-  >
+  <span>Start Date: {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span>
+  <span>End Date: {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span>
   <span>{{ vacation?.price | currency : "EUR" }}</span>
-  <img src="{{ vacation?.image }}" alt="Vacation image" />
 </div>

@@ -3,12 +3,13 @@ import { Injectable } from "@angular/core";
 import { VacationModel } from "../models/VacationModel";
 import { appConfig } from "../app.config";
 import { first, firstValueFrom } from "rxjs";
+import { TokenService } from "./token.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class VacationsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   public async getAllVacations(pages: number): Promise<VacationModel[]> {
     const observable = this.http.get<VacationModel[]>(
@@ -16,5 +17,13 @@ export class VacationsService {
     );
     const vacations = await firstValueFrom(observable);
     return vacations;
+  }
+
+  public async toggleLike(vacationId: string, userId: string): Promise<void> {
+    const observable = this.http.patch<VacationModel>(
+      appConfig.vacationUrlStatic + vacationId + "/like",
+      { userId: userId }
+    );
+    await firstValueFrom(observable);
   }
 }

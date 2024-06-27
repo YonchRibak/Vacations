@@ -5,11 +5,12 @@ import { AddDataComponent } from "./components/data-area/add-data/add-data.compo
 import { Page404Component } from "./components/layout-area/page404/page404.component";
 import { RegisterComponent } from "./components/AuthArea/register/register.component";
 import { LoginComponent } from "./components/AuthArea/login/login.component";
+import { VacationListComponent } from "./components/VacationsArea/vacation-list/vacation-list.component";
 
 export const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
+  { path: "home", component: VacationListComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: Page404Component },
 ];

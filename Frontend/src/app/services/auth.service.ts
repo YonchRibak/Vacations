@@ -5,6 +5,7 @@ import { appConfig } from "../app.config";
 import { firstValueFrom } from "rxjs";
 import { CredentialsModel } from "../models/CredentialsModel";
 import { trigger } from "@angular/animations";
+import { TokenService } from "./token.service";
 
 @Injectable({
   providedIn: "root",
@@ -12,7 +13,7 @@ import { trigger } from "@angular/animations";
 export class AuthService {
   public isLoggedIn: boolean = false;
   public user: UserModel;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   public async register(user: UserModel): Promise<string> {
     let token: string;
@@ -39,7 +40,8 @@ export class AuthService {
     return token;
   }
 
-  public async retrieveUser(token: string): Promise<UserModel> {
+  public async retrieveUser(): Promise<UserModel> {
+    const token = this.tokenService.getToken();
     const observable = this.http.post<UserModel>(appConfig.usersUrl + "me", {
       token: token,
     });
