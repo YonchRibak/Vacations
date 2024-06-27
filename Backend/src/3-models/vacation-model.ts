@@ -25,7 +25,7 @@ export const VacationSchema = new Schema<IVacationModel>(
       type: String,
       required: [true, "Missing description."],
       minlength: [10, "Description cannot ne shorter than 10 characters."],
-      maxlength: [300, "Description cannot exceed 300 characters."],
+      maxlength: [3000, "Description cannot exceed 300 characters."],
     },
     startDate: {
       type: Date,
@@ -49,7 +49,7 @@ export const VacationSchema = new Schema<IVacationModel>(
     image: {
       type: Schema.Types.ObjectId,
       ref: "Image",
-      required: [true, "Missing vacation image."],
+      //   required: [true, "Missing vacation image."],
     },
     likesIds: [
       {

@@ -11,6 +11,7 @@ import expressRateLimit from "express-rate-limit";
 import { securityMiddleware } from "./4-middleware/security-middleware";
 import { authRouter } from "./6-controllers/auth-controller";
 import { userRouter } from "./6-controllers/users-controller";
+import { vacationRouter } from "./6-controllers/vacations-controller";
 // Main application class:
 class App {
   // Express server:
@@ -41,7 +42,7 @@ class App {
     this.server.use(loggerMiddleware.logToConsole);
 
     // Connect any controller route to the server:
-    this.server.use("/api", authRouter, userRouter);
+    this.server.use("/api", authRouter, userRouter, vacationRouter);
 
     // Route not found middleware:
     this.server.use(errorsMiddleware.routeNotFound);

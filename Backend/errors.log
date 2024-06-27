@@ -8,3 +8,87 @@ Message: Incorrect email or password.
 Stack: undefined
 ---------------------------------------
 
+Time: Thu Jun 27 2024 09:05:04 GMT+0300 (שעון ישראל (קיץ))
+Message: VacationModel validation failed: startDate: Cast to date failed for value "30.06.2024" (type string) at path "startDate", endDate: Cast to date failed for value "15.07.2024" (type string) at path "endDate", destination: Missing destination.
+Stack: undefined
+---------------------------------------
+
+Time: Thu Jun 27 2024 09:06:00 GMT+0300 (שעון ישראל (קיץ))
+Message: VacationModel validation failed: startDate: Cast to date failed for value "30/06/2024" (type string) at path "startDate", endDate: Cast to date failed for value "15/07/2024" (type string) at path "endDate"
+Stack: undefined
+---------------------------------------
+
+Time: Thu Jun 27 2024 09:19:26 GMT+0300 (שעון ישראל (קיץ))
+Message: vacation.validateSync is not a function
+Stack: TypeError: vacation.validateSync is not a function
+    at VacationService.<anonymous> (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:6:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\vacation-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:4:12)
+    at VacationService.addVacation (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:17:16)
+    at VacationService.<anonymous> (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:13:18)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\vacation-service.ts:8:71
+    at new Promise (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 09:20:30 GMT+0300 (שעון ישראל (קיץ))
+Message: vacation.validateSync is not a function
+Stack: TypeError: vacation.validateSync is not a function
+    at VacationService.<anonymous> (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:6:28)
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\5-services\vacation-service.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:4:12)
+    at VacationService.addVacation (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:17:16)
+    at C:\code\Vacations\Backend\src\5-services\vacation-service.ts:12:51
+    at Array.map (<anonymous>)
+    at VacationService.<anonymous> (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:12:33)
+    at Generator.next (<anonymous>)
+---------------------------------------
+
+Time: Thu Jun 27 2024 09:49:12 GMT+0300 (שעון ישראל (קיץ))
+Message: Vacation ID and User ID are required
+Stack: Error: Vacation ID and User ID are required
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:84:15
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addLikeToVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:68:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Thu Jun 27 2024 09:51:20 GMT+0300 (שעון ישראל (קיץ))
+Message: Failed to add like to vacation: Cast to ObjectId failed for value "SchemaObjectId {
+  path: '667d01b4ed3dd42e7766a24d',
+  instance: 'ObjectId',
+  validators: [],
+  getters: [],
+  setters: [],
+  _presplitPath: [ '667d01b4ed3dd42e7766a24d' ],
+  options: SchemaObjectIdOptions {},
+  _index: null,
+  [Symbol(mongoose#schemaType)]: true
+}" (type SchemaObjectId) at path "_id" for model "VacationModel"
+Stack: Error: Failed to add like to vacation: Cast to ObjectId failed for value "SchemaObjectId {
+  path: '667d01b4ed3dd42e7766a24d',
+  instance: 'ObjectId',
+  validators: [],
+  getters: [],
+  setters: [],
+  _presplitPath: [ '667d01b4ed3dd42e7766a24d' ],
+  options: SchemaObjectIdOptions {},
+  _index: null,
+  [Symbol(mongoose#schemaType)]: true
+}" (type SchemaObjectId) at path "_id" for model "VacationModel"
+    at VacationService.<anonymous> (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:56:13)
+    at Generator.throw (<anonymous>)
+    at rejected (C:\code\Vacations\Backend\src\5-services\vacation-service.ts:6:65)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+---------------------------------------
+
