@@ -11,6 +11,8 @@
     <a routerLink="/login" (click)="logout()">Log Out</a>
     <span> | </span>
     <a routerLink="/about">About Us</a>
+    <span> | </span>
+    <p>Hi {{ authService.user.firstName }}</p>
   </nav>
 
   <header>

@@ -15,6 +15,7 @@ class UserController {
   // Register routes:
   private registerRoutes(): void {
     this.router.get("/users", this.getAllUsers);
+    this.router.post("/users/me", this.getUserByToken);
   }
 
   // GET http://localhost:4000/api/users
@@ -26,6 +27,21 @@ class UserController {
     try {
       const users = await userService.getAllUsers();
       response.status(StatusCode.OK).json(users);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  // GET http://localhost:4000/api/user/me
+  private async getUserByToken(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const token = request.body;
+      const user = await userService.getUserByToken(token);
+      response.status(StatusCode.OK).json(user);
     } catch (err: any) {
       next(err);
     }

@@ -18,10 +18,11 @@ export class LayoutComponent implements OnInit {
     public authService: AuthService
   ) {}
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     if (localStorage.getItem("token")) {
       this.tokenService.setToken(localStorage.getItem("token"));
       this.authService.isLoggedIn = true;
+      await this.authService.retrieveUser(localStorage.getItem("token"));
     }
   }
 

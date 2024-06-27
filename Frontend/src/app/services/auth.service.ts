@@ -11,6 +11,8 @@ import { trigger } from "@angular/animations";
 })
 export class AuthService {
   public isLoggedIn: boolean = false;
+  public user: UserModel;
+  constructor(private http: HttpClient) {}
 
   public async register(user: UserModel): Promise<string> {
     let token: string;
@@ -36,5 +38,14 @@ export class AuthService {
     }
     return token;
   }
-  constructor(private http: HttpClient) {}
+
+  public async retrieveUser(token: string): Promise<UserModel> {
+    const observable = this.http.post<UserModel>(
+      appConfig.usersUrl + "me",
+      token
+    );
+    const user = await firstValueFrom(observable);
+    this.user = user;
+    return user;
+  }
 }
