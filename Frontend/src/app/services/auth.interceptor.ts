@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import {
   HttpInterceptor,
   HttpEvent,
@@ -16,10 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let authToken = this.tokenService.getToken();
-    if (localStorage.getItem("token")) {
-      authToken = localStorage.getItem("token");
-    }
+    const authToken = this.tokenService.getToken();
 
     const authReq = req.clone({
       setHeaders: {

@@ -4,6 +4,7 @@ import { TokenService } from "../../../services/token.service";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { AuthService } from "../../../services/auth.service";
+import { UserModel } from "../../../models/UserModel";
 
 @Component({
   selector: "app-layout",
@@ -12,21 +13,14 @@ import { AuthService } from "../../../services/auth.service";
   templateUrl: "./layout.component.html",
   styleUrl: "./layout.component.css",
 })
-export class LayoutComponent implements OnInit, OnChanges {
+export class LayoutComponent implements OnInit {
   public constructor(
     private tokenService: TokenService,
     public authService: AuthService
   ) {}
 
-  public async ngOnChanges(changes: SimpleChanges): Promise<void> {
-    if (changes["this.authService.isLoggedOn"]) {
-      this.authService.user = await this.authService.retrieveUser();
-    }
-  }
-
   public async ngOnInit(): Promise<void> {
-    if (localStorage.getItem("token")) {
-      this.tokenService.setToken(localStorage.getItem("token"));
+    if (this.tokenService.getToken()) {
       this.authService.isLoggedIn = true;
       this.authService.user = await this.authService.retrieveUser();
     }

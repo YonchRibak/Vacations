@@ -1,6 +1,10 @@
 <div class="card">
-  <div class="likes">
-    <i-tabler name="heart" class="heart-icon" (click)="toggle()" />
+  <div (click)="toggle()" class="likes">
+    <i-tabler
+      [ngClass]="{ selected: isLiked() }"
+      name="heart"
+      class="heart-icon"
+    />
     <span *ngIf="vacation?.likesIds?.length">{{
       vacation?.likesIds.length
     }}</span>

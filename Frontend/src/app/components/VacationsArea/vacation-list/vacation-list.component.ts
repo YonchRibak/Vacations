@@ -9,61 +9,51 @@ import { VacationCardComponent } from "../vacation-card/vacation-card.component"
 import { CommonModule } from "@angular/common";
 import { VacationsService } from "../../../services/vacations.service";
 import { VacationModel } from "../../../models/VacationModel";
+import { FormsModule } from "@angular/forms";
 
 @Component({
   selector: "app-vacation-list",
   standalone: true,
-  imports: [VacationCardComponent, CommonModule],
+  imports: [VacationCardComponent, CommonModule, FormsModule],
   templateUrl: "./vacation-list.component.html",
   styleUrl: "./vacation-list.component.css",
 })
-export class VacationListComponent implements OnInit, OnChanges {
+export class VacationListComponent implements OnInit {
   public vacations: VacationModel[];
   public currPage: number = 1;
-  public childToggled: boolean = false;
-
-  public async receivedChangeFromChild(state: boolean) {
-    this.childToggled = state;
-    try {
-      this.vacations = await this.vacationsService.getAllVacations(
-        this.currPage
-      );
-    } catch (err: any) {
-      alert(err.message);
-    }
-  }
-
+  public sortBy: string = "startDate";
   public constructor(public vacationsService: VacationsService) {}
 
-  public async ngOnChanges(changes: SimpleChanges): Promise<void> {
-    if (changes["this.vacationsService.vacationsHaveBeenUpdated"]) {
-      try {
-        this.vacations = await this.vacationsService.getAllVacations(
-          this.currPage
-        );
-      } catch (err: any) {
-        alert(err.message);
-      }
-    }
+  public async ngOnInit(): Promise<void> {
+    await this.fetchVacations();
   }
 
-  public async ngOnInit(): Promise<void> {
+  public async fetchVacations() {
     try {
       this.vacations = await this.vacationsService.getAllVacations(
-        this.currPage
+        this.currPage,
+        this.sortBy
       );
     } catch (err: any) {
       alert(err.message);
     }
+  }
+
+  public async receivedChangeFromChild(toggled: number) {
+    await this.fetchVacations();
   }
 
   public async forwards(): Promise<void> {
     this.currPage++;
-    this.vacations = await this.vacationsService.getAllVacations(this.currPage);
+    await this.fetchVacations();
   }
 
   public async backwards(): Promise<void> {
     this.currPage--;
-    this.vacations = await this.vacationsService.getAllVacations(this.currPage);
+    await this.fetchVacations();
+  }
+
+  public trackByFn(index: number, item: VacationModel) {
+    return item._id;
   }
 }

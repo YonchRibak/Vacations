@@ -22,24 +22,30 @@ import { UserModel } from "../../../models/UserModel";
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
 })
-export class VacationCardComponent {
+export class VacationCardComponent implements OnInit {
   @Input()
   public vacation: VacationModel;
   public user: UserModel;
 
   @Output()
-  public likeHasBeenToggled: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  public likeHasBeenToggled: EventEmitter<number> = new EventEmitter<number>();
 
   public constructor(
     private vacationService: VacationsService,
-    private authService: AuthService,
-    private cdr: ChangeDetectorRef
+    private authService: AuthService
   ) {}
 
-  public async toggle() {
+  public async ngOnInit(): Promise<void> {
     this.user = await this.authService.retrieveUser();
-    this.vacationService.toggleLike(this.vacation?._id, this.user?._id);
-    this.likeHasBeenToggled.emit(true);
+  }
+
+  public async toggle() {
+    await this.vacationService.toggleLike(this.vacation?._id, this.user?._id);
+
+    this.likeHasBeenToggled.emit(Math.random());
+  }
+
+  public isLiked(): boolean {
+    return this.vacation?.likesIds.includes(this.user?._id);
   }
 }

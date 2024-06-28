@@ -3,9 +3,14 @@
   padding: 1rem;
 }
 .likes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
+  cursor: pointer;
 }
 .likes > span {
   position: absolute;
@@ -13,5 +18,8 @@
 .heart-icon {
   height: 50px;
   width: 50px;
-  cursor: pointer;
+}
+
+.selected {
+  fill: red;
 }

@@ -8,9 +8,10 @@ export interface IVacationModel extends Document {
   description: string;
   startDate: Date;
   endDate: Date;
-  price: Number;
+  price: number;
   image: mongoose.Types.ObjectId | IImageModel;
   likesIds: mongoose.Types.ObjectId[];
+  likesCount: number;
 }
 
 export const VacationSchema = new Schema<IVacationModel>(
@@ -56,6 +57,10 @@ export const VacationSchema = new Schema<IVacationModel>(
         type: Schema.Types.ObjectId,
       },
     ],
+    likesCount: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     versionKey: false, // Do not create a "__v" field in new documents.
@@ -65,6 +70,10 @@ export const VacationSchema = new Schema<IVacationModel>(
   }
 );
 
+VacationSchema.pre<IVacationModel>("save", async function (next) {
+  this.likesCount = this.likesIds.length;
+  next();
+});
 VacationSchema.virtual("likes", {
   ref: UserModel, // the model we are connected to.
   localField: "likesIds",

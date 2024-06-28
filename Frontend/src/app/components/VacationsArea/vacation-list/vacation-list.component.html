@@ -1,8 +1,16 @@
 <div class="container">
+  <div class="sort-by-selector">
+    <label>Sort Vacations By:</label>
+    <select [(ngModel)]="sortBy" (change)="fetchVacations()">
+      <option value="startDate">Start Date</option>
+      <option value="price">Price</option>
+      <option value="likesCount">Likes</option>
+    </select>
+  </div>
   <div class="vacations-grid">
     <app-vacation-card
       (likeHasBeenToggled)="receivedChangeFromChild($event)"
-      *ngFor="let v of vacations"
+      *ngFor="let v of vacations; trackBy: trackByFn"
       [vacation]="v"
     />
   </div>

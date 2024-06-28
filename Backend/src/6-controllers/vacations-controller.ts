@@ -17,7 +17,7 @@ class VacationController {
   // Register routes:
   private registerRoutes(): void {
     this.router.get(
-      "/vacations",
+      "/vacations/:sortBy",
       securityMiddleware.verifyLoggedIn,
       this.getAllVacations
     );
@@ -56,8 +56,12 @@ class VacationController {
     try {
       const page = parseInt(request.query.page as string) || 1;
       const limit = parseInt(request.query.limit as string) || 9;
-
-      const vacations = await vacationService.getAllVacations(page, limit);
+      const { sortBy } = request.params;
+      const vacations = await vacationService.getAllVacations(
+        page,
+        limit,
+        sortBy
+      );
       response.status(StatusCode.OK).json(vacations);
     } catch (err: any) {
       next(err);

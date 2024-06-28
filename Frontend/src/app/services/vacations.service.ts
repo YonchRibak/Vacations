@@ -12,9 +12,12 @@ export class VacationsService {
   public vacationsHaveBeenUpdated = 1;
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  public async getAllVacations(pages: number): Promise<VacationModel[]> {
+  public async getAllVacations(
+    pages: number,
+    sortBy: string = "startDate"
+  ): Promise<VacationModel[]> {
     const observable = this.http.get<VacationModel[]>(
-      appConfig.vacationsUrl(pages)
+      appConfig.vacationsUrl(pages, sortBy)
     );
     const vacations = await firstValueFrom(observable);
     return vacations;

@@ -14,8 +14,9 @@ export class TokenService {
   }
 
   public getToken(): string {
+    if (localStorage.getItem("token")) {
+      this.authToken = localStorage.getItem("token");
+    }
     return this.authToken;
   }
-
-
 }

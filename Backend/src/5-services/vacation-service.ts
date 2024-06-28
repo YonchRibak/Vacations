@@ -23,11 +23,27 @@ class VacationService {
 
   public async getAllVacations(
     page: number = 1,
-    limit: number = 9
+    limit: number = 9,
+    sortByKey: string = "startDate"
   ): Promise<IVacationModel[]> {
     try {
       const skip = (page - 1) * limit;
+
+      const sortOptions: { [key: string]: number } = {
+        startDate: 1, // earliest startDate first
+        price: 1, // lowest price first
+        likesCount: -1, // most likes first
+      };
+
+      const sortCriteria = {};
+      if (sortOptions.hasOwnProperty(sortByKey)) {
+        sortCriteria[sortByKey] = sortOptions[sortByKey];
+      } else {
+        sortCriteria["startDate"] = 1; // Default sorting key
+      }
       const vacations = await VacationModel.find()
+        .populate("likes")
+        .sort(sortCriteria)
         .skip(skip)
         .limit(limit)
         .exec();

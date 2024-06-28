@@ -5,13 +5,9 @@ body {
   margin: 0;
   text-align: center;
 }
-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+* {
+  user-select: none;
 }
-
 form {
   position: relative;
   width: 300px;

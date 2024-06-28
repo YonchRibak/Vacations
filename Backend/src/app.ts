@@ -22,7 +22,7 @@ class App {
     this.server.use(
       expressRateLimit({
         windowMs: 1000,
-        limit: 10,
+        limit: 200,
         skip: securityMiddleware.skipRateLimit,
       })
     );
