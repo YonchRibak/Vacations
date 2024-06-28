@@ -15,11 +15,11 @@ import {
   ɵɵinject,
   ɵɵprojection,
   ɵɵprojectionDef
-} from "./chunk-ICXECXQB.js";
+} from "./chunk-YZGSG64M.js";
 import "./chunk-WSA2QMXP.js";
 import {
   __spreadValues
-} from "./chunk-WKYGNSYM.js";
+} from "./chunk-J4B6MK7R.js";
 
 // node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons.mjs
 var _c0 = ["*"];
