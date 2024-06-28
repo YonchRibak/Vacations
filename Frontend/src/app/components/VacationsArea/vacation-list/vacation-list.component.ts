@@ -36,7 +36,7 @@ export class VacationListComponent implements OnInit, OnChanges {
   public constructor(public vacationsService: VacationsService) {}
 
   public async ngOnChanges(changes: SimpleChanges): Promise<void> {
-    if (changes["childToggled"]) {
+    if (changes["this.vacationsService.vacationsHaveBeenUpdated"]) {
       try {
         this.vacations = await this.vacationsService.getAllVacations(
           this.currPage

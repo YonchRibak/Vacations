@@ -841,3 +841,13 @@ Stack: Error: Vacation ID and User ID are required
     at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
 ---------------------------------------
 
+Time: Fri Jun 28 2024 10:57:01 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+
+Time: Fri Jun 28 2024 10:58:56 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+

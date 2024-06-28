@@ -9,6 +9,7 @@ import { TokenService } from "./token.service";
   providedIn: "root",
 })
 export class VacationsService {
+  public vacationsHaveBeenUpdated = 1;
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   public async getAllVacations(pages: number): Promise<VacationModel[]> {
@@ -25,5 +26,6 @@ export class VacationsService {
       { userId: userId }
     );
     await firstValueFrom(observable);
+    this.vacationsHaveBeenUpdated++;
   }
 }
