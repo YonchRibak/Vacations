@@ -9,7 +9,12 @@
       vacation?.likesIds.length
     }}</span>
   </div>
-  <h3>{{ vacation?.destination }}</h3>
+  <div
+    class="card-header"
+    [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
+  >
+    <h3>{{ vacation?.destination }}</h3>
+  </div>
   <p>{{ vacation?.description?.substring(0, 300) }}...</p>
   <span>Start Date: {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span>
   <span>End Date: {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span>

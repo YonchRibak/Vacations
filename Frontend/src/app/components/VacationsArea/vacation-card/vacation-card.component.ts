@@ -37,6 +37,7 @@ export class VacationCardComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     this.user = await this.authService.retrieveUser();
+    console.log(this.vacation.imageUrl);
   }
 
   public async toggle() {

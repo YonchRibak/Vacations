@@ -32,7 +32,6 @@ export class VacationListComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     await this.fetchVacations();
-    console.log(this.vacations?.length);
   }
 
   public async fetchVacations() {

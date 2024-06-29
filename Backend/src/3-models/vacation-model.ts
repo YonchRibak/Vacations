@@ -49,7 +49,6 @@ export const VacationSchema = new Schema<IVacationModel>(
     },
     image: {
       type: String,
-      ref: "Image",
     },
     likesIds: [
       {
