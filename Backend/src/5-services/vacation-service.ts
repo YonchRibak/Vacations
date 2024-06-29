@@ -24,11 +24,32 @@ class VacationService {
   public async getAllVacations(
     page: number = 1,
     limit: number = 9,
-    sortByKey: string = "startDate"
+    sortByKey: string = "startDate",
+    filterBy: string
   ): Promise<IVacationModel[]> {
     try {
       const skip = (page - 1) * limit;
 
+      // filterBy logic:
+      const today = new Date();
+
+      let filterCriteria: any = {};
+
+      if (filterBy === "onGoing") {
+        filterCriteria = {
+          startDate: { $lt: today },
+          endDate: { $gt: today },
+        };
+      } else if (filterBy === "yetToBegin") {
+        filterCriteria = {
+          startDate: { $gt: today },
+        };
+      } else if (filterBy.length > 11) {
+        filterCriteria = {
+          likesIds: { $in: [filterBy] },
+        };
+      }
+      // sortBy logic:
       const sortOptions: { [key: string]: number } = {
         startDate: 1, // earliest startDate first
         price: 1, // lowest price first
@@ -41,8 +62,7 @@ class VacationService {
       } else {
         sortCriteria["startDate"] = 1; // Default sorting key
       }
-      const vacations = await VacationModel.find()
-        .populate("likes")
+      const vacations = await VacationModel.find(filterCriteria)
         .sort(sortCriteria)
         .skip(skip)
         .limit(limit)
@@ -57,20 +77,6 @@ class VacationService {
     return vacation;
   }
 
-  public async getVacationsLikedByUser(
-    userId: string
-  ): Promise<IVacationModel[]> {
-    try {
-      const vacations = await VacationModel.find({
-        likesIds: { $in: [userId] },
-      }).exec();
-      return vacations;
-    } catch (error) {
-      throw new Error(
-        `Failed to get vacations liked by user: ${error.message}`
-      );
-    }
-  }
   public async toggleLikeAtVacation(
     vacationId: string,
     userId: string

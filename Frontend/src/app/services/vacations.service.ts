@@ -14,10 +14,11 @@ export class VacationsService {
 
   public async getAllVacations(
     pages: number,
-    sortBy: string = "startDate"
+    sortBy: string = "startDate",
+    filterBy: string = "noFilter"
   ): Promise<VacationModel[]> {
     const observable = this.http.get<VacationModel[]>(
-      appConfig.vacationsUrl(pages, sortBy)
+      appConfig.vacationsUrl(pages, sortBy, filterBy)
     );
     const vacations = await firstValueFrom(observable);
     return vacations;

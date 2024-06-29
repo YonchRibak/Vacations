@@ -6,6 +6,36 @@
       <option value="price">Price</option>
       <option value="likesCount">Likes</option>
     </select>
+
+    <div class="checkboxes">
+      <div class="checkbox-label-pair">
+        <input
+          type="checkbox"
+          value="onGoing"
+          [checked]="filterBy === 'onGoing'"
+          (change)="toggleFilter('onGoing')"
+        />
+        <label>Only Ongoing Vacations</label>
+      </div>
+      <div class="checkbox-label-pair">
+        <input
+          type="checkbox"
+          value="yetToBegin"
+          [checked]="filterBy === 'yetToBegin'"
+          (change)="toggleFilter('yetToBegin')"
+        />
+        <label>Only Vacations Yet To Begin</label>
+      </div>
+      <div class="checkbox-label-pair">
+        <input
+          type="checkbox"
+          value="likedByUser"
+          [checked]="filterBy === authService.user?._id"
+          (change)="toggleFilter(authService.user?._id)"
+        />
+        <label>Only Vacations Liked By Me</label>
+      </div>
+    </div>
   </div>
   <div class="vacations-grid">
     <app-vacation-card

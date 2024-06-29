@@ -961,3 +961,33 @@ Message: You are not logged in.
 Stack: undefined
 ---------------------------------------
 
+Time: Sat Jun 29 2024 13:12:46 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 13:12:51 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 13:37:05 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/vacations/startDate?page=1&limit=9/ not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 13:58:11 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/vacations/startDate/?page=1&limit=9 not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 13:58:47 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/vacations/price/?page=3&limit=9 not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 14:00:38 GMT+0300 (שעון ישראל (קיץ))
+Message: You are not logged in.
+Stack: undefined
+---------------------------------------
+

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import { UserModel } from "../models/UserModel";
 import { HttpClient } from "@angular/common/http";
 import { appConfig } from "../app.config";
@@ -10,10 +10,14 @@ import { TokenService } from "./token.service";
 @Injectable({
   providedIn: "root",
 })
-export class AuthService {
+export class AuthService implements OnInit {
   public isLoggedIn: boolean = false;
   public user: UserModel;
   constructor(private http: HttpClient, private tokenService: TokenService) {}
+
+  public async ngOnInit(): Promise<void> {
+    await this.retrieveUser();
+  }
 
   public async register(user: UserModel): Promise<string> {
     let token: string;
@@ -46,7 +50,7 @@ export class AuthService {
       token: token,
     });
     const user = await firstValueFrom(observable);
-
+    this.user = user;
     return user;
   }
 }

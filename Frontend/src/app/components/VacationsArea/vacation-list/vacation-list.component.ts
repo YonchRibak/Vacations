@@ -10,6 +10,8 @@ import { CommonModule } from "@angular/common";
 import { VacationsService } from "../../../services/vacations.service";
 import { VacationModel } from "../../../models/VacationModel";
 import { FormsModule } from "@angular/forms";
+import { UserModel } from "../../../models/UserModel";
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: "app-vacation-list",
@@ -22,7 +24,11 @@ export class VacationListComponent implements OnInit {
   public vacations: VacationModel[];
   public currPage: number = 1;
   public sortBy: string = "startDate";
-  public constructor(public vacationsService: VacationsService) {}
+  public filterBy: string;
+  public constructor(
+    public vacationsService: VacationsService,
+    public authService: AuthService
+  ) {}
 
   public async ngOnInit(): Promise<void> {
     await this.fetchVacations();
@@ -32,7 +38,8 @@ export class VacationListComponent implements OnInit {
     try {
       this.vacations = await this.vacationsService.getAllVacations(
         this.currPage,
-        this.sortBy
+        this.sortBy,
+        this.filterBy
       );
     } catch (err: any) {
       alert(err.message);
@@ -55,5 +62,14 @@ export class VacationListComponent implements OnInit {
 
   public trackByFn(index: number, item: VacationModel) {
     return item._id;
+  }
+
+  public async toggleFilter(value: string) {
+    if (this.filterBy === value) {
+      this.filterBy = null;
+    } else {
+      this.filterBy = value;
+    }
+    await this.fetchVacations();
   }
 }

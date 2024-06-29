@@ -3,6 +3,7 @@ import { provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
 import { importProvidersFrom } from "@angular/core";
 import { HttpInterceptorModule } from "../http-interceptor.module";
+import { filter } from "rxjs";
 
 export const appConfig = {
   providers: [
@@ -12,8 +13,12 @@ export const appConfig = {
   ],
 
   registerUrl: "http://localhost:4000/api/register",
-  vacationsUrl(page: number = 1, sortBy: string = "startDate"): string {
-    return `http://localhost:4000/api/vacations/${sortBy}?page=${page}&limit=9/`;
+  vacationsUrl(
+    page: number = 1,
+    sortBy: string = "startDate",
+    filterBy: string = "noFilter"
+  ): string {
+    return `http://localhost:4000/api/vacations/${sortBy}/${filterBy}?page=${page}&limit=9`;
   },
   vacationUrlStatic: "http://localhost:4000/api/vacations/",
   loginUrl: "http://localhost:4000/api/login/",

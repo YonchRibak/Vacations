@@ -11,6 +11,14 @@
   gap: 1rem;
 }
 
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox-label-pair {
+  display: flex;
+  flex-direction: row;
+}
 .vacations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
