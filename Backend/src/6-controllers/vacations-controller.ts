@@ -3,8 +3,8 @@ import { StatusCode } from "../3-models/enums";
 import { vacationService } from "../5-services/vacation-service";
 import { VacationModel } from "../3-models/vacation-model";
 import { securityMiddleware } from "../4-middleware/security-middleware";
-import { IImageModel, ImageModel } from "../3-models/images-model";
 import { UploadedFile } from "express-fileupload";
+import { ValidationError } from "../3-models/client-errors";
 
 // Vacation controller:
 class VacationController {
@@ -34,11 +34,13 @@ class VacationController {
       securityMiddleware.verifyLoggedIn,
       this.addVacation
     );
-    // this.router.post(
-    //   "/vacations/many",
-    //   securityMiddleware.verifyLoggedIn,
-    //   this.addManyVacations
-    // );
+
+    this.router.post(
+      "/vacations/many",
+      securityMiddleware.verifyLoggedIn,
+      this.addManyVacations
+    );
+
     this.router.patch(
       "/vacations/:_id([0-9a-fA-F]{24})/like",
       this.toggleLikeAtVacation
@@ -89,21 +91,11 @@ class VacationController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const vacationData = request.body;
-      const imageFile = request.files?.image as UploadedFile[];
-
-      // Save image using Mongoose ImageModel
-      const savedImage = (await new ImageModel({
-        filename: imageFile[0]?.name,
-        path: "../1-assets/images/",
-        mimetype: imageFile[0]?.mimetype,
-        size: imageFile[0]?.size,
-      }).save()) as IImageModel;
-
+      const imageFile = request.file;
       const vacation = new VacationModel(request.body);
       const addedVacation = await vacationService.addVacation(
         vacation,
-        savedImage
+        imageFile
       );
       response.status(StatusCode.OK).json(addedVacation);
     } catch (err: any) {
@@ -111,20 +103,20 @@ class VacationController {
     }
   }
 
-  // POST http://localhost:4000/api/vacations/many
-  //   private async addManyVacations(
-  //     request: Request,
-  //     response: Response,
-  //     next: NextFunction
-  //   ): Promise<void> {
-  //     try {
-  //       const vacations = request.body;
-  //       const addedVacations = await vacationService.addManyVacations(vacations);
-  //       response.status(StatusCode.OK).json(addedVacations);
-  //     } catch (err: any) {
-  //       next(err);
-  //     }
-  //   }
+  //   POST http://localhost:4000/api/vacations/many
+  private async addManyVacations(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const vacations = request.body;
+      const addedVacations = await vacationService.addManyVacations(vacations);
+      response.status(StatusCode.OK).json(addedVacations);
+    } catch (err: any) {
+      next(err);
+    }
+  }
 
   // PATCH http://localhost:4000/api/vacations/:id/like
   private async toggleLikeAtVacation(

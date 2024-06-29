@@ -1033,3 +1033,579 @@ Stack: ValidationError: Image validation failed: filename: Path `filename` is re
     at processTicksAndRejections (node:internal/process/task_queues:77:11)
 ---------------------------------------
 
+Time: Sat Jun 29 2024 20:10:32 GMT+0300 (שעון ישראל (קיץ))
+Message: Image validation failed: filename: Path `filename` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+Stack: ValidationError: Image validation failed: filename: Path `filename` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+    at model.Document.invalidate (C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3285:32)
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3046:17
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:18:01 GMT+0300 (שעון ישראל (קיץ))
+Message: Image validation failed: data: Path `data` is required., name: Path `name` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+Stack: ValidationError: Image validation failed: data: Path `data` is required., name: Path `name` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+    at model.Document.invalidate (C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3285:32)
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3046:17
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:18:39 GMT+0300 (שעון ישראל (קיץ))
+Message: Image validation failed: name: Path `name` is required., data: Path `data` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+Stack: ValidationError: Image validation failed: name: Path `name` is required., data: Path `data` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+    at model.Document.invalidate (C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3285:32)
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3046:17
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:18:41 GMT+0300 (שעון ישראל (קיץ))
+Message: Image validation failed: name: Path `name` is required., data: Path `data` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+Stack: ValidationError: Image validation failed: name: Path `name` is required., data: Path `data` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+    at model.Document.invalidate (C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3285:32)
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3046:17
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:45:00 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/6680449177ff679c57153e7e not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:45:01 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /favicon.ico not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:51:52 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/6680498a37a237cd34dc4197 not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 20:57:38 GMT+0300 (שעון ישראל (קיץ))
+Message: Route //api/images/66804afeafbb25f8f25b29c3 not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:02:33 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/66804c1dbb990a650eddd1a4 not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:05:22 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/uploads not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:05:57 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/uploads not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:07:42 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:12:25 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:13:20 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:16:55 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:18:12 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:20:43 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:24:43 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:27:47 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 21:28:35 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:01:59 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:02:15 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:05:01 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:14:22 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:14:52 GMT+0300 (שעון ישראל (קיץ))
+Message: Missing vacation image.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:17:24 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/upload/ not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:17:58 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:21:08 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:22:09 GMT+0300 (שעון ישראל (קיץ))
+Message: Multipart: Boundary not found
+Stack: Error: Multipart: Boundary not found
+    at new Multipart (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:233:13)
+    at getInstance (C:\code\Vacations\Backend\node_modules\busboy\lib\index.js:33:12)
+    at module.exports (C:\code\Vacations\Backend\node_modules\busboy\lib\index.js:56:10)
+    at multerMiddleware (C:\code\Vacations\Backend\node_modules\multer\lib\make-middleware.js:28:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at C:\code\Vacations\Backend\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\code\Vacations\Backend\node_modules\express\lib\router\index.js:346:12)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:22:16 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:23:18 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:26:48 GMT+0300 (שעון ישראל (קיץ))
+Message: Missing vacation image.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:27:10 GMT+0300 (שעון ישראל (קיץ))
+Message: Missing vacation image.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:27:47 GMT+0300 (שעון ישראל (קיץ))
+Message: Missing vacation image.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:31:59 GMT+0300 (שעון ישראל (קיץ))
+Message: Image validation failed: name: Path `name` is required., data: Path `data` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+Stack: ValidationError: Image validation failed: name: Path `name` is required., data: Path `data` is required., mimetype: Path `mimetype` is required., size: Path `size` is required.
+    at model.Document.invalidate (C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3285:32)
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3046:17
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:34:15 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading '0')
+Stack: TypeError: Cannot read properties of undefined (reading '0')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:59:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:45:35 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading '0')
+Stack: TypeError: Cannot read properties of undefined (reading '0')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:58:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:53:04 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading '0')
+Stack: TypeError: Cannot read properties of undefined (reading '0')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:58:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 22:53:59 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading '0')
+Stack: TypeError: Cannot read properties of undefined (reading '0')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:58:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:12:54 GMT+0300 (שעון ישראל (קיץ))
+Message: VacationModel validation failed: price: Missing price, endDate: Missing end date., startDate: Missing start date., description: Missing description., destination: Missing destination.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:22:06 GMT+0300 (שעון ישראל (קיץ))
+Message: VacationModel validation failed: price: Missing price, endDate: Missing end date., startDate: Missing start date., description: Missing description., destination: Missing destination.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:30:42 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading 'image')
+Stack: TypeError: Cannot read properties of undefined (reading 'image')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:37
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:59:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:31:17 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading '0')
+Stack: TypeError: Cannot read properties of undefined (reading '0')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:59:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:31:19 GMT+0300 (שעון ישראל (קיץ))
+Message: Cannot read properties of undefined (reading '0')
+Stack: TypeError: Cannot read properties of undefined (reading '0')
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:93:38
+    at Generator.next (<anonymous>)
+    at C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:4:12)
+    at addVacation (C:\code\Vacations\Backend\src\6-controllers\vacations-controller.ts:59:16)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\code\Vacations\Backend\node_modules\express\lib\router\route.js:144:13)
+    at verifyLoggedIn (C:\code\Vacations\Backend\src\4-middleware\security-middleware.ts:22:7)
+    at Layer.handle [as handle_request] (C:\code\Vacations\Backend\node_modules\express\lib\router\layer.js:95:5)
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:39:51 GMT+0300 (שעון ישראל (קיץ))
+Message: Image validation failed: data: Path `data` is required.
+Stack: ValidationError: Image validation failed: data: Path `data` is required.
+    at model.Document.invalidate (C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3285:32)
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\document.js:3046:17
+    at C:\code\Vacations\Backend\node_modules\mongoose\lib\schemaType.js:1388:9
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:43:24 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/thessaloniki.jpg not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:43:24 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /favicon.ico not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:46:01 GMT+0300 (שעון ישראל (קיץ))
+Message: VacationModel validation failed: destination: Destination cannot exceed 20 characters.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:46:10 GMT+0300 (שעון ישראל (קיץ))
+Message: VacationModel validation failed: destination: Destination cannot exceed 20 characters.
+Stack: undefined
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:57:10 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sat Jun 29 2024 23:57:13 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:00:57 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:32:17 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:32:20 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:32:26 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:33:13 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:33:14 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:34:10 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:35:00 GMT+0300 (שעון ישראל (קיץ))
+Message: Unexpected end of form
+Stack: Error: Unexpected end of form
+    at Multipart._final (C:\code\Vacations\Backend\node_modules\busboy\lib\types\multipart.js:588:17)
+    at prefinish (node:internal/streams/writable:898:14)
+    at finishMaybe (node:internal/streams/writable:912:5)
+    at Multipart.Writable.end (node:internal/streams/writable:827:5)
+    at onend (node:internal/streams/readable:924:10)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:41:22 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/1719697255886-body%20outline%20.jpeg not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:42:06 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/1719697314557-Lionel-Messi-6.jpg not found.
+Stack: undefined
+---------------------------------------
+
+Time: Sun Jun 30 2024 00:42:09 GMT+0300 (שעון ישראל (קיץ))
+Message: Route /api/images/1719697314557-Lionel-Messi-6.jpg not found.
+Stack: undefined
+---------------------------------------
+

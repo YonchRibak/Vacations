@@ -1,7 +1,6 @@
 import mongoose, { Document, Schema, model } from "mongoose";
-import { Role } from "./enums";
 import { UserModel } from "./user-model";
-import { IImageModel } from "./images-model";
+import { appConfig } from "../2-utils/app-config";
 
 export interface IVacationModel extends Document {
   destination: string;
@@ -9,7 +8,7 @@ export interface IVacationModel extends Document {
   startDate: Date;
   endDate: Date;
   price: number;
-  image: mongoose.Types.ObjectId | IImageModel;
+  image: string;
   imageUrl: string;
   likesIds: mongoose.Types.ObjectId[];
   likesCount: number;
@@ -49,12 +48,8 @@ export const VacationSchema = new Schema<IVacationModel>(
       min: [0, "Price cannot be negative."],
     },
     image: {
-      type: Schema.Types.ObjectId,
-      ref: "Image",
-      //   required: [true, "Missing vacation image."],
-    },
-    imageUrl: {
       type: String,
+      ref: "Image",
     },
     likesIds: [
       {
@@ -82,6 +77,10 @@ VacationSchema.virtual("likes", {
   ref: UserModel, // the model we are connected to.
   localField: "likesIds",
   foreignField: "_id",
+});
+
+VacationSchema.virtual("imageUrl").get(function (this: IVacationModel) {
+  return appConfig.baseImageUrl + this.image;
 });
 
 export const VacationModel = model<IVacationModel>(
