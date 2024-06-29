@@ -32,6 +32,7 @@ export class VacationListComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     await this.fetchVacations();
+    console.log(this.vacations?.length);
   }
 
   public async fetchVacations() {
@@ -41,6 +42,8 @@ export class VacationListComponent implements OnInit {
         this.sortBy,
         this.filterBy
       );
+
+      if (!this.vacations?.length) await this.backwards(); // in case currently in a page with no vacations, go back.
     } catch (err: any) {
       alert(err.message);
     }

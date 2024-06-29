@@ -46,6 +46,8 @@
   </div>
   <div class="pagination-btns">
     <button [disabled]="currPage <= 1" (click)="backwards()">Backwards</button>
-    <button [disabled]="currPage >= 4" (click)="forwards()">Forwards</button>
+    <button [disabled]="vacations?.length < 9" (click)="forwards()">
+      Forwards
+    </button>
   </div>
 </div>
