@@ -1,10 +1,16 @@
 import mongoose from "mongoose";
 import { ValidationError } from "../3-models/client-errors";
 import { IVacationModel, VacationModel } from "../3-models/vacation-model";
+import { IImageModel, ImageModel } from "../3-models/images-model";
 
 class VacationService {
-  public async addVacation(vacation: IVacationModel): Promise<IVacationModel> {
+  public async addVacation(
+    vacation: IVacationModel,
+    image: IImageModel
+  ): Promise<IVacationModel> {
     try {
+      const savedImage = await new ImageModel(image).save();
+      vacation.image = savedImage._id;
       const newVacation = new VacationModel(vacation);
       await newVacation.validate(); // Validate using Mongoose validation
       return await newVacation.save(); // Save the vacation
@@ -13,13 +19,13 @@ class VacationService {
     }
   }
 
-  public async addManyVacations(vacations: IVacationModel[]): Promise<void> {
-    try {
-      await Promise.all(vacations.map((vac) => this.addVacation(vac)));
-    } catch (error) {
-      throw new Error(`Failed to add vacations: ${error.message}`);
-    }
-  }
+//   public async addManyVacations(vacations: IVacationModel[]): Promise<void> {
+//     try {
+//       await Promise.all(vacations.map((vac) => this.addVacation(vac)));
+//     } catch (error) {
+//       throw new Error(`Failed to add vacations: ${error.message}`);
+//     }
+//   }
 
   public async getAllVacations(
     page: number = 1,

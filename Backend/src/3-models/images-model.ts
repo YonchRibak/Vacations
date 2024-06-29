@@ -25,7 +25,6 @@ export const ImageSchema = new Schema<IImageModel>(
       type: Number,
       required: true,
     },
-    // Add more fields as per your requirements
   },
   {
     timestamps: true,
@@ -33,5 +32,3 @@ export const ImageSchema = new Schema<IImageModel>(
 );
 
 export const ImageModel = model<IImageModel>("Image", ImageSchema);
-
-

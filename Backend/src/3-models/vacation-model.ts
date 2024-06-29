@@ -10,6 +10,7 @@ export interface IVacationModel extends Document {
   endDate: Date;
   price: number;
   image: mongoose.Types.ObjectId | IImageModel;
+  imageUrl: string;
   likesIds: mongoose.Types.ObjectId[];
   likesCount: number;
 }
@@ -51,6 +52,9 @@ export const VacationSchema = new Schema<IVacationModel>(
       type: Schema.Types.ObjectId,
       ref: "Image",
       //   required: [true, "Missing vacation image."],
+    },
+    imageUrl: {
+      type: String,
     },
     likesIds: [
       {
