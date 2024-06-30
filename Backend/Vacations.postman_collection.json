@@ -7,259 +7,360 @@
 	},
 	"item": [
 		{
-			"name": "Register",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"firstName\": \"Jonathan\", \"lastName\": \"Ribak\", \"email\": \"yonch.baalil@gmail.com\", \"password\": \"1234\", \"roleId\": \"1\", \"likedList\": []}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/api/register",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"email\": \"yonch.baalil@gmail.com\", \"password\": \"1234\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:4000/api/login",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Users",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/api/users",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Vacations",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/api/vacations?page=2&limit=9",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"vacations"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "2"
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstName\": \"Jonathan\", \"lastName\": \"Ribak\", \"email\": \"yonch.baalil@gmail.com\", \"password\": \"1234\", \"roleId\": \"1\", \"likedList\": []}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
-						{
-							"key": "limit",
-							"value": "9"
+						"url": {
+							"raw": "localhost:4000/api/register",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"register"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get All Vacations Liked By User",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"userId\":\"667cf48690a5443f12105962\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/api/vacations/liked-by-me",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"vacations",
-						"liked-by-me"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Vacation by Id",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:4000/api/vacations/:_id",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"vacations",
-						":_id"
-					],
-					"variable": [
-						{
-							"key": "_id",
-							"value": "667d053073a12807a838cb21"
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"yonch.baalil@gmail.com\", \"password\": \"1234\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"login"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Add Vacation",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"destination\": \"Barcelona\", \"description\": \"Discover the vibrant heart of Catalonia with our exclusive Barcelona vacation package. From the moment you arrive, you’ll be captivated by the city's blend of modernist architecture, rich history, and Mediterranean charm. Begin your journey in the iconic Gothic Quarter, where narrow streets lead to hidden squares adorned with ancient churches and bustling cafes. Explore the enchanting labyrinth of La Rambla, a bustling promenade alive with street performers, flower stalls, and local artisans. No trip to Barcelona is complete without marveling at Antoni Gaudí's masterpieces. Visit the breathtaking Sagrada Família, a towering basilica that defies architectural norms with its intricate facades and mesmerizing stained glass windows. Wander through Park Güell, a whimsical garden adorned with mosaic dragons and twisting pathways offering panoramic views of the city below. Indulge in Barcelona’s culinary delights, from traditional tapas bars in El Born to Michelin-starred restaurants along the waterfront. Savor fresh seafood paella, paired perfectly with a glass of crisp cava, Catalonia’s renowned sparkling wine. For art enthusiasts, the Picasso Museum awaits with an extensive collection showcasing the artist’s formative years. Meanwhile, the vibrant street art scene in the El Raval district offers a modern counterpoint to Barcelona's classical heritage. Relax on the golden sands of Barceloneta Beach, where locals and visitors alike bask in the Mediterranean sun. Or, escape to the tranquil Montjuïc Hill, home to botanical gardens, cultural institutions like the MNAC, and panoramic vistas overlooking the bustling harbor. Whether you’re exploring historic neighborhoods, indulging in world-class cuisine, or soaking up the sun on the beach, Barcelona promises an unforgettable vacation filled with endless possibilities and boundless charm. Let our expertly crafted itinerary ensure every moment of your journey is as exceptional as this vibrant city itself.\", \"startDate\": \"2024-07-01T00:00:00.000Z\", \"endDate\": \"2024-07-10T00:00:00.000Z\", \"price\": \"791\"}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/api/vacations",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"vacations"
-					]
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/users",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2N2QyODdmYTJhNTVlOTBjM2IyY2RkMiIsImZpcnN0TmFtZSI6IlRhbCIsImxhc3ROYW1lIjoiVmFsZW50aW5lIiwiZW1haWwiOiJ2YWxlbnRpbmV0YWxAZ21haWwuY29tIiwicGFzc3dvcmQiOiJkMWZlNTgxNTAxM2Q5MmZmNTZkZWMyMmQ0NWNhYzFlNTcxZTBmYTVmZmNiMTFlMWYxM2NkZjA2NTcxZGMzM2IwNDhmMTVkMmE2ZDIwODIyZjVjYWExNzUwNGNmYmVmNDBiYjAxZjg5ZTFiN2M2Y2MwNzA2NjEyOTZhYzcxNmVmNSIsImxpa2VkTGlzdCI6W10sInJvbGVJZCI6MCwiY3JlYXRlZEF0IjoiMjAyNC0wNi0yN1QwODo1MzoxOS4zOThaIiwidXBkYXRlZEF0IjoiMjAyNC0wNi0yN1QwODo1MzoxOS4zOThaIn0sImlhdCI6MTcxOTQ4Nzk5NSwiZXhwIjoxNzE5NTA1OTk1fQ.JeLZhy_C8FmS8ugnc1JmT7V4OL4PxzJ3y7pCf3jM77E\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/users/me",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Add Many Vacations",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[{\r\n    \"destination\": \"Paris\",\r\n    \"description\": \"Experience the romance and elegance of Paris with our enchanting vacation package. Stroll along the Seine River, marvel at the iconic Eiffel Tower, and immerse yourself in the world-renowned art collections of the Louvre and Musée d'Orsay. Indulge in exquisite French cuisine at charming bistros and Michelin-starred restaurants. Explore the historic Montmartre district with its artistic heritage and vibrant nightlife. Discover the charm of the Latin Quarter's narrow streets and cozy cafes. Whether you're sipping coffee at a sidewalk cafe or admiring the stained glass of Notre-Dame Cathedral, Paris offers a timeless allure that captivates every traveler.\",\r\n    \"startDate\": \"2024-09-10T00:00:00.000Z\",\r\n    \"endDate\": \"2024-09-20T00:00:00.000Z\",\r\n    \"price\": \"950\"\r\n  },\r\n  {\r\n    \"destination\": \"Rome\",\r\n    \"description\": \"Immerse yourself in the ancient wonders and vibrant culture of Rome with our captivating vacation package. Explore the Colosseum, Roman Forum, and Vatican City, where history comes alive amidst breathtaking architecture and priceless artworks. Wander through charming piazzas, savoring authentic Italian gelato and espresso along the way. Discover the Trevi Fountain's grandeur and the Spanish Steps' elegance. Indulge in traditional Roman cuisine, from hearty pasta dishes to gourmet pizza. Whether you're admiring Michelangelo's Sistine Chapel or exploring the ruins of the Palatine Hill, Rome promises an unforgettable journey through centuries of history and culture.\",\r\n    \"startDate\": \"2024-10-05T00:00:00.000Z\",\r\n    \"endDate\": \"2024-10-15T00:00:00.000Z\",\r\n    \"price\": \"880\"\r\n  },   {\r\n    \"destination\": \"Amsterdam\",\r\n    \"description\": \"Embark on a journey through Amsterdam’s picturesque canals and vibrant neighborhoods with our curated vacation package. Explore the historic streets lined with gabled houses and iconic windmills. Visit world-class museums such as the Rijksmuseum and Van Gogh Museum, showcasing centuries of Dutch art and culture. Indulge in delicious Dutch cuisine, from savory pancakes to fresh herring. Discover the lively Jordaan district’s trendy boutiques and cozy cafes. Whether you’re cruising the romantic canals or cycling through Vondelpark’s serene paths, Amsterdam offers a blend of charm and sophistication that captivates every traveler.\",\r\n    \"startDate\": \"2024-11-01T00:00:00.000Z\",\r\n    \"endDate\": \"2024-11-10T00:00:00.000Z\",\r\n    \"price\": \"810\"\r\n  },\r\n  {\r\n    \"destination\": \"London\",\r\n    \"description\": \"Experience the cosmopolitan allure of London with our captivating vacation package. Explore the historic landmarks of Buckingham Palace, Big Ben, and the Tower of London. Immerse yourself in the world-class art collections of the British Museum and Tate Modern. Indulge in traditional English afternoon tea and savory pub fare. Wander through the charming streets of Covent Garden and Notting Hill, discovering hidden gems and vibrant markets. Whether you’re catching a West End show or strolling along the Thames River, London promises an unforgettable blend of history, culture, and contemporary elegance.\",\r\n    \"startDate\": \"2024-12-05T00:00:00.000Z\",\r\n    \"endDate\": \"2024-12-15T00:00:00.000Z\",\r\n    \"price\": \"920\"\r\n  },\r\n  {\r\n    \"destination\": \"Tokyo\",\r\n    \"description\": \"Immerse yourself in the vibrant energy and ancient traditions of Tokyo with our curated vacation package. Explore the bustling streets of Shibuya and Shinjuku, where modern skyscrapers and traditional temples coexist. Visit iconic landmarks such as the Tokyo Tower and Senso-ji Temple. Indulge in authentic Japanese cuisine, from sushi and ramen to delicate tempura. Discover tranquil gardens like Shinjuku Gyoen and traditional tea ceremonies in serene tea houses. Whether you’re shopping in Ginza’s upscale boutiques or experiencing the electric nightlife of Roppongi, Tokyo offers a captivating blend of old and new.\",\r\n    \"startDate\": \"2025-01-10T00:00:00.000Z\",\r\n    \"endDate\": \"2025-01-20T00:00:00.000Z\",\r\n    \"price\": \"1050\"\r\n  },\r\n  {\r\n    \"destination\": \"New York City\",\r\n    \"description\": \"Explore the vibrant streets and iconic landmarks of New York City with our exciting vacation package. Experience the dazzling lights of Times Square, the architectural marvels of the Empire State Building, and the serene beauty of Central Park. Indulge in world-class shopping on Fifth Avenue and Broadway shows in the Theater District. Discover diverse neighborhoods like SoHo, Greenwich Village, and Chinatown, each offering its own unique charm and cultural experiences. Whether you’re dining in trendy restaurants or exploring renowned museums like the Metropolitan Museum of Art, New York City promises an exhilarating adventure for every traveler.\",\r\n    \"startDate\": \"2025-02-15T00:00:00.000Z\",\r\n    \"endDate\": \"2025-02-25T00:00:00.000Z\",\r\n    \"price\": \"1100\"\r\n  },\r\n  {\r\n    \"destination\": \"Sydney\",\r\n    \"description\": \"Discover the beauty and excitement of Sydney with our captivating vacation package. Explore the iconic Sydney Opera House and Sydney Harbour Bridge, offering breathtaking views of the harbor and city skyline. Relax on the golden sands of Bondi Beach or take a ferry ride to picturesque Manly Beach. Indulge in fresh seafood at Sydney’s vibrant markets and waterfront restaurants. Wander through historic neighborhoods like The Rocks, filled with charming cafes and artisan boutiques. Whether you’re climbing the Sydney Tower Eye for panoramic views or exploring the Royal Botanic Garden, Sydney promises an unforgettable blend of culture, nature, and coastal charm.\",\r\n    \"startDate\": \"2025-03-10T00:00:00.000Z\",\r\n    \"endDate\": \"2025-03-20T00:00:00.000Z\",\r\n    \"price\": \"980\"\r\n  },\r\n  {\r\n    \"destination\": \"Berlin\",\r\n    \"description\": \"Experience the vibrant culture and historic landmarks of Berlin with our curated vacation package. Explore the remnants of the Berlin Wall and Checkpoint Charlie Museum, delving into the city’s tumultuous history. Visit world-class museums such as the Pergamon Museum and Bauhaus Archive, showcasing art and design through the ages. Indulge in hearty German cuisine, from bratwurst and schnitzel to local beers and pretzels. Wander through trendy neighborhoods like Kreuzberg and Prenzlauer Berg, known for their street art and eclectic cafes. Whether you’re admiring the architecture of Brandenburg Gate or relaxing along the Spree River, Berlin offers a captivating mix of past and present.\",\r\n    \"startDate\": \"2025-04-05T00:00:00.000Z\",\r\n    \"endDate\": \"2025-04-15T00:00:00.000Z\",\r\n    \"price\": \"850\"\r\n  },\r\n  {\r\n    \"destination\": \"Prague\",\r\n    \"description\": \"Immerse yourself in the fairy-tale charm and rich history of Prague with our captivating vacation package. Explore the cobbled streets of Old Town Square, where Gothic architecture and Baroque facades enchant at every turn. Visit the iconic Prague Castle and St. Vitus Cathedral, symbols of the city’s medieval grandeur. Indulge in traditional Czech cuisine, from hearty goulash to delicate pastries. Wander through the vibrant neighborhoods of Mala Strana and Vysehrad, each offering its own blend of history and culture. Whether you’re cruising along the Vltava River or enjoying a performance at the National Theatre, Prague promises an unforgettable journey through centuries of European heritage.\",\r\n    \"startDate\": \"2025-05-01T00:00:00.000Z\",\r\n    \"endDate\": \"2025-05-10T00:00:00.000Z\",\r\n    \"price\": \"800\"\r\n  },\r\n  {\r\n    \"destination\": \"Dubai\",\r\n    \"description\": \"Explore the dazzling cityscape and luxurious attractions of Dubai with our curated vacation package. Marvel at the iconic Burj Khalifa, the world’s tallest skyscraper, and experience the opulence of Dubai Mall with its indoor aquarium and ice rink. Indulge in gourmet dining at Michelin-starred restaurants or savor traditional Arabic cuisine in vibrant souks. Relax on pristine beaches overlooking the Arabian Gulf or embark on a desert safari for a thrilling adventure. Whether you’re shopping in Dubai’s exclusive boutiques or exploring cultural gems like the Dubai Museum and Jumeirah Mosque, Dubai promises a blend of modernity and tradition that captivates every traveler.\",\r\n    \"startDate\": \"2025-06-05T00:00:00.000Z\",\r\n    \"endDate\": \"2025-06-15T00:00:00.000Z\",\r\n    \"price\": \"1150\"\r\n  },\r\n  {\r\n    \"destination\": \"Cape Town\",\r\n    \"description\": \"Discover the natural beauty and cultural diversity of Cape Town with our captivating vacation package. Explore the stunning landscapes of Table Mountain and Cape Point, offering panoramic views of the city and coastline. Visit the historic Robben Island, where Nelson Mandela was imprisoned, and delve into South Africa’s rich history at the District Six Museum. Indulge in world-class wines in the picturesque vineyards of Stellenbosch and Franschhoek. Relax on the sun-drenched beaches of Camps Bay or explore vibrant neighborhoods like Bo-Kaap, known for its colorful houses and Cape Malay cuisine. Whether you’re cage diving with great white sharks or hiking through Kirstenbosch Botanical Garden, Cape Town promises an unforgettable blend of adventure and relaxation.\",\r\n    \"startDate\": \"2025-07-01T00:00:00.000Z\",\r\n    \"endDate\": \"2025-07-10T00:00:00.000Z\",\r\n    \"price\": \"1050\"\r\n  },\r\n  {\r\n    \"destination\": \"Hong Kong\",\r\n    \"description\": \"Experience the vibrant fusion of East and West in Hong Kong with our captivating vacation package. Explore the dazzling skyline of Victoria Harbour and marvel at the modern architecture of skyscrapers like the International Commerce Centre. Indulge in delectable Cantonese cuisine at street markets or Michelin-starred restaurants. Discover the bustling markets of Mong Kok and the serene temples of Lantau Island. Whether you’re riding the iconic Star Ferry across the harbor or hiking the scenic trails of Dragon’s Back, Hong Kong offers a dynamic mix of culture, cuisine, and cosmopolitan charm.\",\r\n    \"startDate\": \"2025-08-15T00:00:00.000Z\",\r\n    \"endDate\": \"2025-08-25T00:00:00.000Z\",\r\n    \"price\": \"930\"\r\n  },\r\n  {\r\n    \"destination\": \"Rio de Janeiro\",\r\n    \"description\": \"Discover the vibrant culture and breathtaking landscapes of Rio de Janeiro with our captivating vacation package. Relax on the iconic beaches of Copacabana and Ipanema, surrounded by lush mountains and sparkling seas. Ride the cable car to the summit of Sugarloaf Mountain for panoramic views of the city and Guanabara Bay. Indulge in Brazilian cuisine, from sizzling churrasco to refreshing caipirinhas. Explore the historic streets of Santa Teresa and the colorful Selaron Steps. Whether you’re dancing to the rhythm of samba in Lapa or exploring the lush Tijuca Forest, Rio de Janeiro promises an unforgettable journey through paradise.\",\r\n    \"startDate\": \"2025-09-10T00:00:00.000Z\",\r\n    \"endDate\": \"2025-09-20T00:00:00.000Z\",\r\n    \"price\": \"970\"\r\n  },\r\n  {\r\n    \"destination\": \"Bangkok\",\r\n    \"description\": \"Immerse yourself in the vibrant culture and bustling streets of Bangkok with our captivating vacation package. Explore the ornate temples of Wat Arun and Wat Phra Kaew, adorned with intricate carvings and shimmering spires. Indulge in authentic Thai cuisine, from fragrant curries to spicy street food delights. Discover the vibrant markets of Chatuchak and the serene canals of the Damnoen Saduak Floating Market. Whether you’re cruising along the Chao Phraya River or exploring the trendy neighborhoods of Sukhumvit and Silom, Bangkok offers a dynamic blend of tradition and modernity that captivates every traveler.\",\r\n    \"startDate\": \"2025-10-05T00:00:00.000Z\",\r\n    \"endDate\": \"2025-10-15T00:00:00.000Z\",\r\n    \"price\": \"890\"\r\n  },\r\n  {\r\n    \"destination\": \"Singapore\",\r\n    \"description\": \"Explore the futuristic cityscape and cultural diversity of Singapore with our curated vacation package. Marvel at the iconic Marina Bay Sands and Gardens by the Bay, where towering Supertrees light up the night sky. Indulge in diverse cuisine at hawker centers and Michelin-starred restaurants. Discover the historic neighborhoods of Chinatown and Little India, each offering its own blend of heritage and charm. Whether you’re shopping on Orchard Road or relaxing at Sentosa Island’s beaches and resorts, Singapore promises an unforgettable blend of innovation and tradition.\",\r\n    \"startDate\": \"2025-11-01T00:00:00.000Z\",\r\n    \"endDate\": \"2025-11-10T00:00:00.000Z\",\r\n    \"price\": \"920\"\r\n  },\r\n  {\r\n    \"destination\": \"Buenos Aires\",\r\n    \"description\": \"Discover the passion and elegance of Buenos Aires with our captivating vacation package. Explore the historic streets of San Telmo and the colorful houses of La Boca. Indulge in Argentine cuisine, from sizzling steaks to empanadas and dulce de leche desserts. Experience the electric atmosphere of a tango show in Palermo or the vibrant markets of Recoleta. Whether you’re exploring the grandeur of Teatro Colón or relaxing in the tranquil parks of Palermo, Buenos Aires promises a blend of culture, cuisine, and romance that captivates every traveler.\",\r\n    \"startDate\": \"2025-12-05T00:00:00.000Z\",\r\n    \"endDate\": \"2025-12-15T00:00:00.000Z\",\r\n    \"price\": \"900\"\r\n  },\r\n  {\r\n    \"destination\": \"Dublin\",\r\n    \"description\": \"Experience the charm and hospitality of Dublin with our curated vacation package. Explore the historic landmarks of Trinity College and Dublin Castle, steeped in centuries of Irish history. Indulge in hearty pub fare and traditional Irish music in lively neighborhoods like Temple Bar and St. Stephen’s Green. Discover the serene beauty of Phoenix Park and the majestic cliffs of Howth. Whether you’re sampling fine whiskies at the Jameson Distillery or exploring the vibrant street art of Smithfield, Dublin offers a warm welcome and unforgettable experiences for every traveler.\",\r\n    \"startDate\": \"2026-01-10T00:00:00.000Z\",\r\n    \"endDate\": \"2026-01-20T00:00:00.000Z\",\r\n    \"price\": \"850\"\r\n  },\r\n  {\r\n    \"destination\": \"Lisbon\",\r\n    \"description\": \"Immerse yourself in the historic charm and coastal beauty of Lisbon with our captivating vacation package. Explore the narrow streets of Alfama, where traditional fado music echoes through cobblestone alleys. Visit historic landmarks such as the Belém Tower and Jerónimos Monastery, symbols of Portugal’s maritime heritage. Indulge in delicious pastéis de nata and fresh seafood in vibrant markets and waterfront cafes. Discover the eclectic neighborhoods of Bairro Alto and Chiado, known for their vibrant nightlife and artistic heritage. Whether you’re riding the historic tram 28 or exploring the picturesque beaches of Cascais, Lisbon promises an unforgettable journey through culture and cuisine.\",\r\n    \"startDate\": \"2026-02-15T00:00:00.000Z\",\r\n    \"endDate\": \"2026-02-25T00:00:00.000Z\",\r\n    \"price\": \"880\"\r\n  },\r\n  {\r\n    \"destination\": \"Vienna\",\r\n    \"description\": \"Experience the imperial grandeur and cultural richness of Vienna with our curated vacation package. Explore the opulent architecture of Schönbrunn Palace and St. Stephen’s Cathedral. Indulge in Viennese coffee culture at historic cafés and sample decadent pastries like Sachertorte. Discover masterpieces at the Kunsthistorisches Museum and the Vienna State Opera. Wander through the charming streets of the Innere Stadt and the vibrant Naschmarkt. Whether you’re attending a classical concert at Musikverein or exploring the vineyards of nearby Wachau Valley, Vienna offers a blend of history, elegance, and artistic flair that captivates every traveler.\",\r\n    \"startDate\": \"2026-03-10T00:00:00.000Z\",\r\n    \"endDate\": \"2026-03-20T00:00:00.000Z\",\r\n    \"price\": \"910\"\r\n  },\r\n  {\r\n    \"destination\": \"Marrakech\",\r\n    \"description\": \"Discover the exotic charm and vibrant colors of Marrakech with our captivating vacation package. Explore the bustling souks of the Medina, where artisans create intricate crafts and spices fill the air with fragrance. Visit historic landmarks such as the Bahia Palace and Koutoubia Mosque. Indulge in traditional Moroccan cuisine, from savory tagines to sweet pastries like baklava. Relax in the serene gardens of Jardin Majorelle or escape to the Atlas Mountains for breathtaking views. Whether you’re experiencing a traditional hammam spa or watching the sunset over Djemaa el-Fna square, Marrakech promises an unforgettable journey through culture and tradition.\",\r\n    \"startDate\": \"2026-04-05T00:00:00.000Z\",\r\n    \"endDate\": \"2026-04-15T00:00:00.000Z\",\r\n    \"price\": \"870\"\r\n  },\r\n  {\r\n    \"destination\": \"Cairo\",\r\n    \"description\": \"Immerse yourself in the ancient wonders and vibrant culture of Cairo with our captivating vacation package. Explore the iconic pyramids of Giza and the Sphinx, marveling at their monumental scale and mystical allure. Visit the treasures of the Egyptian Museum, home to Tutankhamun’s golden mask and artifacts from millennia of history. Indulge in flavorful Egyptian cuisine, from hearty koshary to fragrant falafel. Wander through the historic streets of Islamic Cairo, where medieval mosques and bustling bazaars reveal the city’s rich heritage. Whether you’re sailing the Nile on a traditional felucca or exploring the vibrant Khan El Khalili market, Cairo offers an unforgettable journey through time and civilization.\",\r\n    \"startDate\": \"2026-05-01T00:00:00.000Z\",\r\n    \"endDate\": \"2026-05-10T00:00:00.000Z\",\r\n    \"price\": \"890\"\r\n  },\r\n  {\r\n    \"destination\": \"Athens\",\r\n    \"description\": \"Experience the cradle of Western civilization and ancient wonders of Athens with our captivating vacation package. Explore the majestic Acropolis, where the Parthenon stands as a testament to Greece’s Golden Age. Discover historic treasures at the National Archaeological Museum and the ancient Agora. Indulge in traditional Greek cuisine, from savory souvlaki to creamy tzatziki. Wander through the charming neighborhoods of Plaka and Monastiraki, known for their labyrinthine streets and picturesque tavernas. Whether you’re relaxing on the Athenian Riviera or exploring the vibrant street art of Exarcheia, Athens promises an unforgettable blend of history, culture, and Mediterranean charm.\",\r\n    \"startDate\": \"2026-06-05T00:00:00.000Z\",\r\n    \"endDate\": \"2026-06-15T00:00:00.000Z\",\r\n    \"price\": \"900\"\r\n  },\r\n  {\r\n    \"destination\": \"Moscow\",\r\n    \"description\": \"Explore the historic landmarks and vibrant culture of Moscow with our curated vacation package. Visit the iconic Red Square, home to St. Basil’s Cathedral and the Kremlin’s imposing walls. Discover the treasures of the State Tretyakov Gallery and Bolshoi Theatre, showcasing Russia’s rich artistic heritage. Indulge in traditional Russian cuisine, from hearty borscht to delicate blini with caviar. Wander through the historic Arbat district and the picturesque Gorky Park. Whether you’re cruising the Moscow River or experiencing the opulence of the Metro stations, Moscow offers a blend of history, culture, and architectural splendor that captivates every traveler.\",\r\n    \"startDate\": \"2026-07-01T00:00:00.000Z\",\r\n    \"endDate\": \"2026-07-10T00:00:00.000Z\",\r\n    \"price\": \"950\"\r\n  },\r\n  {\r\n    \"destination\": \"Hanoi\",\r\n    \"description\": \"Immerse yourself in the rich history and vibrant culture of Hanoi with our captivating vacation package. Explore the ancient temples of the Old Quarter and the serene shores of Hoan Kiem Lake. Indulge in traditional Vietnamese cuisine, from fragrant pho to crispy banh mi. Discover the historic landmarks of Ho Chi Minh Mausoleum and the Temple of Literature. Wander through the bustling markets of Dong Xuan and the vibrant streets of Ba Dinh Square. Whether you’re cruising the tranquil waters of Ha Long Bay or exploring the lush landscapes of Sapa, Hanoi offers an unforgettable journey through tradition and modernity.\",\r\n    \"startDate\": \"2026-08-15T00:00:00.000Z\",\r\n    \"endDate\": \"2026-08-25T00:00:00.000Z\",\r\n    \"price\": \"880\"\r\n  },\r\n  {\r\n    \"destination\": \"Florence\",\r\n    \"description\": \"Experience the Renaissance splendor and artistic treasures of Florence with our captivating vacation package. Explore the iconic Duomo and marvel at masterpieces by Michelangelo, Leonardo da Vinci, and Botticelli at the Uffizi Gallery. Indulge in authentic Tuscan cuisine, from hearty ribollita to delicate pappardelle al cinghiale. Discover the charm of the Ponte Vecchio and the serene gardens of Boboli. Whether you’re admiring frescoes in the Medici Chapels or exploring the vineyards of Chianti, Florence promises an unforgettable blend of art, history, and culinary delights.\",\r\n    \"startDate\": \"2026-09-10T00:00:00.000Z\",\r\n    \"endDate\": \"2026-09-20T00:00:00.000Z\",\r\n    \"price\": \"920\"\r\n  },\r\n  {\r\n    \"destination\": \"Seoul\",\r\n    \"description\": \"Immerse yourself in the dynamic culture and modern marvels of Seoul with our captivating vacation package. Explore the bustling markets of Namdaemun and Dongdaemun, filled with fashion, electronics, and local delicacies. Indulge in flavorful Korean cuisine, from sizzling barbecue to spicy kimchi. Discover the historic palaces of Gyeongbokgung and Changdeokgung, each offering a glimpse into Korea’s royal heritage. Wander through the trendy neighborhoods of Gangnam and Hongdae, known for their vibrant nightlife and street art. Whether you’re hiking the trails of Bukhansan National Park or relaxing in a traditional jjimjilbang spa, Seoul offers a captivating blend of tradition and innovation.\",\r\n    \"startDate\": \"2026-10-05T00:00:00.000Z\",\r\n    \"endDate\": \"2026-10-15T00:00:00.000Z\",\r\n    \"price\": \"890\"\r\n  },\r\n  {\r\n    \"destination\": \"Mexico City\",\r\n    \"description\": \"Discover the rich history and vibrant culture of Mexico City with our captivating vacation package. Explore the ancient ruins of Teotihuacan and the majestic Chapultepec Castle, offering panoramic views of the city. Indulge in authentic Mexican cuisine, from savory tacos to spicy mole. Wander through the colorful neighborhoods of Coyoacán and Roma, filled with art galleries and artisan shops. Whether you’re exploring the Frida Kahlo Museum or experiencing the vibrant energy of a Lucha Libre wrestling match, Mexico City promises an unforgettable journey through centuries of tradition and creativity.\",\r\n    \"startDate\": \"2026-11-01T00:00:00.000Z\",\r\n    \"endDate\": \"2026-11-10T00:00:00.000Z\",\r\n    \"price\": \"910\"\r\n  },\r\n  {\r\n    \"destination\": \"Stockholm\",\r\n    \"description\": \"Experience the Scandinavian charm and cultural treasures of Stockholm with our captivating vacation package. Explore the historic streets of Gamla Stan, where medieval architecture and cobblestone alleys create a timeless atmosphere. Indulge in Swedish cuisine, from hearty meatballs to delicate gravlax. Discover world-class museums such as the Vasa Museum and the ABBA Museum, showcasing Sweden’s maritime history and pop culture. Wander through the vibrant neighborhoods of Södermalm and Östermalm, each offering its own blend of art, design, and entertainment. Whether you’re cruising the archipelago or relaxing in a traditional Swedish sauna, Stockholm offers a captivating blend of history, culture, and Scandinavian hospitality.\",\r\n    \"startDate\": \"2026-12-05T00:00:00.000Z\",\r\n    \"endDate\": \"2026-12-15T00:00:00.000Z\",\r\n    \"price\": \"880\"\r\n  },\r\n  {\r\n    \"destination\": \"San Francisco\",\r\n    \"description\": \"Explore the eclectic neighborhoods and iconic landmarks of San Francisco with our captivating vacation package. Discover the historic streets of Chinatown and the vibrant culture of the Mission District. Indulge in diverse cuisine, from gourmet seafood at Fisherman’s Wharf to artisan coffee in North Beach. Wander through Golden Gate Park and explore the world-class museums of the Presidio. Whether you’re crossing the Golden Gate Bridge or visiting Alcatraz Island, San Francisco promises an unforgettable blend of art, innovation, and natural beauty.\",\r\n    \"startDate\": \"2027-01-10T00:00:00.000Z\",\r\n    \"endDate\": \"2027-01-20T00:00:00.000Z\",\r\n    \"price\": \"920\"\r\n  },\r\n  {\r\n    \"destination\": \"Toronto\",\r\n    \"description\": \"Experience the dynamic culture and diverse neighborhoods of Toronto with our captivating vacation package. Explore the iconic CN Tower and vibrant waterfront of Lake Ontario. Indulge in multicultural cuisine, from dim sum in Chinatown to poutine in Kensington Market. Discover the historic Distillery District and the artistic hub of Queen Street West. Whether you’re attending a performance at the Royal Ontario Museum or exploring the Toronto Islands, the city promises an unforgettable blend of urban energy and natural beauty.\",\r\n    \"startDate\": \"2027-02-15T00:00:00.000Z\",\r\n    \"endDate\": \"2027-02-25T00:00:00.000Z\",\r\n    \"price\": \"890\"\r\n  }]",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Regular User",
+			"item": [
+				{
+					"name": "Get All Vacations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/vacations/:sortby/noFilter/",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								":sortby",
+								"noFilter",
+								""
+							],
+							"variable": [
+								{
+									"key": "sortby",
+									"value": "likeCount"
+								}
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/api/vacations/many",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"vacations",
-						"many"
-					]
+				{
+					"name": "Get All Vacations Liked By User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userId\":\"667cf48690a5443f12105962\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/vacations/liked-by-me",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"liked-by-me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vacation by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/vacations/:_id",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								":_id"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "6680498a37a237cd34dc4199"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Toggle Like At Vacation",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userId\":\"667cf48690a5443f12105962\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/vacations/:_id/like",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								":_id",
+								"like"
+							],
+							"variable": [
+								{
+									"key": "_id",
+									"value": "667d053073a12807a838cb27"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "Toggle Like At Vacation",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"userId\":\"667cf48690a5443f12105962\"}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Add Vacation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "destination",
+									"value": "Addis Ababa",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Explore the vibrant city of Addis Ababa, the capital of Ethiopia and a hub of culture and history. Begin your journey at the National Museum of Ethiopia, home to the famous fossilized remains of 'Lucy.' Wander through the bustling streets of Mercato, one of Africa's largest open-air markets, where you can find everything from spices to traditional crafts. Discover the rich history of Ethiopia at the Holy Trinity Cathedral, an architectural marvel and the final resting place of Emperor Haile Selassie. Stroll along the scenic paths of Mount Entoto for panoramic views of the city and visit the Entoto Maryam Church, steeped in history. Sample local delicacies like injera and doro wat at traditional restaurants, and immerse yourself in the vibrant nightlife of the Bole district, known for its lively bars and clubs. Whether you're fascinated by history, cuisine, or the vibrant culture, Addis Ababa offers an unforgettable vacation experience filled with African charm.",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-08-01T00:00:00.000Z",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-08-10T00:00:00.000Z",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "680",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/vacations/addis-ababa.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/api/vacations",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "localhost:4000/api/vacations/:_id/like",
-					"host": [
-						"localhost"
-					],
-					"port": "4000",
-					"path": [
-						"api",
-						"vacations",
-						":_id",
-						"like"
-					],
-					"variable": [
-						{
-							"key": "_id",
-							"value": "667d053073a12807a838cb27"
+				{
+					"name": "Add Many Vacations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"destination\": \"Melbourne\",\r\n        \"description\": \"Discover the cultural richness of Melbourne with our exclusive vacation package. Nestled on Australia’s southeastern coast, Melbourne is a vibrant melting pot of art, food, and outdoor adventure. Wander through the leafy streets of Fitzroy, home to eclectic boutiques and street art. Explore the iconic laneways of the Central Business District, where hidden cafes and galleries await around every corner. Visit Federation Square for its cultural events and exhibitions, then stroll along the Yarra River for stunning waterfront views. Indulge your taste buds at Queen Victoria Market, where fresh produce and gourmet delights abound. Discover Melbourne’s maritime history at the Immigration Museum or unwind in the serene Royal Botanic Gardens. Whether you’re cheering at a cricket match in the Melbourne Cricket Ground or exploring the penguins of St Kilda Beach, Melbourne offers an unforgettable blend of urban excitement and natural beauty.\",\r\n        \"startDate\": \"2024-07-05T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-15T00:00:00.000Z\",\r\n        \"price\": 920,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Saint Louis\",\r\n        \"description\": \"Experience the charm of Saint Louis with our exclusive vacation package. Nestled along the banks of the mighty Mississippi River, Saint Louis offers a perfect blend of history, culture, and Midwestern charm. Begin your journey at the iconic Gateway Arch, an architectural marvel offering panoramic views of the city and beyond. Explore the vibrant neighborhoods of Soulard and Central West End, known for their eclectic dining and nightlife scenes. Immerse yourself in the rich history of Forest Park, home to the renowned Saint Louis Art Museum and the St. Louis Zoo. Discover the flavors of Saint Louis with a visit to The Hill, famous for its Italian cuisine, or indulge in a gooey butter cake at a local bakery. Whether you’re cruising along the riverfront or catching a Cardinals game at Busch Stadium, Saint Louis promises a memorable vacation filled with heartland hospitality and iconic landmarks.\",\r\n        \"startDate\": \"2024-06-20T00:00:00.000Z\",\r\n        \"endDate\": \"2024-06-30T00:00:00.000Z\",\r\n        \"price\": 780,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Freiburg\",\r\n        \"description\": \"Immerse yourself in the beauty of Freiburg with our exclusive vacation package. Nestled in the heart of the Black Forest, Freiburg is a picturesque city known for its medieval architecture, vibrant culture, and stunning natural surroundings. Begin your journey at the iconic Freiburg Minster, a Gothic cathedral towering over the historic Old Town. Wander through the charming cobblestone streets lined with cafes, boutiques, and centuries-old buildings. Explore the vibrant market squares, where local artisans and farmers showcase their goods. Discover the tranquil beauty of Schlossberg, a hill offering panoramic views of the city and the surrounding vineyards. Indulge in the region’s culinary delights, from hearty Black Forest ham to freshly baked pretzels and locally produced wines. Whether you’re hiking through the scenic countryside or relaxing in a traditional beer garden, Freiburg promises a serene and unforgettable vacation experience.\",\r\n        \"startDate\": \"2024-07-01T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-10T00:00:00.000Z\",\r\n        \"price\": 800,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Basel\",\r\n        \"description\": \"Discover the cultural richness of Basel with our exclusive vacation package. Located along the banks of the Rhine River, Basel is Switzerland’s cultural capital, renowned for its world-class museums, medieval architecture, and vibrant arts scene. Begin your journey at the Kunstmuseum Basel, home to an impressive collection of Renaissance and modern art. Explore the charming Old Town, where narrow cobblestone streets lead to picturesque squares and historic landmarks. Visit the iconic Basel Minster, a Gothic cathedral offering stunning views from its tower. Indulge in gourmet cuisine at local cafes and Michelin-starred restaurants, then stroll along the Rhine River promenade lined with shops and cafes. Whether you’re exploring the Fondation Beyeler’s art collection or attending the renowned Art Basel fair, Basel promises a cultural adventure enriched by its history, art, and picturesque surroundings.\",\r\n        \"startDate\": \"2024-06-25T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-05T00:00:00.000Z\",\r\n        \"price\": 870,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Krakow\",\r\n        \"description\": \"Explore the historic gem of Poland with our exclusive vacation package. Krakow, Poland’s former royal capital, is a city steeped in history and charm. Begin your journey in the medieval Old Town, a UNESCO World Heritage site adorned with cobblestone streets, Gothic churches, and lively market squares. Discover the royal splendor of Wawel Castle, perched on a hill overlooking the Vistula River. Wander through the atmospheric Jewish Quarter, known for its historic synagogues and vibrant nightlife. Indulge in traditional Polish cuisine, from hearty pierogi to aromatic borscht, paired with local craft beer or vodka. Don’t miss a visit to the poignant Auschwitz-Birkenau Memorial and Museum, a sobering reminder of Krakow’s wartime history. Whether you’re exploring underground salt mines or admiring the artistry of St. Mary’s Basilica’s Gothic altarpiece, Krakow promises a captivating journey through centuries of culture and heritage.\",\r\n        \"startDate\": \"2024-07-10T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-20T00:00:00.000Z\",\r\n        \"price\": 790,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"St. Petersburg\",\r\n        \"description\": \"Indulge in the imperial splendor of St. Petersburg with our exclusive vacation package. Russia’s cultural capital, St. Petersburg, is a city of grand palaces, artistic treasures, and captivating history. Begin your journey at the majestic Winter Palace, home to the State Hermitage Museum’s vast art collection. Explore the iconic Church of the Savior on Spilled Blood, with its colorful onion domes and intricate mosaics. Wander along Nevsky Prospect, the city’s bustling main avenue lined with shops, cafes, and historic buildings. Discover the opulent interiors of Catherine Palace in nearby Pushkin or marvel at the grandeur of Peterhof Palace’s fountains and gardens. Indulge in Russian cuisine, from traditional borscht to delicate blini, paired with Russian vodka or Georgian wine. Whether you’re attending a ballet at the Mariinsky Theatre or cruising along the Neva River, St. Petersburg promises a journey enriched by its artistic legacy and imperial grandeur.\",\r\n        \"startDate\": \"2024-06-10T00:00:00.000Z\",\r\n        \"endDate\": \"2024-06-20T00:00:00.000Z\",\r\n        \"price\": 900,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"The Hague\",\r\n        \"description\": \"Discover the political heart of the Netherlands with our exclusive vacation package. The Hague, also known as Den Haag, combines a rich history with a cosmopolitan vibe. Begin your journey at Binnenhof, the historic complex that houses the Dutch parliament and the office of the Prime Minister. Explore the stunning art collection at Mauritshuis, home to Vermeer’s 'Girl with a Pearl Earring' and other Dutch masterpieces. Wander through the charming streets of the Old Town, lined with cafes, boutiques, and centuries-old architecture. Visit the Peace Palace, an international icon of peace and justice, or relax on the sandy beaches of Scheveningen. Indulge in Dutch delicacies, from freshly caught herring to stroopwafels, paired with local craft beer or Dutch gin. Whether you’re exploring the Royal Palace or cycling through the expansive Haagse Bos forest, The Hague promises a captivating blend of culture, history, and natural beauty.\",\r\n        \"startDate\": \"2024-07-15T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-25T00:00:00.000Z\",\r\n        \"price\": 830,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Napoli\",\r\n        \"description\": \"Experience the culinary delights of Naples with our exclusive vacation package. Naples, Italy’s vibrant southern gem, is a city of contrasts, where ancient history meets modern energy. Begin your journey in the historic center, a UNESCO World Heritage site filled with narrow alleys, Baroque churches, and bustling markets. Explore the archaeological treasures of Pompeii and Herculaneum, frozen in time by the eruption of Mount Vesuvius. Indulge in Neapolitan cuisine, from wood-fired pizza to seafood pasta, paired with locally produced wines like Lacryma Christi. Discover the artistic riches of the National Archaeological Museum or enjoy panoramic views from Castel Sant’Elmo. Whether you’re strolling along the waterfront promenade of Lungomare or exploring the vibrant street art of Quartieri Spagnoli, Naples promises a sensory journey through its rich culture, culinary traditions, and Mediterranean charm.\",\r\n        \"startDate\": \"2024-06-05T00:00:00.000Z\",\r\n        \"endDate\": \"2024-06-15T00:00:00.000Z\",\r\n        \"price\": 810,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Seville\",\r\n        \"description\": \"Immerse yourself in the cultural richness of Seville with our exclusive vacation package. Seville, Spain’s sun-soaked Andalusian capital, is a city of flamenco, festivals, and architectural wonders. Begin your journey at the iconic Plaza de España, a stunning example of Renaissance Revival architecture. Explore the historic Alcázar palace complex, a UNESCO World Heritage site filled with lush gardens and exquisite Mudejar architecture. Wander through the winding streets of the Santa Cruz quarter, lined with orange trees, tapas bars, and artisan workshops. Indulge in Andalusian cuisine, from savory tapas to aromatic paella, paired with regional wines like sherry and Rioja. Don’t miss a visit to the majestic Seville Cathedral and its towering Giralda bell tower, offering panoramic views of the city. Whether you’re attending a flamenco show in Triana or relaxing in the shade of Maria Luisa Park, Seville promises a vibrant and unforgettable vacation experience.\",\r\n        \"startDate\": \"2024-07-20T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-30T00:00:00.000Z\",\r\n        \"price\": 880,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Granada\",\r\n        \"description\": \"Discover the historic charm of Granada with our exclusive vacation package. Granada, nestled in the foothills of the Sierra Nevada mountains, is a city steeped in Moorish history, artistic legacy, and breathtaking landscapes. Begin your journey at the UNESCO-listed Alhambra palace complex, a masterpiece of Islamic architecture and lush gardens. Explore the winding streets of the Albaicín quarter, filled with whitewashed houses, hidden plazas, and panoramic viewpoints. Indulge in Andalusian cuisine, from hearty tapas to flavorful Moroccan-inspired dishes, paired with local wines and sherries. Discover the centuries-old gypsy caves of Sacromonte, where flamenco echoes through the night. Whether you’re marveling at the intricate carvings of the Royal Chapel or hiking through the rugged terrain of Sierra Nevada, Granada promises a captivating blend of history, culture, and natural beauty.\",\r\n        \"startDate\": \"2024-06-30T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-10T00:00:00.000Z\",\r\n        \"price\": 820,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    },\r\n    {\r\n        \"destination\": \"Cork\",\r\n        \"description\": \"Explore the picturesque beauty of Cork with our exclusive vacation package. Cork, Ireland’s second-largest city, is a vibrant blend of historic charm, cultural richness, and scenic landscapes. Begin your journey at the iconic English Market, a food lover’s paradise offering local produce, artisanal goods, and traditional Irish fare. Explore the historic streets of St. Patrick’s Street and Shandon, home to colorful houses, cozy pubs, and historic landmarks like St. Fin Barre’s Cathedral. Indulge in Irish cuisine, from hearty stews to freshly caught seafood, paired with a pint of Guinness or locally brewed craft beer. Discover the artistic treasures of Crawford Art Gallery or take a scenic boat trip along the River Lee. Whether you’re admiring the panoramic views from Cork City Gaol or exploring the rugged coastline of nearby Kinsale, Cork promises a memorable journey through Ireland’s rich culture, history, and natural beauty.\",\r\n        \"startDate\": \"2024-07-08T00:00:00.000Z\",\r\n        \"endDate\": \"2024-07-18T00:00:00.000Z\",\r\n        \"price\": 840,\r\n        \"likesIds\": [],\r\n        \"likesCount\": 0\r\n    }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/vacations/many",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"vacations",
+								"many"
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2N2NmNDg2OTBhNTQ0M2YxMjEwNTk2MiIsImZpcnN0TmFtZSI6IkpvbmF0aGFuIiwibGFzdE5hbWUiOiJSaWJhayIsImVtYWlsIjoieW9uY2guYmFhbGlsQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiZjE4Mzc4ZGQxYjRkZGNiMmZmYzFkYzU2YWNmMTc0MDdmYTRjNzMxNjJlNTU2Yzc0NjBlOWQ5YjA2YjY2NzIwNmMxNWExNjg4ZjA4NmJkNjY3YzZkOTc4NmY3NDlhMzMzZWZlNTEyM2I3NDAzZGRkOTY1NDE0NmJjZTEyZjQwZjIiLCJyb2xlSWQiOjEsImxpa2VkTGlzdCI6W10sImNyZWF0ZWRBdCI6IjIwMjQtMDYtMjdUMDU6MTE6MzQuNDkwWiIsInVwZGF0ZWRBdCI6IjIwMjQtMDYtMjdUMDU6MTE6MzQuNDkwWiJ9LCJpYXQiOjE3MTk3MjYxOTYsImV4cCI6MTcxOTc0NDE5Nn0.07yfatbfHmY5KGuOdLii6hoTfCblVjETCKjt0NTJ4xI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
