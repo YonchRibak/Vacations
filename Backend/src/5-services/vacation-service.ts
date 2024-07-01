@@ -115,6 +115,18 @@ class VacationService {
       throw new Error(`Failed to add like to vacation: ${error.message}`);
     }
   }
+
+  public async deleteVacation(_id: string): Promise<IVacationModel> {
+    try {
+      const deletedVacation = await VacationModel.findByIdAndDelete(_id).exec();
+      if (!deletedVacation) {
+        throw new Error("Vacation not found");
+      }
+      return deletedVacation;
+    } catch (error) {
+      throw new Error(`Failed to delete vacation: ${error.message}`);
+    }
+  }
 }
 
 export const vacationService = new VacationService();

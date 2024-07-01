@@ -4,9 +4,13 @@ import {
   IconCamera,
   IconHeart,
   IconBrandGithub,
+  IconTrash,
+  IconEdit,
 } from "angular-tabler-icons/icons";
 
 const icons = {
+  IconTrash,
+  IconEdit,
   IconCamera,
   IconHeart,
   IconBrandGithub,

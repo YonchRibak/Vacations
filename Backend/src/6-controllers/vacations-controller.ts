@@ -35,6 +35,12 @@ class VacationController {
       this.addVacation
     );
 
+    this.router.delete(
+      "/vacations",
+      securityMiddleware.verifyAdmin,
+      this.deleteVacation
+    );
+
     this.router.post(
       "/vacations/many",
       securityMiddleware.verifyAdmin,
@@ -114,6 +120,21 @@ class VacationController {
       const vacations = request.body;
       const addedVacations = await vacationService.addManyVacations(vacations);
       response.status(StatusCode.OK).json(addedVacations);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  //   DELETE http://localhost:4000/api/vacations
+  private async deleteVacation(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { _id } = request.body;
+      const deletedVacation = await vacationService.deleteVacation(_id);
+      response.status(StatusCode.OK).json(deletedVacation);
     } catch (err: any) {
       next(err);
     }

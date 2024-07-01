@@ -49,4 +49,12 @@ export class VacationsService {
     const addedVacation = await firstValueFrom(observable);
     return addedVacation as VacationModel;
   }
+
+  public async deleteVacation(_id: string): Promise<VacationModel> {
+    const observable = this.http.delete(appConfig.vacationUrlStatic, {
+      body: { _id: _id },
+    });
+    const deletedVacation = await firstValueFrom(observable);
+    return deletedVacation as VacationModel;
+  }
 }

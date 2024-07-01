@@ -22,34 +22,39 @@ import { UserModel } from "../../../models/UserModel";
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
 })
-export class VacationCardComponent implements OnInit {
+export class VacationCardComponent {
   @Input()
   public vacation: VacationModel;
-  public user: UserModel;
 
   @Output()
-  public likeHasBeenToggled: EventEmitter<number> = new EventEmitter<number>();
+  public vacationAltered: EventEmitter<number> = new EventEmitter<number>();
 
   public constructor(
     private vacationService: VacationsService,
-    private authService: AuthService
-  ) {}
-
-  public async ngOnInit(): Promise<void> {
-    this.user = await this.authService.retrieveUser();
-    console.log(this.vacation.imageUrl);
+    public authService: AuthService
+  ) {
+    console.log("isLiked:", this.isLiked());
+    console.log("RoleId:", this.authService.user?.roleId === 1);
   }
 
   public async toggle() {
-    await this.vacationService.toggleLike(this.vacation?._id, this.user?._id);
+    await this.vacationService.toggleLike(
+      this.vacation?._id,
+      this.authService.user._id
+    );
 
-    this.likeHasBeenToggled.emit(Math.random());
+    this.vacationAltered.emit(Math.random());
   }
 
   public isLiked(): boolean {
     return (
       !this.authService.user.roleId && // not an admin
-      this.vacation?.likesIds.includes(this.user?._id)
+      this.vacation?.likesIds.includes(this.authService.user._id)
     );
+  }
+
+  public async deleteVacation(): Promise<void> {
+    await this.vacationService.deleteVacation(this.vacation._id);
+    this.vacationAltered.emit(Math.random());
   }
 }

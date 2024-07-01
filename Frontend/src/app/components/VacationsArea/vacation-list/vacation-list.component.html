@@ -39,7 +39,7 @@
   </div>
   <div class="vacations-grid">
     <app-vacation-card
-      (likeHasBeenToggled)="receivedChangeFromChild($event)"
+      (vacationAltered)="receivedChangeFromChild($event)"
       *ngFor="let v of vacations; trackBy: trackByFn"
       [vacation]="v"
     />
