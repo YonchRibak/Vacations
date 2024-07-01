@@ -1,11 +1,11 @@
 <div>
   <form (ngSubmit)="send()" #myForm="ngForm">
+    <label for="vacationDestination">Destination:</label>
     <input
       type="text"
       name="vacationDestination"
       #destinationBox="ngModel"
       [(ngModel)]="vacation.destination"
-      placeholder="Destination?"
       required
       minLength="2"
       maxLength="20"
@@ -26,12 +26,12 @@
       >Destination cannot be longer than 20 characters</span
     >
 
+    <label for="vacationDescription">Description:</label>
     <input
       type="text"
       name="vacationDescription"
       #descriptionBox="ngModel"
       [(ngModel)]="vacation.description"
-      placeholder="Description?"
       required
       minLength="2"
       maxLength="1000"
@@ -56,7 +56,7 @@
       type="date"
       name="startDate"
       #startDateBox="ngModel"
-      [(ngModel)]="vacation.startDate"
+      [(ngModel)]="formattedStartDate"
       required
     />
     <span
@@ -70,8 +70,7 @@
       type="date"
       name="endDate"
       #endDateBox="ngModel"
-      [(ngModel)]="vacation.endDate"
-      placeholder="End date?"
+      [(ngModel)]="formattedEndDate"
       required
     />
     <span
@@ -80,12 +79,12 @@
       >Missing end date.</span
     >
 
+    <label for="price">Price:</label>
     <input
       type="number"
       name="price"
       #priceBox="ngModel"
       [(ngModel)]="vacation.price"
-      placeholder="Price?"
       required
       min="0"
     />
@@ -98,12 +97,25 @@
       >Price cannot be negative.</span
     >
 
+    <div
+      [ngStyle]="{
+        'background-image':
+          'url(' +
+          (selectedImageUrl?.length ? selectedImageUrl : vacation?.imageUrl) +
+          ')'
+      }"
+      class="image-thumbnail"
+    >
+      <button type="button" (click)="fileInput.click()">Replace Image</button>
+    </div>
+
     <input
       type="file"
       name="image"
       (change)="onFileSelected($event)"
       [(ngModel)]="mockImageValue"
       #imageInput="ngModel"
+      #fileInput
       required
     />
     <span *ngIf="imageError" class="error">{{ imageError }}</span>
@@ -111,6 +123,6 @@
       >Missing image</span
     >
 
-    <button [disabled]="myForm.invalid">Submit</button>
+    <button type="submit" [disabled]="myForm.invalid">Submit Changes</button>
   </form>
 </div>

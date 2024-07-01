@@ -41,6 +41,6 @@ export class AddComponent {
 
   public async send(): Promise<void> {
     await this.vacationsService.addVacation(this.vacation, this.image);
-    this.router.navigateByUrl("/vacations");
+    this.router.navigateByUrl("/home");
   }
 }

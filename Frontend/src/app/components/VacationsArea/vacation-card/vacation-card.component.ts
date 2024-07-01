@@ -14,11 +14,12 @@ import { IconsModule } from "../../../../icons.module";
 import { VacationsService } from "../../../services/vacations.service";
 import { AuthService } from "../../../services/auth.service";
 import { UserModel } from "../../../models/UserModel";
+import { RouterLink, RouterOutlet } from "@angular/router";
 
 @Component({
   selector: "app-vacation-card",
   standalone: true,
-  imports: [CommonModule, IconsModule],
+  imports: [CommonModule, IconsModule, RouterOutlet, RouterLink],
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
 })

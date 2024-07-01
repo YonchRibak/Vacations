@@ -40,6 +40,11 @@ class VacationController {
       securityMiddleware.verifyAdmin,
       this.deleteVacation
     );
+    this.router.put(
+      "/vacations/:_id([0-9a-fA-F]{24})",
+      securityMiddleware.verifyAdmin,
+      this.editVacation
+    );
 
     this.router.post(
       "/vacations/many",
@@ -135,6 +140,27 @@ class VacationController {
       const { _id } = request.body;
       const deletedVacation = await vacationService.deleteVacation(_id);
       response.status(StatusCode.OK).json(deletedVacation);
+    } catch (err: any) {
+      next(err);
+    }
+  }
+
+  //   PUT http://localhost:4000/api/vacations/:_id
+  private async editVacation(
+    request: Request,
+    response: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const { _id } = request.params;
+      const imageFile = request.file;
+      const vacation = request.body;
+      const updatedVacation = await vacationService.editVacation(
+        _id,
+        vacation,
+        imageFile
+      );
+      response.status(StatusCode.OK).json(updatedVacation);
     } catch (err: any) {
       next(err);
     }

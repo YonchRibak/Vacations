@@ -1,0 +1,12 @@
+input[type="file"] {
+  display: none;
+}
+.image-thumbnail {
+  display: flex;
+  min-height: 25vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}

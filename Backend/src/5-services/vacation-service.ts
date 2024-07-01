@@ -127,6 +127,46 @@ class VacationService {
       throw new Error(`Failed to delete vacation: ${error.message}`);
     }
   }
+
+  public async editVacation(
+    _id: string,
+    vacation: IVacationModel,
+    newImage?: Express.Multer.File
+  ): Promise<IVacationModel> {
+    try {
+      // retrieve the current vacation data:
+      const existingVacation = await this.getVacationById(_id);
+      if (!existingVacation) {
+        throw new Error(
+          "The vacation you are attempting to edit was not found"
+        );
+      }
+
+      // update the vacation fields, excluding the _id field:
+      const updatedFields: Partial<IVacationModel> = { ...vacation };
+
+      // attach image if new one was sent:
+      if (newImage) {
+        updatedFields.image = newImage.originalname;
+      } else {
+        updatedFields.image = existingVacation.image;
+      }
+
+      // validate the updated vacation fields:
+      const editedVacation = new VacationModel(updatedFields);
+      await editedVacation.validate();
+
+      // Perform the update, excluding the _id field
+      const updatedVacation = await VacationModel.findByIdAndUpdate(
+        _id,
+        { $set: updatedFields },
+        { new: true } // Return the updated document
+      ).exec();
+      return updatedVacation;
+    } catch (error) {
+      throw new Error(`Failed to delete vacation: ${error.message}`);
+    }
+  }
 }
 
 export const vacationService = new VacationService();

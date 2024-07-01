@@ -7,11 +7,13 @@ import { RegisterComponent } from "./components/AuthArea/register/register.compo
 import { LoginComponent } from "./components/AuthArea/login/login.component";
 import { VacationListComponent } from "./components/VacationsArea/vacation-list/vacation-list.component";
 import { AddComponent } from "./components/AdminArea/add/add.component";
+import { EditComponent } from "./components/AdminArea/edit/edit.component";
 
 export const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
   { path: "add", component: AddComponent },
+  { path: "edit/:_id", component: EditComponent },
   { path: "home", component: VacationListComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: Page404Component },
