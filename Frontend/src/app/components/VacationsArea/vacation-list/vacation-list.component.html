@@ -28,6 +28,7 @@
       </div>
       <div class="checkbox-label-pair">
         <input
+          [disabled]="authService.user?.roleId"
           type="checkbox"
           value="likedByUser"
           [checked]="filterBy === authService.user?._id"

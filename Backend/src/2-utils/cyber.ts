@@ -13,7 +13,7 @@ class Cyber {
     // create container object containing the user"
     const container = { user };
 
-    const options: SignOptions = { expiresIn: "5h" };
+    const options: SignOptions = { expiresIn: "3d" };
     const token = jwt.sign(container, appConfig.jwtSecretKey, options);
     return token;
   }
