@@ -1,0 +1,115 @@
+<div>
+  <form (ngSubmit)="send()" #myForm="ngForm">
+    <input
+      type="text"
+      name="vacationDestination"
+      #destinationBox="ngModel"
+      [(ngModel)]="vacation.destination"
+      placeholder="Destination?"
+      required
+      minLength="2"
+      maxLength="20"
+    />
+    <span
+      *ngIf="destinationBox.touched && destinationBox.errors?.['required']"
+      class="error"
+      >Missing destination</span
+    >
+    <span
+      *ngIf="destinationBox.touched && destinationBox.errors?.['minLength']"
+      class="error"
+      >Destination has to be longer than one character</span
+    >
+    <span
+      *ngIf="destinationBox.touched && destinationBox.errors?.['maxLength']"
+      class="error"
+      >Destination cannot be longer than 10 characters</span
+    >
+
+    <input
+      type="text"
+      name="vacationDescription"
+      #descriptionBox="ngModel"
+      [(ngModel)]="vacation.description"
+      placeholder="Description?"
+      required
+      minLength="2"
+      maxLength="1000"
+    />
+    <span
+      *ngIf="descriptionBox.touched && descriptionBox.errors?.['required']"
+      class="error"
+      >Missing description</span
+    >
+    <span
+      *ngIf="descriptionBox.touched && descriptionBox.errors?.['minLength']"
+      class="error"
+      >Description has to be longer than one character</span
+    >
+    <span
+      *ngIf="descriptionBox.touched && descriptionBox.errors?.['maxLength']"
+      class="error"
+      >Description cannot be longer than 1000 characters</span
+    >
+    <input
+      type="date"
+      name="startDate"
+      #startDateBox="ngModel"
+      [(ngModel)]="vacation.startDate"
+      placeholder="Start date?"
+      required
+    />
+    <span
+      *ngIf="startDateBox.touched && startDateBox.errors?.['required']"
+      class="error"
+      >Missing start date.</span
+    >
+
+    <input
+      type="date"
+      name="expirationDate"
+      #endDateBox="ngModel"
+      [(ngModel)]="vacation.endDate"
+      placeholder="End date?"
+      required
+    />
+    <span
+      *ngIf="endDateBox.touched && endDateBox.errors?.['required']"
+      class="error"
+      >Missing end date.</span
+    >
+
+    <input
+      type="number"
+      name="price"
+      #priceBox="ngModel"
+      [(ngModel)]="vacation.price"
+      placeholder="Price?"
+      required
+      min="0"
+    />
+    <span
+      *ngIf="priceBox.touched && priceBox.errors?.['required']"
+      class="error"
+      >Missing price</span
+    >
+    <span *ngIf="priceBox.touched && priceBox.errors?.['min']" class="error"
+      >Price cannot be negative.</span
+    >
+
+    <input
+      type="file"
+      name="image"
+      (change)="onFileSelected($event)"
+      [(ngModel)]="mockImageValue"
+      #imageInput="ngModel"
+      required
+    />
+    <span *ngIf="imageError" class="error">{{ imageError }}</span>
+    <span *ngIf="imageInput.touched && !image" class="error"
+      >Missing image</span
+    >
+
+    <button [disabled]="myForm.invalid">Submit</button>
+  </form>
+</div>

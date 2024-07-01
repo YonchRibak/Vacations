@@ -15,7 +15,7 @@
   >
     <h3>{{ vacation?.destination }}</h3>
   </div>
-  <p>{{ vacation?.description?.substring(0, 300) }}...</p>
+  <p>{{ vacation?.description?.substring(0, 200) }}...</p>
   <span>Start Date: {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span>
   <span>End Date: {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span>
   <span>{{ vacation?.price | currency : "EUR" }}</span>

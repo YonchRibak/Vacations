@@ -47,6 +47,9 @@ export class VacationCardComponent implements OnInit {
   }
 
   public isLiked(): boolean {
-    return this.vacation?.likesIds.includes(this.user?._id);
+    return (
+      !this.authService.user.roleId && // not an admin
+      this.vacation?.likesIds.includes(this.user?._id)
+    );
   }
 }

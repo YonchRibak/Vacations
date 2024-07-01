@@ -6,10 +6,12 @@ import { Page404Component } from "./components/layout-area/page404/page404.compo
 import { RegisterComponent } from "./components/AuthArea/register/register.component";
 import { LoginComponent } from "./components/AuthArea/login/login.component";
 import { VacationListComponent } from "./components/VacationsArea/vacation-list/vacation-list.component";
+import { AddComponent } from "./components/AdminArea/add/add.component";
 
 export const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
+  { path: "add", component: AddComponent },
   { path: "home", component: VacationListComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: Page404Component },

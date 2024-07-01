@@ -31,18 +31,19 @@ class VacationController {
 
     this.router.post(
       "/vacations",
-      securityMiddleware.verifyLoggedIn,
+      securityMiddleware.verifyAdmin,
       this.addVacation
     );
 
     this.router.post(
       "/vacations/many",
-      securityMiddleware.verifyLoggedIn,
+      securityMiddleware.verifyAdmin,
       this.addManyVacations
     );
 
     this.router.patch(
       "/vacations/:_id([0-9a-fA-F]{24})/like",
+      securityMiddleware.verifyLoggedIn,
       this.toggleLikeAtVacation
     );
   }

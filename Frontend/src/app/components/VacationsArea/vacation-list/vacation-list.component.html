@@ -1,7 +1,7 @@
 <div class="container">
   <div class="sort-by-selector">
     <label>Sort Vacations By:</label>
-    <select [(ngModel)]="sortBy" (change)="fetchVacations()">
+    <select [(ngModel)]="sortBy" (change)="sort()">
       <option value="startDate">Start Date</option>
       <option value="price">Price</option>
       <option value="likesCount">Likes</option>

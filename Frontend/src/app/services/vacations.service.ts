@@ -32,4 +32,21 @@ export class VacationsService {
     await firstValueFrom(observable);
     this.vacationsHaveBeenUpdated++;
   }
+
+  public async addVacation(
+    vacation: VacationModel,
+    image: File
+  ): Promise<VacationModel> {
+    const formData = new FormData();
+    formData.append("destination", vacation.destination);
+    formData.append("description", vacation.description);
+    formData.append("startDate", vacation.startDate.toString());
+    formData.append("endDate", vacation.endDate.toString());
+    formData.append("price", vacation.price.toString());
+    formData.append("image", image);
+
+    const observable = this.http.post(appConfig.vacationUrlStatic, formData);
+    const addedVacation = await firstValueFrom(observable);
+    return addedVacation as VacationModel;
+  }
 }

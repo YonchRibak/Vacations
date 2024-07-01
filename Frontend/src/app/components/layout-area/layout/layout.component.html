@@ -8,11 +8,18 @@
   </nav>
 
   <nav *ngIf="authService.isLoggedIn">
+    <!-- if roleId is truthy (equals 1 instead of 0) user is admin:  -->
+    <a *ngIf="authService.user?.roleId" routerLink="/add">Add Vacation</a>
+    <span *ngIf="authService.user?.roleId"> | </span>
+    <a *ngIf="authService.user?.roleId" routerLink="/report">Report</a>
+    <span *ngIf="authService.user?.roleId"> | </span>
     <a routerLink="/login" (click)="logout()">Log Out</a>
     <span> | </span>
     <a routerLink="/about">About Us</a>
     <span> | </span>
     <span>Hi {{ authService.user?.firstName }}</span>
+    <span *ngIf="authService.user?.roleId"> | </span>
+    <span *ngIf="authService.user?.roleId"> Admin Access</span>
   </nav>
 
   <header>

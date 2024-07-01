@@ -66,12 +66,18 @@ export class VacationListComponent implements OnInit {
     return item._id;
   }
 
-  public async toggleFilter(value: string) {
+  public async sort(): Promise<void> {
+    this.currPage = 1;
+    await this.fetchVacations();
+  }
+
+  public async toggleFilter(value: string): Promise<void> {
     if (this.filterBy === value) {
       this.filterBy = null;
     } else {
       this.filterBy = value;
     }
+    this.currPage = 1;
     await this.fetchVacations();
   }
 }
