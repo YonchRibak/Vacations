@@ -52,10 +52,12 @@
   transform: scale(1.3);
   transition: transform ease-in-out 200ms;
 }
-.admin-cancel-interaction,
-.admin-cancel-interaction:hover {
-  transform: scale(1) !important;
-  cursor: default !important;
+.likes .heart-icon.admin-cancel-interaction,
+.likes .heart-icon.admin-cancel-interaction:hover,
+.likes span.admin-cancel-interaction,
+.likes span.admin-cancel-interaction:hover {
+  transform: scale(1);
+  cursor: default;
 }
 
 .selected {
