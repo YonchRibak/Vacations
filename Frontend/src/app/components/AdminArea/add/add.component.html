@@ -26,7 +26,7 @@
       >Destination cannot be longer than 20 characters</span
     >
 
-    <input
+    <textarea
       type="text"
       name="vacationDescription"
       #descriptionBox="ngModel"
@@ -35,7 +35,7 @@
       required
       minLength="2"
       maxLength="1000"
-    />
+    ></textarea>
     <span
       *ngIf="descriptionBox.touched && descriptionBox.errors?.['required']"
       class="error"

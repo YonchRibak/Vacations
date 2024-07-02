@@ -3,6 +3,7 @@ input[type="file"] {
 }
 .image-thumbnail {
   display: flex;
+  margin-bottom: 1rem;
   min-height: 25vh;
   width: 100%;
   justify-content: center;

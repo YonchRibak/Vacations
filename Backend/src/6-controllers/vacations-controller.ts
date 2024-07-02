@@ -66,8 +66,8 @@ class VacationController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const page = parseInt(request.query.page as string) || 1;
-      const limit = parseInt(request.query.limit as string) || 9;
+      const page = parseInt(request.query.page as string) || null;
+      const limit = parseInt(request.query.limit as string) || null;
       const { sortBy, filterBy } = request.params;
       const vacations = await vacationService.getAllVacations(
         page,

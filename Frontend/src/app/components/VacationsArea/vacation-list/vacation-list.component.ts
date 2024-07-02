@@ -36,7 +36,7 @@ export class VacationListComponent implements OnInit {
 
   public async fetchVacations() {
     try {
-      this.vacations = await this.vacationsService.getAllVacations(
+      this.vacations = await this.vacationsService.getAllVacationsWithLimit(
         this.currPage,
         this.sortBy,
         this.filterBy

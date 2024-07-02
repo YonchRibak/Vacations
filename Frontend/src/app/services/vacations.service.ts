@@ -2,8 +2,10 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { VacationModel } from "../models/VacationModel";
 import { appConfig } from "../app.config";
-import { first, firstValueFrom } from "rxjs";
+import { firstValueFrom } from "rxjs";
 import { TokenService } from "./token.service";
+import { proxy } from "valtio";
+import { globalStateManager } from "./globalState";
 
 @Injectable({
   providedIn: "root",
@@ -12,7 +14,7 @@ export class VacationsService {
   public vacationsHaveBeenUpdated = 1;
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
-  public async getAllVacations(
+  public async getAllVacationsWithLimit(
     pages: number,
     sortBy: string = "startDate",
     filterBy: string = "noFilter"
@@ -21,6 +23,17 @@ export class VacationsService {
       appConfig.vacationsUrl(pages, sortBy, filterBy)
     );
     const vacations = await firstValueFrom(observable);
+    return vacations;
+  }
+  public async getAllVacations(
+    sortBy: string = "startDate",
+    filterBy: string = "noFilter"
+  ): Promise<VacationModel[]> {
+    const observable = this.http.get<VacationModel[]>(
+      appConfig.vacationUrlStatic + `${sortBy}/${filterBy}`
+    );
+    const vacations = await firstValueFrom(observable);
+    globalStateManager.vacations = vacations;
     return vacations;
   }
 

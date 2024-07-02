@@ -5,6 +5,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { AuthService } from "../../../services/auth.service";
 import { UserModel } from "../../../models/UserModel";
+import { VacationsService } from "../../../services/vacations.service";
+import { globalStateManager } from "../../../services/globalState";
 
 @Component({
   selector: "app-layout",
@@ -16,13 +18,16 @@ import { UserModel } from "../../../models/UserModel";
 export class LayoutComponent implements OnInit {
   public constructor(
     private tokenService: TokenService,
-    public authService: AuthService
+    public authService: AuthService,
+    private vacationsService: VacationsService
   ) {}
-
+  public user: UserModel;
   public async ngOnInit(): Promise<void> {
     if (this.tokenService.getToken()) {
       this.authService.isLoggedIn = true;
-      this.authService.user = await this.authService.retrieveUser();
+      await this.vacationsService.getAllVacations();
+      await this.authService.retrieveUser();
+      this.user = globalStateManager.currUser;
     }
   }
 

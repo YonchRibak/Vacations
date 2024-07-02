@@ -6,18 +6,15 @@ import { firstValueFrom } from "rxjs";
 import { CredentialsModel } from "../models/CredentialsModel";
 import { trigger } from "@angular/animations";
 import { TokenService } from "./token.service";
+import { globalStateManager } from "./globalState";
 
 @Injectable({
   providedIn: "root",
 })
-export class AuthService implements OnInit {
+export class AuthService {
   public isLoggedIn: boolean = false;
   public user: UserModel;
   constructor(private http: HttpClient, private tokenService: TokenService) {}
-
-  public async ngOnInit(): Promise<void> {
-    await this.retrieveUser();
-  }
 
   public async register(user: UserModel): Promise<string> {
     let token: string;
@@ -50,7 +47,7 @@ export class AuthService implements OnInit {
       token: token,
     });
     const user = await firstValueFrom(observable);
-    this.user = user;
+    globalStateManager.currUser = user;
     return user;
   }
 }

@@ -20,10 +20,15 @@ form {
 }
 
 form > input,
-form > button {
+form > button,
+form > textarea {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   font-size: large;
+}
+
+form > textarea {
+  height: 20vh;
 }
 
 form > .error {

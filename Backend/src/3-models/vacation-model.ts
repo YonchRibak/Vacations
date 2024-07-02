@@ -55,10 +55,6 @@ export const VacationSchema = new Schema<IVacationModel>(
         type: Schema.Types.ObjectId,
       },
     ],
-    likesCount: {
-      type: Number,
-      default: 0,
-    },
   },
   {
     versionKey: false, // Do not create a "__v" field in new documents.
@@ -80,6 +76,10 @@ VacationSchema.virtual("likes", {
 
 VacationSchema.virtual("imageUrl").get(function (this: IVacationModel) {
   return appConfig.baseImageUrl + this.image;
+});
+
+VacationSchema.virtual("likesCount").get(function (this: IVacationModel) {
+  return this.likesIds.length;
 });
 
 export const VacationModel = model<IVacationModel>(

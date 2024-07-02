@@ -1,18 +1,18 @@
 <div class="card">
-  <div (click)="authService.user?.roleId ? null : toggle()" class="likes">
+  <div (click)="user?.roleId ? null : toggle()" class="likes">
     <!-- prettier-ignore -->
     <i-tabler
-      [ngClass]="{ 'selected': isLiked(), 'admin-cancel-interaction': authService.user?.roleId === 1}"
+      [ngClass]="{ 'selected': isLiked(), 'admin-cancel-interaction': user?.roleId === 1}"
       name="heart"
       class="heart-icon"
     />
     <span
       *ngIf="vacation?.likesIds?.length"
-      [ngClass]="{ 'admin-cancel-interaction': authService.user?.roleId === 1 }"
+      [ngClass]="{ 'admin-cancel-interaction': user?.roleId === 1 }"
       >{{ vacation?.likesIds.length }}</span
     >
   </div>
-  <div *ngIf="authService.user?.roleId" class="admin-actions">
+  <div *ngIf="user?.roleId" class="admin-actions">
     <i-tabler name="trash" (click)="deleteVacation()" />
     <a [routerLink]="['/edit/', vacation?._id]">
       <i-tabler name="edit" />

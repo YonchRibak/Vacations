@@ -8,4 +8,5 @@ export class VacationModel {
   image: string;
   imageUrl: string;
   likesIds: string[];
+  likesCount: number;
 }

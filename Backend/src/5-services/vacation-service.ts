@@ -26,13 +26,13 @@ class VacationService {
   }
 
   public async getAllVacations(
-    page: number = 1,
-    limit: number = 9,
+    page?: number,
+    limit?: number,
     sortByKey: string = "startDate",
-    filterBy: string
+    filterBy?: string
   ): Promise<IVacationModel[]> {
     try {
-      const skip = (page - 1) * limit;
+      const skip = page && limit ? (page - 1) * limit : null;
 
       // filterBy logic:
       const today = new Date();
@@ -78,7 +78,7 @@ class VacationService {
     }
   }
   public async getVacationById(_id: string): Promise<IVacationModel> {
-    const vacation = await VacationModel.findById(_id).exec();
+    const vacation = await VacationModel.findById(_id).populate("image").exec();
     return vacation;
   }
 

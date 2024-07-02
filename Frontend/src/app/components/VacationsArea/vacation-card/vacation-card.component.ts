@@ -15,6 +15,7 @@ import { VacationsService } from "../../../services/vacations.service";
 import { AuthService } from "../../../services/auth.service";
 import { UserModel } from "../../../models/UserModel";
 import { RouterLink, RouterOutlet } from "@angular/router";
+import { globalStateManager } from "../../../services/globalState";
 
 @Component({
   selector: "app-vacation-card",
@@ -23,19 +24,20 @@ import { RouterLink, RouterOutlet } from "@angular/router";
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
 })
-export class VacationCardComponent {
+export class VacationCardComponent implements OnInit {
   @Input()
   public vacation: VacationModel;
-
+  public user: UserModel;
   @Output()
   public vacationAltered: EventEmitter<number> = new EventEmitter<number>();
 
   public constructor(
     private vacationService: VacationsService,
     public authService: AuthService
-  ) {
-    console.log("isLiked:", this.isLiked());
-    console.log("RoleId:", this.authService.user?.roleId === 1);
+  ) {}
+
+  public ngOnInit(): void {
+    this.user = globalStateManager.currUser;
   }
 
   public async toggle() {
@@ -49,8 +51,8 @@ export class VacationCardComponent {
 
   public isLiked(): boolean {
     return (
-      !this.authService.user.roleId && // not an admin
-      this.vacation?.likesIds.includes(this.authService.user._id)
+      !this.authService.user?.roleId && // not an admin
+      this.vacation?.likesIds.includes(this.authService.user?._id)
     );
   }
 
