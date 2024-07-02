@@ -13,7 +13,6 @@ import { globalStateManager } from "./globalState";
 })
 export class AuthService {
   public isLoggedIn: boolean = false;
-  public user: UserModel;
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   public async register(user: UserModel): Promise<string> {
@@ -22,6 +21,8 @@ export class AuthService {
       const observable = this.http.post<any>(appConfig.registerUrl, user);
       token = await firstValueFrom(observable);
       if (token.length) this.isLoggedIn = true;
+      this.tokenService.setToken(token);
+      await this.retrieveUser();
     } catch (err: any) {
       this.isLoggedIn = false;
       alert(err.message);
@@ -35,6 +36,8 @@ export class AuthService {
       const observable = this.http.post<any>(appConfig.loginUrl, credentials);
       token = await firstValueFrom(observable);
       if (token.length) this.isLoggedIn = true;
+      this.tokenService.setToken(token);
+      await this.retrieveUser();
     } catch (err: any) {
       alert(err.message);
     }

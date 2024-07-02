@@ -10,6 +10,7 @@ export class TokenService {
   public constructor() {}
 
   public setToken(token: string) {
+    localStorage.setItem("token", token);
     this.authToken = token;
   }
 

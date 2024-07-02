@@ -1,0 +1,31 @@
+.logo {
+}
+.bg-teal {
+  background-color: var(--secondary);
+}
+.hello-user {
+  color: var(--primary);
+  font-weight: 600;
+}
+.custom-link {
+  cursor: pointer;
+}
+.custom-link > span {
+  color: var(--primary);
+  font-weight: 600;
+}
+.custom-link.active > span {
+  color: white;
+}
+.custom-link.active,
+.custom-link.active:hover {
+  background-color: var(--primary-darkened);
+  border-radius: 1rem;
+}
+.custom-link:hover {
+  background-color: var(--secondary);
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  color: var(--primary) !important;
+}

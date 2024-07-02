@@ -28,11 +28,11 @@
       </div>
       <div class="checkbox-label-pair">
         <input
-          [disabled]="authService.user?.roleId"
+          [disabled]="user?.roleId === 1"
           type="checkbox"
           value="likedByUser"
-          [checked]="filterBy === authService.user?._id"
-          (change)="toggleFilter(authService.user?._id)"
+          [checked]="filterBy === user?._id"
+          (change)="toggleFilter(user?._id)"
         />
         <label>Only Vacations Liked By Me</label>
       </div>

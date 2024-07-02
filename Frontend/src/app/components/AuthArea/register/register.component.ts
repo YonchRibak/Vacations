@@ -52,9 +52,6 @@ export class RegisterComponent {
   public async send(): Promise<void> {
     try {
       const token = await this.authService.register(this.newUser);
-      localStorage.setItem("token", token);
-      this.tokenService.setToken(token);
-      this.authService.user = await this.authService.retrieveUser();
       this.router.navigateByUrl("/home");
     } catch (err: any) {
       alert(err.message);

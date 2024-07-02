@@ -1,86 +1,86 @@
 {
-  "hash": "12cff77f",
+  "hash": "90a80fe1",
   "configHash": "5559fd65",
-  "lockfileHash": "72727394",
-  "browserHash": "633594a5",
+  "lockfileHash": "03bbb7b8",
+  "browserHash": "10b4ef81",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "27cd1a5b",
+      "fileHash": "25aea344",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "545d488c",
+      "fileHash": "7362502d",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "1c8b220c",
+      "fileHash": "54f9121d",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "e8be1687",
+      "fileHash": "78787dff",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "a462e4ba",
+      "fileHash": "f79f94fa",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "c8536b46",
-      "needsInterop": false
-    },
-    "angular-tabler-icons": {
-      "src": "../../../../../node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons.mjs",
-      "file": "angular-tabler-icons.js",
-      "fileHash": "5135d1a2",
-      "needsInterop": false
-    },
-    "angular-tabler-icons/icons": {
-      "src": "../../../../../node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons-icons.mjs",
-      "file": "angular-tabler-icons_icons.js",
-      "fileHash": "b96e537d",
-      "needsInterop": false
-    },
-    "rxjs": {
-      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
-      "file": "rxjs.js",
-      "fileHash": "67228004",
+      "fileHash": "61b52d7c",
       "needsInterop": false
     },
     "ag-charts-angular": {
       "src": "../../../../../node_modules/ag-charts-angular/fesm2022/ag-charts-angular.mjs",
       "file": "ag-charts-angular.js",
-      "fileHash": "0779a064",
+      "fileHash": "6c1c081e",
+      "needsInterop": false
+    },
+    "angular-tabler-icons": {
+      "src": "../../../../../node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons.mjs",
+      "file": "angular-tabler-icons.js",
+      "fileHash": "4ee96a6f",
+      "needsInterop": false
+    },
+    "angular-tabler-icons/icons": {
+      "src": "../../../../../node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons-icons.mjs",
+      "file": "angular-tabler-icons_icons.js",
+      "fileHash": "c1eeb931",
+      "needsInterop": false
+    },
+    "file-saver": {
+      "src": "../../../../../node_modules/file-saver/dist/FileSaver.min.js",
+      "file": "file-saver.js",
+      "fileHash": "5eaaabeb",
+      "needsInterop": true
+    },
+    "papaparse": {
+      "src": "../../../../../node_modules/papaparse/papaparse.min.js",
+      "file": "papaparse.js",
+      "fileHash": "4d1d5329",
+      "needsInterop": true
+    },
+    "rxjs": {
+      "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "b22c7d66",
       "needsInterop": false
     },
     "valtio": {
       "src": "../../../../../node_modules/valtio/esm/index.mjs",
       "file": "valtio.js",
-      "fileHash": "7c04d62c",
+      "fileHash": "939dd03b",
       "needsInterop": false
-    },
-    "papaparse": {
-      "src": "../../../../../node_modules/papaparse/papaparse.min.js",
-      "file": "papaparse.js",
-      "fileHash": "53fb89af",
-      "needsInterop": true
-    },
-    "file-saver": {
-      "src": "../../../../../node_modules/file-saver/dist/FileSaver.min.js",
-      "file": "file-saver.js",
-      "fileHash": "ea97a507",
-      "needsInterop": true
     }
   },
   "chunks": {

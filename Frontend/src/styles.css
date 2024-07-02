@@ -1,3 +1,9 @@
+:root {
+  --primary: #a5e9e1;
+  --primary-darkened: #08ab98;
+  --secondary: #2e2b2b;
+}
+
 html,
 body {
   height: 100%;

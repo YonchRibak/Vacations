@@ -24,10 +24,6 @@ export class LoginComponent {
 
   public async send(): Promise<void> {
     const token = await this.authService.login(this.credentials);
-    localStorage.setItem("token", token);
-    this.tokenService.setToken(token);
-    this.authService.user = await this.authService.retrieveUser();
-
     this.router.navigateByUrl("/home");
   }
 }

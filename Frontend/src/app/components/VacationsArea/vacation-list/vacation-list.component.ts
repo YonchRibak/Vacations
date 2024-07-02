@@ -12,6 +12,8 @@ import { VacationModel } from "../../../models/VacationModel";
 import { FormsModule } from "@angular/forms";
 import { UserModel } from "../../../models/UserModel";
 import { AuthService } from "../../../services/auth.service";
+import { globalStateManager } from "../../../services/globalState";
+import { subscribe } from "valtio";
 
 @Component({
   selector: "app-vacation-list",
@@ -25,6 +27,9 @@ export class VacationListComponent implements OnInit {
   public currPage: number = 1;
   public sortBy: string = "startDate";
   public filterBy: string;
+  public user = globalStateManager.currUser;
+  private unsubscribe: () => void;
+
   public constructor(
     public vacationsService: VacationsService,
     public authService: AuthService
@@ -32,6 +37,9 @@ export class VacationListComponent implements OnInit {
 
   public async ngOnInit(): Promise<void> {
     await this.fetchVacations();
+    this.unsubscribe = subscribe(globalStateManager, () => {
+      this.user = globalStateManager.currUser;
+    });
   }
 
   public async fetchVacations() {

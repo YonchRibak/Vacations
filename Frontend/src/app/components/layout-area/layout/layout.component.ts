@@ -7,11 +7,13 @@ import { AuthService } from "../../../services/auth.service";
 import { UserModel } from "../../../models/UserModel";
 import { VacationsService } from "../../../services/vacations.service";
 import { globalStateManager } from "../../../services/globalState";
+import { NavbarComponent } from "../navbar/navbar.component";
+import { subscribe } from "valtio";
 
 @Component({
   selector: "app-layout",
   standalone: true,
-  imports: [RouterOutlet, RouterLink, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, NavbarComponent],
   templateUrl: "./layout.component.html",
   styleUrl: "./layout.component.css",
 })
@@ -21,19 +23,16 @@ export class LayoutComponent implements OnInit {
     public authService: AuthService,
     private vacationsService: VacationsService
   ) {}
-  public user: UserModel;
+  public user = globalStateManager.currUser;
+
   public async ngOnInit(): Promise<void> {
     if (this.tokenService.getToken()) {
       this.authService.isLoggedIn = true;
       await this.vacationsService.getAllVacations("likesCount");
       await this.authService.retrieveUser();
-      this.user = globalStateManager.currUser;
+      const unsubscribe = subscribe(globalStateManager, () => {
+        this.user = globalStateManager.currUser;
+      });
     }
-  }
-
-  public logout() {
-    localStorage.removeItem("token");
-    this.tokenService.setToken("");
-    this.authService.isLoggedIn = false;
   }
 }

@@ -1,21 +1,13 @@
 import { CommonModule } from "@angular/common";
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { VacationModel } from "../../../models/VacationModel";
 import { IconsModule } from "../../../../icons.module";
 import { VacationsService } from "../../../services/vacations.service";
 import { AuthService } from "../../../services/auth.service";
-import { UserModel } from "../../../models/UserModel";
+
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { globalStateManager } from "../../../services/globalState";
+import { subscribe } from "valtio";
 
 @Component({
   selector: "app-vacation-card",
@@ -27,7 +19,8 @@ import { globalStateManager } from "../../../services/globalState";
 export class VacationCardComponent implements OnInit {
   @Input()
   public vacation: VacationModel;
-  public user: UserModel;
+  public user = globalStateManager.currUser;
+  private unsubscribe: () => void;
   @Output()
   public vacationAltered: EventEmitter<number> = new EventEmitter<number>();
 
@@ -37,22 +30,21 @@ export class VacationCardComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.user = globalStateManager.currUser;
+    this.unsubscribe = subscribe(globalStateManager, () => {
+      this.user = globalStateManager.currUser;
+    });
   }
 
   public async toggle() {
-    await this.vacationService.toggleLike(
-      this.vacation?._id,
-      this.authService.user._id
-    );
+    await this.vacationService.toggleLike(this.vacation?._id, this.user?._id);
 
     this.vacationAltered.emit(Math.random());
   }
 
   public isLiked(): boolean {
     return (
-      !this.authService.user?.roleId && // not an admin
-      this.vacation?.likesIds.includes(this.authService.user?._id)
+      !this.user?.roleId && // not an admin
+      this.vacation?.likesIds.includes(this.user?._id)
     );
   }
 

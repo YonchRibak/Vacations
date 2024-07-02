@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg bg-teal">
+  <a class="navbar-brand" routerLink="/">
+    <img
+      src="../assets/logo.png"
+      class="img-fluid logo"
+      style="width: 100%; height: 100px"
+    />
+  </a>
+  <span *ngIf="authService.isLoggedIn" class="hello-user"
+    >Hello {{ user?.firstName }}</span
+  >
+  <span *ngIf="user?.roleId"> | </span>
+  <span *ngIf="user?.roleId">Admin Access</span>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{ show: navbarOpen }">
+    <div class="navbar-nav ml-auto">
+      <a
+        *ngIf="authService.isLoggedIn"
+        class="dropdown-item custom-link"
+        [routerLinkActive]="['active']"
+        [routerLink]="['/home']"
+      >
+        <span>Home</span>
+      </a>
+      <a
+        class="dropdown-item custom-link"
+        [routerLinkActive]="['active']"
+        [routerLink]="['/about']"
+      >
+        <span>About</span>
+      </a>
+      <a
+        *ngIf="!authService.isLoggedIn"
+        class="dropdown-item custom-link"
+        [routerLinkActive]="['active']"
+        [routerLink]="['/login']"
+      >
+        <span>Login</span>
+      </a>
+      <a
+        *ngIf="!authService.isLoggedIn"
+        class="dropdown-item custom-link"
+        [routerLinkActive]="['active']"
+        [routerLink]="['/register']"
+      >
+        <span>Register</span>
+      </a>
+      <a
+        *ngIf="authService.isLoggedIn"
+        class="dropdown-item custom-link"
+        (click)="logout()"
+      >
+        <span>Logout</span>
+      </a>
+    </div>
+  </div>
+</nav>
