@@ -25,7 +25,7 @@ export class LayoutComponent implements OnInit {
   public async ngOnInit(): Promise<void> {
     if (this.tokenService.getToken()) {
       this.authService.isLoggedIn = true;
-      await this.vacationsService.getAllVacations();
+      await this.vacationsService.getAllVacations("likesCount");
       await this.authService.retrieveUser();
       this.user = globalStateManager.currUser;
     }

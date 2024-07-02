@@ -25,17 +25,62 @@ export class VacationsService {
     const vacations = await firstValueFrom(observable);
     return vacations;
   }
-  public async getAllVacations(
+//   public async getAllVacations(
+//     sortBy: string = "startDate",
+//     filterBy: string = "noFilter"
+//   ): Promise<void> {
+//     if (!localStorage.getItem("vacations") || JSON.parse(
+//         localStorage.getItem("vacations")
+//       ).timeStamp > new Date() + ?? )
+//   {  const observable = this.http.get<VacationModel[]>(
+//       appConfig.vacationUrlStatic + `${sortBy}/${filterBy}`
+//     );
+//     const vacations = await firstValueFrom(observable);
+//     localStorage.setItem(
+//       "vacations",
+//       JSON.stringify({ value: vacations, timeStamp: new Date() })
+//     );}
+//     globalStateManager.vacations = JSON.parse(
+//       localStorage.getItem("vacations")
+//     ).value;
+   
+//   }
+
+public async getAllVacations(
     sortBy: string = "startDate",
     filterBy: string = "noFilter"
-  ): Promise<VacationModel[]> {
-    const observable = this.http.get<VacationModel[]>(
-      appConfig.vacationUrlStatic + `${sortBy}/${filterBy}`
-    );
-    const vacations = await firstValueFrom(observable);
-    globalStateManager.vacations = vacations;
-    return vacations;
-  }
+): Promise<void> {
+    const oneHour = 60 * 60 * 1000; // One hour in milliseconds
+
+    const storedVacations = localStorage.getItem("vacations");
+    let shouldRefetch = true;
+
+    if (storedVacations) {
+        const parsedVacations = JSON.parse(storedVacations);
+        const storedTimeStamp = new Date(parsedVacations.timeStamp).getTime();
+        const currentTime = new Date().getTime();
+
+        // Check if one hour has passed since the item was stored
+        if (currentTime - storedTimeStamp < oneHour) {
+            shouldRefetch = false;
+        }
+    }
+
+    if (shouldRefetch) {
+        const observable = this.http.get<VacationModel[]>(
+            appConfig.vacationUrlStatic + `${sortBy}/${filterBy}`
+        );
+        const vacations = await firstValueFrom(observable);
+        localStorage.setItem(
+            "vacations",
+            JSON.stringify({ value: vacations, timeStamp: new Date() })
+        );
+    }
+
+    globalStateManager.vacations = JSON.parse(
+        localStorage.getItem("vacations")
+    ).value;
+}
 
   public async getVacationById(_id: string): Promise<VacationModel> {
     const observable = this.http.get<VacationModel>(
