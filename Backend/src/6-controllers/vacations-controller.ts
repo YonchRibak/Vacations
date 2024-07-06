@@ -19,7 +19,7 @@ class VacationController {
   // Register routes:
   private registerRoutes(): void {
     this.router.get(
-      "/vacations/:sortBy/:filterBy",
+      "/vacations/:sortBy/:filterBy/:searchValue?",
       securityMiddleware.verifyLoggedIn,
       this.getAllVacations
     );
@@ -68,12 +68,14 @@ class VacationController {
     try {
       const page = parseInt(request.query.page as string) || null;
       const limit = parseInt(request.query.limit as string) || null;
-      const { sortBy, filterBy } = request.params;
+      const { sortBy, filterBy, searchValue } = request.params;
+
       const vacations = await vacationService.getAllVacations(
         page,
         limit,
         sortBy,
-        filterBy
+        filterBy,
+        searchValue || ""
       );
       response.status(StatusCode.OK).json(vacations);
     } catch (err: any) {

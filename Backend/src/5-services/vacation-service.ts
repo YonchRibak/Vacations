@@ -29,7 +29,8 @@ class VacationService {
     page?: number,
     limit?: number,
     sortByKey: string = "startDate",
-    filterBy?: string
+    filterBy?: string,
+    searchValue?: string
   ): Promise<IVacationModel[]> {
     try {
       const skip = page && limit ? (page - 1) * limit : null;
@@ -48,11 +49,21 @@ class VacationService {
         filterCriteria = {
           startDate: { $gt: today },
         };
-      } else if (filterBy.length > 11) {
+      } else if (mongoose.Types.ObjectId.isValid(filterBy)) {
         filterCriteria = {
           likesIds: { $in: [filterBy] },
         };
+      } else if (filterBy === "noFilter") {
+        filterCriteria = {};
       }
+
+      // Apply destination criteria if searchValue is provided
+      if (searchValue) {
+        filterCriteria.destination = {
+          $regex: new RegExp(`^${searchValue}`, "i"),
+        };
+      }
+
       // sortBy logic:
       const sortOptions: { [key: string]: number } = {
         startDate: 1, // earliest startDate first

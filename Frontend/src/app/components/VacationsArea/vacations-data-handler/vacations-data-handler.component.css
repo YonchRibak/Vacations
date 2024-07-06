@@ -1,0 +1,18 @@
+.vacations-data-handler {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox-label-pair {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}

@@ -1,48 +1,19 @@
 <div class="container">
-  <div class="sort-by-selector">
-    <label>Sort Vacations By:</label>
-    <select [(ngModel)]="sortBy" (change)="sort()">
-      <option value="startDate">Start Date</option>
-      <option value="price">Price</option>
-      <option value="likesCount">Likes</option>
-    </select>
-
-    <div class="checkboxes">
-      <div class="checkbox-label-pair">
-        <input
-          type="checkbox"
-          value="onGoing"
-          [checked]="filterBy === 'onGoing'"
-          (change)="toggleFilter('onGoing')"
-        />
-        <label>Only Ongoing Vacations</label>
-      </div>
-      <div class="checkbox-label-pair">
-        <input
-          type="checkbox"
-          value="yetToBegin"
-          [checked]="filterBy === 'yetToBegin'"
-          (change)="toggleFilter('yetToBegin')"
-        />
-        <label>Only Vacations Yet To Begin</label>
-      </div>
-      <div class="checkbox-label-pair">
-        <input
-          [disabled]="user?.roleId === 1"
-          type="checkbox"
-          value="likedByUser"
-          [checked]="filterBy === user?._id"
-          (change)="toggleFilter(user?._id)"
-        />
-        <label>Only Vacations Liked By Me</label>
-      </div>
-    </div>
-  </div>
-  <div class="vacations-grid">
+  <h3>Don't Plan. Just Fly.</h3>
+  <app-vacations-data-handler
+    [sortBy]="sortBy"
+    [filterBy]="filterBy"
+    [user]="user"
+    (sortChange)="sort($event)"
+    (filterChange)="toggleFilter($event)"
+    (searchChange)="search($event)"
+  ></app-vacations-data-handler>
+  <div class="vacations-grid" @listAnimation [@listAnimation]="key">
     <app-vacation-card
       (vacationAltered)="receivedChangeFromChild($event)"
       *ngFor="let v of vacations; trackBy: trackByFn"
       [vacation]="v"
+      @leave
     />
   </div>
   <div class="pagination-btns">

@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.unsubscribe = subscribe(globalStateManager, () => {
       this.user = globalStateManager.currUser;
     });

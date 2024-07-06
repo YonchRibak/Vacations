@@ -1,89 +1,104 @@
 {
-  "hash": "90a80fe1",
-  "configHash": "5559fd65",
+  "hash": "833c9fd3",
+  "configHash": "ed4cef88",
   "lockfileHash": "03bbb7b8",
-  "browserHash": "10b4ef81",
+  "browserHash": "c52e9853",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "25aea344",
+      "fileHash": "b0c90e69",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "7362502d",
+      "fileHash": "2ffd6af2",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "54f9121d",
+      "fileHash": "4ec5b5e1",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "78787dff",
+      "fileHash": "0f02fe59",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "f79f94fa",
+      "fileHash": "8f7a30c0",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "61b52d7c",
+      "fileHash": "139d7d5f",
       "needsInterop": false
     },
     "ag-charts-angular": {
       "src": "../../../../../node_modules/ag-charts-angular/fesm2022/ag-charts-angular.mjs",
       "file": "ag-charts-angular.js",
-      "fileHash": "6c1c081e",
+      "fileHash": "0324b7fb",
       "needsInterop": false
     },
     "angular-tabler-icons": {
       "src": "../../../../../node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons.mjs",
       "file": "angular-tabler-icons.js",
-      "fileHash": "4ee96a6f",
+      "fileHash": "2b3b470d",
       "needsInterop": false
     },
     "angular-tabler-icons/icons": {
       "src": "../../../../../node_modules/angular-tabler-icons/fesm2020/angular-tabler-icons-icons.mjs",
       "file": "angular-tabler-icons_icons.js",
-      "fileHash": "c1eeb931",
+      "fileHash": "db504ded",
       "needsInterop": false
     },
     "file-saver": {
       "src": "../../../../../node_modules/file-saver/dist/FileSaver.min.js",
       "file": "file-saver.js",
-      "fileHash": "5eaaabeb",
+      "fileHash": "80644eeb",
       "needsInterop": true
     },
     "papaparse": {
       "src": "../../../../../node_modules/papaparse/papaparse.min.js",
       "file": "papaparse.js",
-      "fileHash": "4d1d5329",
+      "fileHash": "8a422644",
       "needsInterop": true
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "b22c7d66",
+      "fileHash": "e3d41a51",
       "needsInterop": false
     },
     "valtio": {
       "src": "../../../../../node_modules/valtio/esm/index.mjs",
       "file": "valtio.js",
-      "fileHash": "939dd03b",
+      "fileHash": "7c12d9ed",
+      "needsInterop": false
+    },
+    "@angular/animations": {
+      "src": "../../../../../node_modules/@angular/animations/fesm2022/animations.mjs",
+      "file": "@angular_animations.js",
+      "fileHash": "b3f151f4",
+      "needsInterop": false
+    },
+    "@angular/platform-browser/animations": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations.mjs",
+      "file": "@angular_platform-browser_animations.js",
+      "fileHash": "2c4f1705",
       "needsInterop": false
     }
   },
   "chunks": {
+    "chunk-AY22XH3D": {
+      "file": "chunk-AY22XH3D.js"
+    },
     "chunk-Z5XZ6HNT": {
       "file": "chunk-Z5XZ6HNT.js"
     },
