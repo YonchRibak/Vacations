@@ -81,7 +81,7 @@ export class VacationListComponent implements OnInit {
       );
       this.key++;
 
-      if (!this.vacations?.length) await this.backwards(); // in case currently in a page with no vacations, go back.
+      if (!this.vacations?.length && this.currPage > 1) await this.backwards(); // in case currently in a page with no vacations, go back.
     } catch (err: any) {
       alert(err.message);
     }

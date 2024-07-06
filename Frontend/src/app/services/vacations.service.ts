@@ -26,26 +26,7 @@ export class VacationsService {
     const vacations = await firstValueFrom(observable);
     return vacations;
   }
-  //   public async getAllVacations(
-  //     sortBy: string = "startDate",
-  //     filterBy: string = "noFilter"
-  //   ): Promise<void> {
-  //     if (!localStorage.getItem("vacations") || JSON.parse(
-  //         localStorage.getItem("vacations")
-  //       ).timeStamp > new Date() + ?? )
-  //   {  const observable = this.http.get<VacationModel[]>(
-  //       appConfig.vacationUrlStatic + `${sortBy}/${filterBy}`
-  //     );
-  //     const vacations = await firstValueFrom(observable);
-  //     localStorage.setItem(
-  //       "vacations",
-  //       JSON.stringify({ value: vacations, timeStamp: new Date() })
-  //     );}
-  //     globalStateManager.vacations = JSON.parse(
-  //       localStorage.getItem("vacations")
-  //     ).value;
 
-  //   }
 
   public async getAllVacations(
     sortBy: string = "startDate",
