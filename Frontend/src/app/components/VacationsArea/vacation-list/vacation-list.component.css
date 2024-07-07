@@ -1,4 +1,4 @@
-.container {
+.list-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,6 @@ header {
 i-tabler {
   stroke-width: 0.075rem;
   fill: var(--primary);
-
   color: var(--primary);
   color: transparent;
   scale: 200%;
@@ -30,7 +29,7 @@ header > h3 {
 }
 .vacations-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
   gap: 1.5rem;
 }
 

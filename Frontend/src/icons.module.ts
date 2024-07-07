@@ -14,6 +14,7 @@ import {
   IconPlayerSkipForward,
   IconArrowMoveRight,
   IconArrowMoveLeft,
+  IconSearch,
 } from "angular-tabler-icons/icons";
 
 const icons = {
@@ -30,6 +31,7 @@ const icons = {
   IconPlayerSkipForward,
   IconArrowMoveRight,
   IconArrowMoveLeft,
+  IconSearch,
 };
 
 @NgModule({

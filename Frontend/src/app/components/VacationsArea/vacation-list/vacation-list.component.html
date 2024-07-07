@@ -1,4 +1,4 @@
-<div class="container">
+<div class="list-container">
   <header>
     <i-tabler name="plane" data-icon="" />
     <h3>Don't Plan. Just Fly.</h3>
@@ -12,7 +12,14 @@
     (filterChange)="toggleFilter($event)"
     (searchChange)="search($event)"
   ></app-vacations-data-handler>
-  <div class="vacations-grid" @listAnimation [@listAnimation]="key">
+  <div
+    class="vacations-grid"
+    customStyle
+    [mobileStyle]="{ 'grid-template-columns': '1fr' }"
+    [laptopStyle]="{ 'grid-template-columns': 'repeat(3, 1fr)' }"
+    @listAnimation
+    [@listAnimation]="key"
+  >
     <app-vacation-card
       (vacationAltered)="receivedChangeFromChild($event)"
       *ngFor="let v of vacations; trackBy: trackByFn"
@@ -20,7 +27,7 @@
       @leave
     />
   </div>
-  <div class="pagination-btns">
+  <div *isLaptop class="pagination-btns">
     <i-tabler
       name="arrow-move-left"
       *ngIf="currPage > 1"

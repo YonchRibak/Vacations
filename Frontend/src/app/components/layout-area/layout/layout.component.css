@@ -1,8 +1,8 @@
 div {
   height: 100%;
   display: grid;
- 
 }
+
 main {
   display: flex;
   flex-direction: column;

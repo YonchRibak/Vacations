@@ -26,6 +26,8 @@ import { IconsModule } from "../../../../icons.module";
 import { UserModel } from "../../../models/UserModel";
 import { Subscription } from "rxjs";
 import { NavbarComponent } from "../../layout-area/navbar/navbar.component";
+import { IsLaptopDirective } from "../../../directives/is-laptop.directive";
+import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 
 @Component({
   selector: "app-vacation-list",
@@ -36,6 +38,8 @@ import { NavbarComponent } from "../../layout-area/navbar/navbar.component";
     FormsModule,
     VacationsDataHandlerComponent,
     IconsModule,
+    IsLaptopDirective,
+    CustomStyleDirective,
   ],
   templateUrl: "./vacation-list.component.html",
   styleUrl: "./vacation-list.component.css",

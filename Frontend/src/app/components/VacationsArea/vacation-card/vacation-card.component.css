@@ -3,7 +3,7 @@
 .card {
   position: relative;
   height: clamp(25vh, 100%, 100%);
-  width: 25wv;
+  width: clamp(20vw, 100%, 100%);
   border-radius: 2rem;
   overflow: hidden;
   border: none;
@@ -160,16 +160,22 @@ img {
   position: absolute;
   bottom: 1rem;
   display: flex;
-  width: 100%;
+  gap: clamp(5px, 1rem, 1rem);
+  width: clamp(10vw, 100%, 25vw);
   justify-content: space-between;
-  padding-inline: 1rem;
   z-index: 3;
 }
 .date-icon-pair {
   display: flex;
   gap: 1rem;
+  padding-inline: 1rem;
+  padding-block-start: 0.3rem;
+  padding-block-end: 0.6rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.45);
 }
 .date-icon-pair > i-tabler {
+  margin-bottom: 0.2rem;
   stroke: #ffa11c;
   filter: drop-shadow(-2px 4px 1px var(--secondary));
 }

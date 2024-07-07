@@ -1,4 +1,6 @@
 <div
+  customStyle
+  [mobileStyle]="{ height: '75vh' }"
   class="card"
   @fadeIn
   [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
@@ -30,7 +32,7 @@
 
   <h3>{{ vacation?.destination }}</h3>
   <button class="purchase-btn">
-    {{ vacation?.price | currency : "EUR" }}
+    {{ vacation?.price | customCurrency : "EUR" }}
   </button>
 
   <p>{{ vacation?.description?.substring(0, 150) }}...</p>

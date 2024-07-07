@@ -25,6 +25,14 @@
         <span>Reports</span>
       </a>
       <a
+        *isAdmin
+        class="dropdown-item custom-link"
+        [routerLinkActive]="['active']"
+        [routerLink]="['/add']"
+      >
+        <span>Add</span>
+      </a>
+      <a
         *isLoggedIn
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"

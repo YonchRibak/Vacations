@@ -9,6 +9,8 @@ import { trigger, style, animate, transition } from "@angular/animations";
 import { IsAdminDirective } from "../../../directives/is-admin.directive";
 import { UserModel } from "../../../models/UserModel";
 import { Subscription } from "rxjs";
+import { CustomCurrencyPipe } from "../../../custom-pipes/custom-currency.pipe";
+import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 
 @Component({
   selector: "app-vacation-card",
@@ -19,6 +21,8 @@ import { Subscription } from "rxjs";
     RouterOutlet,
     RouterLink,
     IsAdminDirective,
+    CustomCurrencyPipe,
+    CustomStyleDirective,
   ],
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
