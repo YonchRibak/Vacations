@@ -3,24 +3,23 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { VacationModel } from "../../../models/VacationModel";
 import { IconsModule } from "../../../../icons.module";
 import { VacationsService } from "../../../services/vacations.service";
-import { AuthService } from "../../../services/auth.service";
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { globalStateManager } from "../../../services/globalState";
-import { subscribe } from "valtio";
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-  query,
-  stagger,
-} from "@angular/animations";
+import { trigger, style, animate, transition } from "@angular/animations";
+import { IsAdminDirective } from "../../../directives/is-admin.directive";
+import { UserModel } from "../../../models/UserModel";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-vacation-card",
   standalone: true,
-  imports: [CommonModule, IconsModule, RouterOutlet, RouterLink],
+  imports: [
+    CommonModule,
+    IconsModule,
+    RouterOutlet,
+    RouterLink,
+    IsAdminDirective,
+  ],
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
   animations: [
@@ -35,19 +34,16 @@ import {
 export class VacationCardComponent implements OnInit {
   @Input()
   public vacation: VacationModel;
-  public user = globalStateManager.currUser;
-  public unsubscribe: () => void;
+  public user: UserModel;
+  public subscription: Subscription;
   @Output()
   public vacationAltered: EventEmitter<number> = new EventEmitter<number>();
 
-  public constructor(
-    private vacationService: VacationsService,
-    public authService: AuthService
-  ) {}
+  public constructor(private vacationService: VacationsService) {}
 
   public ngOnInit(): void {
-    this.unsubscribe = subscribe(globalStateManager, () => {
-      this.user = globalStateManager.currUser;
+    this.subscription = globalStateManager.currUser$.subscribe((user) => {
+      this.user = user;
     });
   }
 

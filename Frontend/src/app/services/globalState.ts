@@ -1,11 +1,12 @@
 import { proxy } from "valtio";
 import { VacationModel } from "../models/VacationModel";
 import { UserModel } from "../models/UserModel";
+import { BehaviorSubject } from "rxjs";
 
 export const globalStateManager = proxy<{
   vacations: VacationModel[];
-  currUser?: UserModel;
+  currUser$: BehaviorSubject<UserModel | undefined>;
 }>({
   vacations: [],
-  currUser: undefined,
+  currUser$: new BehaviorSubject<UserModel | undefined>(undefined),
 });

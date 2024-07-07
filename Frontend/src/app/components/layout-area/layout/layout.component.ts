@@ -9,6 +9,8 @@ import { VacationsService } from "../../../services/vacations.service";
 import { globalStateManager } from "../../../services/globalState";
 import { NavbarComponent } from "../navbar/navbar.component";
 import { subscribe } from "valtio";
+import { Subscription } from "rxjs";
+import { IsAdminDirective } from "../../../directives/is-admin.directive";
 
 @Component({
   selector: "app-layout",
@@ -18,20 +20,21 @@ import { subscribe } from "valtio";
   styleUrl: "./layout.component.css",
 })
 export class LayoutComponent implements OnInit {
+  public user: UserModel;
+  public subscription: Subscription;
   public constructor(
     private tokenService: TokenService,
     public authService: AuthService,
     private vacationsService: VacationsService
   ) {}
-  public user = globalStateManager.currUser;
 
   public async ngOnInit(): Promise<void> {
     if (this.tokenService.getToken()) {
-      this.authService.isLoggedIn = true;
       await this.vacationsService.getAllVacations("likesCount");
       await this.authService.retrieveUser();
-      const unsubscribe = subscribe(globalStateManager, () => {
-        this.user = globalStateManager.currUser;
+      this.authService.loggedIn.next(true);
+      this.subscription = globalStateManager.currUser$.subscribe((user) => {
+        this.user = user;
       });
     }
   }

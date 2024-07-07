@@ -1,11 +1,4 @@
 <div class="vacations-data-handler">
-  <label>Sort Vacations By:</label>
-  <select [(ngModel)]="sortBy" (change)="sort()">
-    <option value="startDate">Start Date</option>
-    <option value="price">Price</option>
-    <option value="likesCount">Likes</option>
-  </select>
-
   <div class="checkboxes">
     <div class="checkbox-label-pair">
       <input
@@ -36,6 +29,13 @@
       <label>Only Vacations Liked By Me</label>
     </div>
   </div>
+
+  <label>Sort Vacations By:</label>
+  <select [(ngModel)]="sortBy" (change)="sort()">
+    <option value="startDate">Start Date</option>
+    <option value="price">Price</option>
+    <option value="likesCount">Likes</option>
+  </select>
   <div class="search-bar">
     <label>Search Vacation</label>
     <input type="text" [(ngModel)]="searchValue" (ngModelChange)="search()" />

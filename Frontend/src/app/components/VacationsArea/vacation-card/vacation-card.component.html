@@ -1,4 +1,13 @@
-<div class="card" @fadeIn>
+<div
+  class="card"
+  @fadeIn
+  [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
+>
+  <div class="layer1"></div>
+  <div class="layer2"></div>
+  <div class="layer3"></div>
+  <div class="layer4"></div>
+  <div class="layer5"></div>
   <div (click)="user?.roleId ? null : toggle()" class="likes">
     <!-- prettier-ignore -->
     <i-tabler
@@ -12,20 +21,28 @@
       >{{ vacation?.likesIds.length }}</span
     >
   </div>
-  <div *ngIf="user?.roleId" class="admin-actions">
+  <div *isAdmin class="admin-actions">
     <i-tabler name="trash" (click)="deleteVacation()" />
     <a [routerLink]="['/edit/', vacation?._id]">
       <i-tabler name="edit" />
     </a>
   </div>
-  <div
-    class="card-header"
-    [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
-  >
-    <h3>{{ vacation?.destination }}</h3>
+
+  <h3>{{ vacation?.destination }}</h3>
+  <button class="purchase-btn">
+    {{ vacation?.price | currency : "EUR" }}
+  </button>
+
+  <p>{{ vacation?.description?.substring(0, 150) }}...</p>
+  <div class="footer">
+    <div class="date-icon-pair">
+      <i-tabler name="plane-departure" />
+      <span> {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span>
+    </div>
+
+    <div class="date-icon-pair">
+      <span> {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span>
+      <i-tabler name="plane-arrival" />
+    </div>
   </div>
-  <p>{{ vacation?.description?.substring(0, 200) }}...</p>
-  <span>Start Date: {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span>
-  <span>End Date: {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span>
-  <span>{{ vacation?.price | currency : "EUR" }}</span>
 </div>

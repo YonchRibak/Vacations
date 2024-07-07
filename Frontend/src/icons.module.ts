@@ -6,6 +6,14 @@ import {
   IconBrandGithub,
   IconTrash,
   IconEdit,
+  IconPlane,
+  IconPlaneDeparture,
+  IconPlaneArrival,
+  IconArrowForward,
+  IconArrowBack,
+  IconPlayerSkipForward,
+  IconArrowMoveRight,
+  IconArrowMoveLeft,
 } from "angular-tabler-icons/icons";
 
 const icons = {
@@ -14,6 +22,14 @@ const icons = {
   IconCamera,
   IconHeart,
   IconBrandGithub,
+  IconPlane,
+  IconPlaneDeparture,
+  IconPlaneArrival,
+  IconArrowForward,
+  IconArrowBack,
+  IconPlayerSkipForward,
+  IconArrowMoveRight,
+  IconArrowMoveLeft,
 };
 
 @NgModule({

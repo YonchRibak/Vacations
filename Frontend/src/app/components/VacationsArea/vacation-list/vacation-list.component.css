@@ -6,8 +6,28 @@
   margin: 3rem;
   gap: 3rem;
 }
+header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+i-tabler {
+  stroke-width: 0.075rem;
+  fill: var(--primary);
 
+  color: var(--primary);
+  color: transparent;
+  scale: 200%;
+  rotate: -45deg;
+  filter: drop-shadow(-2px 4px 1px var(--secondary));
+  transform: translateY(-3px);
+}
 
+header > h3 {
+  font-size: 3.5rem;
+  text-shadow: 2px 4px 1px var(--secondary);
+  color: var(--primary);
+}
 .vacations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -19,4 +39,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.pagination-btns > i-tabler {
+  color: white;
+  fill: none;
+  rotate: none;
+  scale: 250%;
+  cursor: pointer;
+  transition: transform ease-in-out 200ms;
+}
+
+.pagination-btns > i-tabler:hover {
+  transform: scale(1.125) translateY(-0.25rem);
+  transition: transform ease-in-out 200ms;
 }

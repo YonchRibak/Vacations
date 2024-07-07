@@ -6,12 +6,17 @@ import { HttpInterceptorModule } from "../http-interceptor.module";
 import { filter } from "rxjs";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AnimationModule } from "../animation.module";
+import { IsAdminDirective } from "./directives/is-admin.directive";
 
 export const appConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
-    importProvidersFrom(HttpInterceptorModule, AnimationModule),
+    importProvidersFrom(
+      HttpInterceptorModule,
+      AnimationModule,
+      IsAdminDirective
+    ),
   ],
 
   registerUrl: "http://localhost:4000/api/register",

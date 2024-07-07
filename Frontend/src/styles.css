@@ -2,6 +2,7 @@
   --primary: #a5e9e1;
   --primary-darkened: #08ab98;
   --secondary: #2e2b2b;
+  --secondary-lightened: #4c4848;
 }
 
 html,
@@ -10,6 +11,7 @@ body {
   padding: 0;
   margin: 0;
   text-align: center;
+  background-color: var(--secondary-lightened);
 }
 * {
   user-select: none;

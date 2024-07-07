@@ -1,25 +1,41 @@
 import { CommonModule } from "@angular/common";
-import { AfterViewInit, Component, HostListener, OnInit } from "@angular/core";
-import { UserModel } from "../../../models/UserModel";
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  HostListener,
+  OnInit,
+} from "@angular/core";
 import { AuthService } from "../../../services/auth.service";
 import { globalStateManager } from "../../../services/globalState";
 import { TokenService } from "../../../services/token.service";
 import { Router, RouterLink, RouterModule } from "@angular/router";
-import { subscribe } from "valtio";
+import { IsAdminDirective } from "../../../directives/is-admin.directive";
+import { UserModel } from "../../../models/UserModel";
+import { Subscription } from "rxjs";
+import { IsLoggedInDirective } from "../../../directives/is-logged-in.directive";
+import { IsLoggedOutDirective } from "../../../directives/is-logged-out.directive";
 
 @Component({
   selector: "app-navbar",
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterModule,
+    IsAdminDirective,
+    IsLoggedInDirective,
+    IsLoggedOutDirective
+  ],
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
-  public user = globalStateManager.currUser;
+  public user: UserModel;
   public navbarOpen = false;
   public clicked = false;
   public _el: any;
-  public unsubscribe: () => void;
+  public subscription: Subscription;
   public toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
@@ -31,15 +47,15 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   ) {}
 
   public ngOnInit(): void {
-    this.unsubscribe = subscribe(globalStateManager, () => {
-      this.user = globalStateManager.currUser;
+    this.subscription = globalStateManager.currUser$.subscribe((user) => {
+      this.user = user;
     });
   }
-  ngAfterViewInit() {
+  public ngAfterViewInit() {
     document.addEventListener("click", this.clickedOutside.bind(this));
   }
 
-  onClick(event: MouseEvent): void {
+  public onClick(event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
     this.clicked = true;
@@ -54,9 +70,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   }
 
   public logout() {
-    localStorage.removeItem("token");
-    this.tokenService.setToken("");
-    this.authService.isLoggedIn = false;
+    this.authService.logout();
     this.user = null;
     this.router.navigateByUrl("/login");
   }

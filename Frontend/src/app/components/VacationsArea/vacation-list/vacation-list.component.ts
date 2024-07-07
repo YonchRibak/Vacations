@@ -12,7 +12,6 @@ import { VacationModel } from "../../../models/VacationModel";
 import { FormsModule } from "@angular/forms";
 import { AuthService } from "../../../services/auth.service";
 import { globalStateManager } from "../../../services/globalState";
-import { subscribe } from "valtio";
 import {
   trigger,
   transition,
@@ -23,6 +22,10 @@ import {
   style,
 } from "@angular/animations";
 import { VacationsDataHandlerComponent } from "../vacations-data-handler/vacations-data-handler.component";
+import { IconsModule } from "../../../../icons.module";
+import { UserModel } from "../../../models/UserModel";
+import { Subscription } from "rxjs";
+import { NavbarComponent } from "../../layout-area/navbar/navbar.component";
 
 @Component({
   selector: "app-vacation-list",
@@ -32,6 +35,7 @@ import { VacationsDataHandlerComponent } from "../vacations-data-handler/vacatio
     CommonModule,
     FormsModule,
     VacationsDataHandlerComponent,
+    IconsModule,
   ],
   templateUrl: "./vacation-list.component.html",
   styleUrl: "./vacation-list.component.css",
@@ -56,8 +60,8 @@ export class VacationListComponent implements OnInit {
   public sortBy: string = "startDate";
   public filterBy: string;
   public searchValue: string;
-  public user = globalStateManager.currUser;
-  public unsubscribe: () => void;
+  public user: UserModel;
+  public subscription: Subscription;
 
   public constructor(
     public vacationsService: VacationsService,
@@ -65,8 +69,8 @@ export class VacationListComponent implements OnInit {
   ) {}
 
   public async ngOnInit(): Promise<void> {
-    this.unsubscribe = subscribe(globalStateManager, () => {
-      this.user = globalStateManager.currUser;
+    this.subscription = globalStateManager.currUser$.subscribe((user) => {
+      this.user = user;
     });
     await this.fetchVacations();
   }
@@ -93,11 +97,13 @@ export class VacationListComponent implements OnInit {
 
   public async forwards(): Promise<void> {
     this.currPage++;
+    window.scrollTo({ top: 0, behavior: "smooth" });
     await this.fetchVacations();
   }
 
   public async backwards(): Promise<void> {
     this.currPage--;
+    window.scrollTo({ top: 0, behavior: "smooth" });
     await this.fetchVacations();
   }
 

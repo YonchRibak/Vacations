@@ -1,7 +1,11 @@
 .logo {
 }
 .bg-teal {
-  background-color: var(--secondary);
+  background: linear-gradient(
+    to bottom,
+    var(--secondary) 90%,
+    var(--secondary-lightened) 100%
+  );
 }
 .hello-user {
   color: var(--primary);
