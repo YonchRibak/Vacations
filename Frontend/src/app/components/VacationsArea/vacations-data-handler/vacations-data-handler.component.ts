@@ -14,6 +14,7 @@ import {
   trigger,
 } from "@angular/animations";
 import { AnimationModule } from "../../../../animation.module";
+import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
 
 @Component({
   selector: "app-vacations-data-handler",
@@ -48,7 +49,7 @@ import { AnimationModule } from "../../../../animation.module";
     ]),
   ],
 })
-export class VacationsDataHandlerComponent {
+export class VacationsDataHandlerComponent implements OnInit {
   @Input() public sortBy: string;
   @Input() public filterBy: string;
   public searchValue: string;
@@ -60,6 +61,16 @@ export class VacationsDataHandlerComponent {
   @Output() public sortChange = new EventEmitter<string>();
   @Output() public filterChange = new EventEmitter<string>();
   @Output() public searchChange = new EventEmitter<string>();
+
+  public constructor(
+    private confirmationModalService: ConfirmationModalService
+  ) {}
+
+  public ngOnInit(): void {
+    this.confirmationModalService.deletionConfirmed.subscribe(() => {
+      this.searchValue = "";
+    });
+  }
 
   public sort(): void {
     this.sortChange.emit(this.sortBy);

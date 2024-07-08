@@ -11,11 +11,18 @@ import { NavbarComponent } from "../navbar/navbar.component";
 import { subscribe } from "valtio";
 import { Subscription } from "rxjs";
 import { IsAdminDirective } from "../../../directives/is-admin.directive";
+import { ConfirmationModalComponent } from "../../SharedArea/confirmation-modal/confirmation-modal.component";
 
 @Component({
   selector: "app-layout",
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, NavbarComponent],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    FormsModule,
+    NavbarComponent,
+    ConfirmationModalComponent,
+  ],
   templateUrl: "./layout.component.html",
   styleUrl: "./layout.component.css",
 })

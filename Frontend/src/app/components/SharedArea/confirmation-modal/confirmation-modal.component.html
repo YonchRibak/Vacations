@@ -1,0 +1,26 @@
+<div *ngIf="open">
+  <div class="modal-overlay"></div>
+  <div class="confirmation-modal">
+    <h3 customStyle [mobileStyle]="{ fontSize: '1rem' }">
+      Are you sure you want to delete vacation to {{ vacation?.destination }}?
+    </h3>
+    <div class="btns">
+      <button
+        customStyle
+        [mobileStyle]="{ fontSize: '0.8rem' }"
+        (click)="confirm()"
+        class="confirm"
+      >
+        Yes, I'm sure
+      </button>
+      <button
+        customStyle
+        [mobileStyle]="{ fontSize: '0.8rem' }"
+        (click)="discard()"
+        class="discard"
+      >
+        No, discard
+      </button>
+    </div>
+  </div>
+</div>

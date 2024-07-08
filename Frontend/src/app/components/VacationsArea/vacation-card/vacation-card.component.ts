@@ -11,6 +11,9 @@ import { UserModel } from "../../../models/UserModel";
 import { Subscription } from "rxjs";
 import { CustomCurrencyPipe } from "../../../custom-pipes/custom-currency.pipe";
 import { CustomStyleDirective } from "../../../directives/custom-style.directive";
+import { ToastrService } from "ngx-toastr";
+import { ConfirmationModalComponent } from "../../SharedArea/confirmation-modal/confirmation-modal.component";
+import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
 
 @Component({
   selector: "app-vacation-card",
@@ -23,6 +26,7 @@ import { CustomStyleDirective } from "../../../directives/custom-style.directive
     IsAdminDirective,
     CustomCurrencyPipe,
     CustomStyleDirective,
+    ConfirmationModalComponent,
   ],
   templateUrl: "./vacation-card.component.html",
   styleUrl: "./vacation-card.component.css",
@@ -42,8 +46,13 @@ export class VacationCardComponent implements OnInit {
   public subscription: Subscription;
   @Output()
   public vacationAltered: EventEmitter<number> = new EventEmitter<number>();
+  public openConfirmationModal: boolean = false;
 
-  public constructor(private vacationService: VacationsService) {}
+  public constructor(
+    private vacationService: VacationsService,
+    private toast: ToastrService,
+    private confirmationModalService: ConfirmationModalService
+  ) {}
 
   public ngOnInit(): void {
     this.subscription = globalStateManager.currUser$.subscribe((user) => {
@@ -64,8 +73,7 @@ export class VacationCardComponent implements OnInit {
     );
   }
 
-  public async deleteVacation(): Promise<void> {
-    await this.vacationService.deleteVacation(this.vacation._id);
-    this.vacationAltered.emit(Math.random());
+  public openModal(vacation: VacationModel): void {
+    this.confirmationModalService.openModal(vacation);
   }
 }

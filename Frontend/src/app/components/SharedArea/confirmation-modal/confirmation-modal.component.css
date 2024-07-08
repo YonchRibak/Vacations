@@ -1,0 +1,53 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999; /* High z-index to ensure it's above other elements */
+  }
+
+.confirmation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: clamp(10vh, 100%, 50vh);
+  width: clamp(10vw, 100%, 50vw);
+  flex-direction: column;
+  background-color: var(--secondary);
+  padding: 5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  border-radius: 1rem;
+  z-index: 10000;
+}
+.confirmation-modal > h3 {
+  color: var(--primary);
+}
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2rem;
+}
+
+button {
+  padding: 1rem;
+  border-radius: 1rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+.confirm {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 500;
+}
+.discard {
+  background-color: rgba(255, 0, 0, 0.734);
+  color: white;
+  font-weight: 500;
+}

@@ -24,7 +24,7 @@
     >
   </div>
   <div *isAdmin class="admin-actions">
-    <i-tabler name="trash" (click)="deleteVacation()" />
+    <i-tabler name="trash" (click)="openModal(vacation)" />
     <a [routerLink]="['/edit/', vacation?._id]">
       <i-tabler name="edit" />
     </a>

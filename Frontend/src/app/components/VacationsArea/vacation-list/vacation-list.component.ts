@@ -36,6 +36,7 @@ import { IsMobileService } from "../../../services/is-mobile.service";
 import { IsMobileDirective } from "../../../directives/is-mobile.directive";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
 
 @Component({
   selector: "app-vacation-list",
@@ -86,7 +87,8 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
     public authService: AuthService,
     public isMobileService: IsMobileService,
     private router: Router,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private confirmationModalService: ConfirmationModalService
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -100,6 +102,10 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     );
     await this.fetchVacations();
+
+    this.confirmationModalService.deletionConfirmed.subscribe(async () => {
+      await this.fetchVacations();
+    });
   }
 
   public ngAfterViewInit(): void {
