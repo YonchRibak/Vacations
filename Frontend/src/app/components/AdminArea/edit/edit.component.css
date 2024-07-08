@@ -11,3 +11,20 @@ input[type="file"] {
   background-size: cover;
   background-position: center;
 }
+.image-upload-container {
+  position: relative;
+}
+
+.image-upload-container .error {
+  position: absolute;
+  top: 50%;
+  right: -150%;
+  width: auto;
+  color: rgb(245, 57, 57);
+  white-space: pre-line;
+}
+.discard {
+  background-color: rgba(255, 0, 0, 0.734);
+  color: white;
+  font-weight: 500;
+}

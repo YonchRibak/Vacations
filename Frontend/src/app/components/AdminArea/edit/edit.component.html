@@ -96,33 +96,36 @@
     <span *ngIf="priceBox.touched && priceBox.errors?.['min']" class="error"
       >Price cannot be negative.</span
     >
+    <div class="image-upload-container">
+      <div
+        [ngStyle]="{
+          'background-image':
+            'url(' +
+            (selectedImageUrl?.length ? selectedImageUrl : vacation?.imageUrl) +
+            ')'
+        }"
+        class="image-thumbnail"
+      >
+        <button type="button" (click)="fileInput.click()">Replace Image</button>
+      </div>
 
-    <div
-      [ngStyle]="{
-        'background-image':
-          'url(' +
-          (selectedImageUrl?.length ? selectedImageUrl : vacation?.imageUrl) +
-          ')'
-      }"
-      class="image-thumbnail"
-    >
-      <button type="button" (click)="fileInput.click()">Replace Image</button>
+      <input
+        type="file"
+        name="image"
+        (change)="onFileSelected($event)"
+        [(ngModel)]="mockImageValue"
+        #imageInput="ngModel"
+        #fileInput
+        required
+      />
+      <span *ngIf="imageError" class="error">{{ imageError }}</span>
+      <span *ngIf="imageInput.touched && !image" class="error"
+        >Missing image</span
+      >
     </div>
-
-    <input
-      type="file"
-      name="image"
-      (change)="onFileSelected($event)"
-      [(ngModel)]="mockImageValue"
-      #imageInput="ngModel"
-      #fileInput
-      required
-    />
-    <span *ngIf="imageError" class="error">{{ imageError }}</span>
-    <span *ngIf="imageInput.touched && !image" class="error"
-      >Missing image</span
-    >
-
-    <button type="submit" [disabled]="myForm.invalid">Submit Changes</button>
+    <a [routerLink]="['/home']">
+        <button type="button" class="discard">Discard</button></a
+      >
+    <button type="submit" [disabled]="!isFormValid()">Submit Changes</button>
   </form>
 </div>

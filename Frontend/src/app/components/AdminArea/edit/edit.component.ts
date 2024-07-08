@@ -3,14 +3,13 @@ import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VacationsService } from "../../../services/vacations.service";
 import { VacationModel } from "../../../models/VacationModel";
-import { ActivatedRoute, Router } from "@angular/router";
-import { firstValueFrom } from "rxjs";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-edit",
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: "./edit.component.html",
   styleUrl: "./edit.component.css",
 })
@@ -64,7 +63,8 @@ export class EditComponent implements OnInit {
       reader.readAsDataURL(file);
     } else {
       this.image = null;
-      this.imageError = "Invalid file. Please select an image.";
+      this.imageError =
+        "Invalid file. Please select an image.\nOriginal image will remain until valid image is uploaded";
     }
   }
 
@@ -90,5 +90,14 @@ export class EditComponent implements OnInit {
     const year = d.getFullYear();
 
     return [year, month.padStart(2, "0"), day.padStart(2, "0")].join("-");
+  }
+  isFormValid(): boolean {
+    return (
+      this.vacation.destination &&
+      this.vacation.description &&
+      this.vacation.startDate &&
+      this.vacation.endDate &&
+      this.vacation.price >= 0
+    );
   }
 }
