@@ -6,6 +6,7 @@ import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { CredentialsModel } from "../models/CredentialsModel";
 import { TokenService } from "./token.service";
 import { globalStateManager } from "./globalState";
+import { ToastrService } from "ngx-toastr";
 
 @Injectable({
   providedIn: "root",
@@ -18,7 +19,11 @@ export class AuthService {
     return this.loggedIn.value;
   }
 
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService,
+    private toast: ToastrService
+  ) {}
 
   public async register(user: UserModel): Promise<string> {
     let token: string;
@@ -28,9 +33,10 @@ export class AuthService {
       if (token.length) this.loggedIn.next(true);
       this.tokenService.setToken(token);
       await this.retrieveUser();
+      this.toast.success(`Welcome ${user.firstName}!`);
     } catch (err: any) {
       this.loggedIn.next(false);
-      alert(err.message);
+      this.toast.error(err.message);
     }
     return token;
   }

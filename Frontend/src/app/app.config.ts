@@ -3,16 +3,19 @@ import { provideRouter } from "@angular/router";
 import { routes } from "./app.routes";
 import { importProvidersFrom } from "@angular/core";
 import { HttpInterceptorModule } from "../http-interceptor.module";
-import { filter } from "rxjs";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AnimationModule } from "../animation.module";
-import { IsAdminDirective } from "./directives/is-admin.directive";
+import { provideToastr, ToastrModule } from "ngx-toastr";
 
 export const appConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
-    importProvidersFrom(HttpInterceptorModule, AnimationModule),
+    provideToastr(),
+    importProvidersFrom(
+      HttpInterceptorModule,
+      AnimationModule,
+      ToastrModule.forRoot()
+    ),
   ],
 
   registerUrl: "http://localhost:4000/api/register",
