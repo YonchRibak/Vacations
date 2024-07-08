@@ -15,6 +15,7 @@ import { UserModel } from "../../../models/UserModel";
 import { Subscription } from "rxjs";
 import { IsLoggedInDirective } from "../../../directives/is-logged-in.directive";
 import { IsLoggedOutDirective } from "../../../directives/is-logged-out.directive";
+import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 
 @Component({
   selector: "app-navbar",
@@ -25,7 +26,8 @@ import { IsLoggedOutDirective } from "../../../directives/is-logged-out.directiv
     RouterModule,
     IsAdminDirective,
     IsLoggedInDirective,
-    IsLoggedOutDirective
+    IsLoggedOutDirective,
+    CustomStyleDirective,
   ],
   templateUrl: "./navbar.component.html",
   styleUrls: ["./navbar.component.css"],

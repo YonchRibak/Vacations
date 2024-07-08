@@ -6,7 +6,13 @@
       style="width: 100%; height: 100px"
     />
   </a>
-  <div *isLoggedIn class="hello-user">
+  <div
+    *isLoggedIn
+    class="hello-user"
+    customStyle
+    [mobileStyle]="{ fontSize: '0.5rem' }"
+    [laptopStyle]="{ fontSize: '1rem' }"
+  >
     Hello {{ user?.firstName }} <span *isAdmin> | </span
     ><span *isAdmin>Admin Access</span>
   </div>

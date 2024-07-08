@@ -159,6 +159,7 @@ img {
 .footer {
   position: absolute;
   bottom: 1rem;
+
   display: flex;
   gap: clamp(5px, 1rem, 1rem);
   width: clamp(10vw, 100%, 25vw);
@@ -173,6 +174,7 @@ img {
   padding-block-end: 0.6rem;
   border-radius: 1rem;
   background-color: rgba(0, 0, 0, 0.45);
+  align-items: center;
 }
 .date-icon-pair > i-tabler {
   margin-bottom: 0.2rem;

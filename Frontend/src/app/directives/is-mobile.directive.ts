@@ -5,6 +5,7 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from "@angular/core";
+import { IsMobileService } from "../services/is-mobile.service";
 
 @Directive({
   selector: "[isMobile]",
@@ -15,7 +16,8 @@ export class IsMobileDirective implements OnInit, OnDestroy {
 
   public constructor(
     private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef
+    private viewContainer: ViewContainerRef,
+    private isMobileService: IsMobileService
   ) {}
 
   public ngOnInit() {
@@ -34,7 +36,9 @@ export class IsMobileDirective implements OnInit, OnDestroy {
 
   private updateView() {
     this.viewContainer.clear();
-    if (window.innerWidth < 935) {
+    const isMobile = window.innerWidth < 935;
+    this.isMobileService.setIsMobile(isMobile);
+    if (isMobile) {
       this.viewContainer.createEmbeddedView(this.templateRef);
     }
   }

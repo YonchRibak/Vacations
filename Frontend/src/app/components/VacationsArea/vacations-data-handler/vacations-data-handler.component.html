@@ -1,10 +1,20 @@
 <div class="vacations-data-handler">
-  <i-tabler *isMobile name="search" (click)="toggleHandler()"></i-tabler>
+  <i-tabler
+    name="search"
+    (click)="toggleHandler()"
+    class="toggler"
+    customStyle
+    [laptopStyle]="{ scale: '200%', top: '3rem', right: '3rem' }"
+    [mobileStyle]="{ scale: '100%', top: '3.5rem', right: '-1rem' }"
+  />
 
   <div
-    class="collapse d-md-block"
+    class="d-md-flex"
+    [@toggleAnimation]="dataHandlerOpen ? 'open' : 'closed'"
     id="filterCollapse"
     [ngClass]="{ show: dataHandlerOpen }"
+    customStyle
+    [laptopStyle]="{ flexDirection: 'row', gap: '2rem' }"
   >
     <div class="checkboxes">
       <div class="checkbox-label-pair">
@@ -36,15 +46,22 @@
         <label>Only Vacations Liked By Me</label>
       </div>
     </div>
+    <div
+      class="label-select-pair"
+      customStyle
+      [mobileStyle]="{ flexDirection: 'column' }"
+    >
+      <label>Sort Vacations By:</label>
+      <select [(ngModel)]="sortBy" (change)="sort()">
+        <option value="startDate">Start Date</option>
+        <option value="price">Price</option>
+        <option value="likesCount">Likes</option>
+      </select>
+    </div>
 
-    <label>Sort Vacations By:</label>
-    <select [(ngModel)]="sortBy" (change)="sort()">
-      <option value="startDate">Start Date</option>
-      <option value="price">Price</option>
-      <option value="likesCount">Likes</option>
-    </select>
-    <div class="search-bar">
-      <label>Search Vacation</label>
+    <div class="search-bar" customStyle [mobileStyle]="{ marginTop: '1rem' }">
+      <div><i-tabler name="search" *isMobile /></div>
+      <label *isLaptop>Search Vacation</label>
       <input type="text" [(ngModel)]="searchValue" (ngModelChange)="search()" />
     </div>
   </div>

@@ -1,7 +1,18 @@
 <div class="list-container">
   <header>
-    <i-tabler name="plane" data-icon="" />
-    <h3>Don't Plan. Just Fly.</h3>
+    <i-tabler
+      name="plane"
+      customStyle
+      [mobileStyle]="{ scale: '125%' }"
+      [laptopStyle]="{ scale: '200%' }"
+    />
+    <h3
+      customStyle
+      [mobileStyle]="{ fontSize: '1.5rem' }"
+      [laptopStyle]="{ fontSize: '3.5rem' }"
+    >
+      Don't Plan. Just Fly.
+    </h3>
   </header>
 
   <app-vacations-data-handler
@@ -39,4 +50,5 @@
       (click)="forwards()"
     />
   </div>
+  <div *isMobile #scrollAnchor></div>
 </div>

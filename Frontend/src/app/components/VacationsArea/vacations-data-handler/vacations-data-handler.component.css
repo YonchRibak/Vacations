@@ -19,6 +19,10 @@ label {
   flex-direction: row;
   gap: 0.5rem;
 }
+.label-select-pair {
+  display: flex;
+  flex-direction: column;
+}
 .search-bar {
   display: flex;
   gap: 1rem;
@@ -28,4 +32,17 @@ label {
 select {
   border-radius: 0.5rem;
   padding: 0.5rem;
+}
+i-tabler {
+  color: white;
+  filter: drop-shadow(-2px 4px 1px var(--secondary));
+}
+.toggler {
+  position: absolute;
+  cursor: pointer;
+  transition: transform ease-in-out 200ms;
+}
+
+.toggler:hover {
+  transform: scale(1.2);
 }

@@ -1,4 +1,5 @@
 .list-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +9,9 @@
 }
 header {
   display: flex;
+  width: 100%;
   align-items: center;
+  justify-content: center;
   gap: 1.25rem;
 }
 i-tabler {
@@ -16,14 +19,13 @@ i-tabler {
   fill: var(--primary);
   color: var(--primary);
   color: transparent;
-  scale: 200%;
+
   rotate: -45deg;
   filter: drop-shadow(-2px 4px 1px var(--secondary));
   transform: translateY(-3px);
 }
 
 header > h3 {
-  font-size: 3.5rem;
   text-shadow: 2px 4px 1px var(--secondary);
   color: var(--primary);
 }

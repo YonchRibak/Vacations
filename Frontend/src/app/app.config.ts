@@ -12,11 +12,7 @@ export const appConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(),
-    importProvidersFrom(
-      HttpInterceptorModule,
-      AnimationModule,
-      IsAdminDirective
-    ),
+    importProvidersFrom(HttpInterceptorModule, AnimationModule),
   ],
 
   registerUrl: "http://localhost:4000/api/register",

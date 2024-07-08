@@ -36,15 +36,31 @@
   </button>
 
   <p>{{ vacation?.description?.substring(0, 150) }}...</p>
-  <div class="footer">
-    <div class="date-icon-pair">
-      <i-tabler name="plane-departure" />
-      <span> {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span>
+  <div
+    class="footer"
+    customStyle
+    [mobileStyle]="{ left: '0', transform: 'translateX(10%)' }"
+  >
+    <div class="date-icon-pair" customStyle [mobileStyle]="{ gap: '0.3rem' }">
+      <i-tabler
+        customStyle
+        [mobileStyle]="{ scale: '75%' }"
+        name="plane-departure"
+      />
+      <span customStyle [mobileStyle]="{ fontSize: '0.75rem' }">
+        {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span
+      >
     </div>
 
-    <div class="date-icon-pair">
-      <span> {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span>
-      <i-tabler name="plane-arrival" />
+    <div class="date-icon-pair" customStyle [mobileStyle]="{ gap: '0.3rem' }">
+      <span customStyle [mobileStyle]="{ fontSize: '0.75rem' }">
+        {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span
+      >
+      <i-tabler
+        customStyle
+        [mobileStyle]="{ scale: '75%' }"
+        name="plane-arrival"
+      />
     </div>
   </div>
 </div>
