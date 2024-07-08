@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { UserModel } from "../models/UserModel";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { appConfig } from "../app.config";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { CredentialsModel } from "../models/CredentialsModel";
@@ -36,7 +36,7 @@ export class AuthService {
       this.toast.success(`Welcome ${user.firstName}!`);
     } catch (err: any) {
       this.loggedIn.next(false);
-      this.toast.error(err.message);
+      this.toast.error(err.error);
     }
     return token;
   }
@@ -51,7 +51,7 @@ export class AuthService {
       await this.retrieveUser();
     } catch (err: any) {
       this.loggedIn.next(false);
-      alert(err.message);
+      this.toast.error(err.error);
     }
     return token;
   }

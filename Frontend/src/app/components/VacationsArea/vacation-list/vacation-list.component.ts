@@ -34,6 +34,8 @@ import { IsLaptopDirective } from "../../../directives/is-laptop.directive";
 import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 import { IsMobileService } from "../../../services/is-mobile.service";
 import { IsMobileDirective } from "../../../directives/is-mobile.directive";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-vacation-list",
@@ -82,7 +84,9 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
   public constructor(
     public vacationsService: VacationsService,
     public authService: AuthService,
-    public isMobileService: IsMobileService
+    public isMobileService: IsMobileService,
+    private router: Router,
+    private toast: ToastrService
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -136,7 +140,12 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
       if (!fetchedVacations?.length && this.currPage > 1)
         await this.backwards(); // in case currently in a page with no vacations, go back.
     } catch (err: any) {
-      alert(err.message);
+      if (err.status === 401) {
+        this.router.navigateByUrl("/login");
+      } else {
+        this.toast.error(err.error);
+        console.log(err);
+      }
     }
   }
 

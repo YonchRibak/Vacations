@@ -3,12 +3,13 @@ import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VacationModel } from "../../../models/VacationModel";
 import { VacationsService } from "../../../services/vacations.service";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-add",
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: "./add.component.html",
   styleUrl: "./add.component.css",
 })
@@ -20,7 +21,8 @@ export class AddComponent {
 
   public constructor(
     private vacationsService: VacationsService,
-    public router: Router
+    public router: Router,
+    private toast: ToastrService
   ) {}
 
   public onFileSelected(event: any): void {
@@ -44,7 +46,11 @@ export class AddComponent {
   }
 
   public async send(): Promise<void> {
-    await this.vacationsService.addVacation(this.vacation, this.image);
-    this.router.navigateByUrl("/home");
+    try {
+      await this.vacationsService.addVacation(this.vacation, this.image);
+      this.router.navigateByUrl("/home");
+    } catch (err: any) {
+      this.toast.error(err.error);
+    }
   }
 }

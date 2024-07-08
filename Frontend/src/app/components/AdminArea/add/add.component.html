@@ -114,6 +114,9 @@
     <span *ngIf="imageInput.touched && !image" class="error"
       >Missing image</span
     >
+    <a [routerLink]="['/home']">
+      <button type="button" class="discard">Discard</button></a
+    >
 
     <button [disabled]="myForm.invalid || !validateDates()">Submit</button>
   </form>

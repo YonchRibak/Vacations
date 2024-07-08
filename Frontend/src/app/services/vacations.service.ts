@@ -27,7 +27,6 @@ export class VacationsService {
     return vacations;
   }
 
-
   public async getAllVacations(
     sortBy: string = "startDate",
     filterBy: string = "noFilter"
