@@ -49,6 +49,7 @@ export class AddComponent {
     try {
       await this.vacationsService.addVacation(this.vacation, this.image);
       this.router.navigateByUrl("/home");
+      this.toast.success("New vacation added successfully");
     } catch (err: any) {
       this.toast.error(err.error);
     }

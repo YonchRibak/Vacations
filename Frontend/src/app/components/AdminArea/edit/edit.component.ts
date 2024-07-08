@@ -5,6 +5,7 @@ import { VacationsService } from "../../../services/vacations.service";
 import { VacationModel } from "../../../models/VacationModel";
 import { ActivatedRoute, Router } from "@angular/router";
 import { firstValueFrom } from "rxjs";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-edit",
@@ -24,7 +25,8 @@ export class EditComponent implements OnInit {
   public constructor(
     public vacationsService: VacationsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toast: ToastrService
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -72,8 +74,13 @@ export class EditComponent implements OnInit {
   }
 
   public async send(): Promise<void> {
-    await this.vacationsService.editVacation(this.vacation, this.image);
-    this.router.navigateByUrl("/home");
+    try {
+      await this.vacationsService.editVacation(this.vacation, this.image);
+      this.router.navigateByUrl("/home");
+      this.toast.success("Vacation updated successfully");
+    } catch (err: any) {
+      this.toast.error(err.error);
+    }
   }
 
   private formatDate(date: Date): string {
