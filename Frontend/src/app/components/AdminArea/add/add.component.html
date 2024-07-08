@@ -79,7 +79,11 @@
       class="error"
       >Missing end date.</span
     >
-
+    <span
+      *ngIf="endDateBox.touched && startDateBox.touched && !validateDates()"
+      class="error"
+      >End date must be later than start date.</span
+    >
     <input
       type="number"
       name="price"
@@ -111,6 +115,6 @@
       >Missing image</span
     >
 
-    <button [disabled]="myForm.invalid">Submit</button>
+    <button [disabled]="myForm.invalid || !validateDates()">Submit</button>
   </form>
 </div>

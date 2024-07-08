@@ -17,6 +17,7 @@ body {
   user-select: none;
 }
 form {
+  background-color: var(--secondary);
   position: relative;
   width: 300px;
   border: 1px solid;
@@ -26,15 +27,27 @@ form {
   border-radius: 10px;
   box-shadow: 5px 5px 10px;
 }
-
+form > label {
+  color: white;
+}
 form > input,
 form > button,
 form > textarea {
   width: 100%;
   margin-bottom: 1rem;
   font-size: large;
+  border-radius: 0.5rem;
+  color: var(--primary-darkened);
 }
-
+form > button {
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-weight: 500;
+}
+form > button:disabled {
+  background-color: gray;
+  color: var(--primary);
+}
 form > textarea {
   height: 20vh;
 }
@@ -56,4 +69,6 @@ form > .strong {
   position: absolute;
   margin-left: 20px;
   width: 100%;
+}
+form > a {
 }

@@ -34,6 +34,12 @@
       >Password has to be longer than 4 characters</span
     >
 
-    <button [disabled]="loginForm.invalid">Register</button>
+    <button [disabled]="loginForm.invalid">Login</button>
+
+    <div class="register-now">
+      Still not a registered user?<br /><a [routerLink]="['/register']"
+        >Register now!</a
+      >
+    </div>
   </form>
 </div>

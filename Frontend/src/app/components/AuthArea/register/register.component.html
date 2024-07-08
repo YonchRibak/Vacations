@@ -9,22 +9,39 @@
       required
       minlength="2"
       maxlength="20"
+      pattern="[a-zA-Z]*"
     />
-    <span
-      *ngIf="firstNameBox.touched && firstNameBox.errors?.['required']"
-      class="error"
-      >Missing first name</span
-    >
-    <span
-      *ngIf="firstNameBox.touched && firstNameBox.errors?.['minLength']"
-      class="error"
-      >First name has to be longer than one character</span
-    >
-    <span
-      *ngIf="firstNameBox.touched && firstNameBox.errors?.['maxLength']"
-      class="error"
-      >First name cannot be longer than 20 characters</span
-    >
+    <span class="error" *ngIf="firstNameBox.touched && firstNameBox.errors">
+      <span *ngIf="firstNameBox.errors['required']" class="error"
+        >Missing first name</span
+      >
+      <span
+        *ngIf="
+          !firstNameBox.errors['required'] && firstNameBox.errors['minlength']
+        "
+        class="error"
+        >First name has to be longer than one character</span
+      >
+      <span
+        *ngIf="
+          !firstNameBox.errors['required'] &&
+          !firstNameBox.errors['minlength'] &&
+          firstNameBox.errors['maxlength']
+        "
+        class="error"
+        >First name cannot be longer than 20 characters</span
+      >
+      <span
+        *ngIf="
+          !firstNameBox.errors['required'] &&
+          !firstNameBox.errors['minlength'] &&
+          !firstNameBox.errors['maxlength'] &&
+          firstNameBox.errors['pattern']
+        "
+        class="error"
+        >First name can only contain English letters</span
+      >
+    </span>
 
     <label for="lastName">last name</label>
     <input
@@ -35,22 +52,39 @@
       required
       minlength="2"
       maxlength="20"
+      pattern="[a-zA-Z]*"
     />
-    <span
-      *ngIf="lastNameBox.touched && lastNameBox.errors?.['required']"
-      class="error"
-      >Missing last name</span
-    >
-    <span
-      *ngIf="lastNameBox.touched && lastNameBox.errors?.['minLength']"
-      class="error"
-      >Last name has to be longer than one character</span
-    >
-    <span
-      *ngIf="lastNameBox.touched && lastNameBox.errors?.['maxLength']"
-      class="error"
-      >Last name cannot be longer than 20 characters</span
-    >
+    <span class="error" *ngIf="lastNameBox.touched && lastNameBox.errors">
+      <span *ngIf="lastNameBox.errors['required']" class="error"
+        >Missing last name</span
+      >
+      <span
+        *ngIf="
+          !lastNameBox.errors['required'] && lastNameBox.errors['minlength']
+        "
+        class="error"
+        >Last name has to be longer than one character</span
+      >
+      <span
+        *ngIf="
+          !lastNameBox.errors['required'] &&
+          !lastNameBox.errors['minlength'] &&
+          lastNameBox.errors['maxlength']
+        "
+        class="error"
+        >Last name cannot be longer than 20 characters</span
+      >
+      <span
+        *ngIf="
+          !lastNameBox.errors['required'] &&
+          !lastNameBox.errors['minlength'] &&
+          !lastNameBox.errors['maxlength'] &&
+          lastNameBox.errors['pattern']
+        "
+        class="error"
+        >Last name can only contain English letters</span
+      >
+    </span>
 
     <label for="email">email</label>
     <input
@@ -59,15 +93,18 @@
       #emailBox="ngModel"
       [(ngModel)]="newUser.email"
       required
+      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     />
-    <span
-      *ngIf="emailBox.touched && emailBox.errors?.['required']"
-      class="error"
-      >Missing email</span
-    >
-    <span *ngIf="emailBox.touched && emailBox.errors?.['email']" class="error"
-      >Invalid email format</span
-    >
+    <span class="error" *ngIf="emailBox.touched && emailBox.errors">
+      <span *ngIf="emailBox.errors['required']" class="error"
+        >Missing email</span
+      >
+      <span
+        *ngIf="!emailBox.errors['required'] && emailBox.errors['pattern']"
+        class="error"
+        >Invalid email format</span
+      >
+    </span>
 
     <label for="password">password</label>
     <input
@@ -77,25 +114,30 @@
       [(ngModel)]="newUser.password"
       required
       minlength="4"
-      (input)="checkPasswordStrength()"
+      (input)="checkPasswordStrength(); checkPasswordMatch()"
+      pattern="[a-zA-Z0-9]*"
     />
-    <span
-      *ngIf="passwordBox.touched && passwordBox.errors?.['required']"
-      class="error"
-      >Missing password</span
-    >
-    <span
-      *ngIf="passwordBox.touched && passwordBox.errors?.['minLength']"
-      class="error"
-      >Password has to be longer than 4 characters</span
-    >
-    <span *ngIf="passwordInvalid" class="error">
+    <span class="error" *ngIf="passwordBox.touched && passwordBox.errors">
+      <span *ngIf="passwordBox.errors['required']" class="error"
+        >Missing password</span
+      >
+      <span
+        *ngIf="
+          !passwordBox.errors['required'] && passwordBox.errors['minlength']
+        "
+        class="error"
+        >Password has to be longer than 4 characters</span
+      >
+    </span>
+    <span *ngIf="passwordInvalid && passwordBox.touched" class="error">
       Password must contain both numbers and characters
     </span>
-    <span *ngIf="passwordWeak" class="weak">
+    <span *ngIf="passwordWeak && passwordBox.touched" class="weak">
       Password is weak, we recommend you use a stronger combination
     </span>
-    <span *ngIf="passwordStrong" class="strong"> Password is strong </span>
+    <span *ngIf="passwordStrong && passwordBox.touched" class="strong">
+      Password is strong
+    </span>
 
     <label for="confirmPassword">confirm password</label>
     <input
@@ -105,17 +147,38 @@
       [(ngModel)]="confirmPassword"
       required
       minlength="4"
+      (ngModelChange)="checkPasswordMatch()"
+      pattern="[a-zA-Z0-9]*"
     />
     <span
-      *ngIf="confirmPasswordBox.touched && confirmPasswordBox.errors?.['required']"
       class="error"
-      >Missing confirmation of password</span
+      *ngIf="confirmPasswordBox.touched && confirmPasswordBox.errors"
     >
+      <span *ngIf="confirmPasswordBox.errors['required']" class="error"
+        >Missing confirmation of password</span
+      >
+      <span
+        *ngIf="
+          !confirmPasswordBox.errors['required'] &&
+          confirmPasswordBox.errors['minlength']
+        "
+        class="error"
+        >Password has to be longer than 4 characters</span
+      >
+    </span>
     <span
-      *ngIf="confirmPasswordBox.touched && confirmPasswordBox.errors?.['minLength']"
+      *ngIf="
+        passwordMismatch &&
+        passwordBox.touched &&
+        confirmPasswordBox.value.length
+      "
       class="error"
-      >Password has to be longer than 4 characters</span
     >
-    <button [disabled]="registrationForm.invalid">Register</button>
+      Confirmation does not match password
+    </span>
+
+    <button [disabled]="registrationForm.invalid || passwordMismatch">
+      Register
+    </button>
   </form>
 </div>

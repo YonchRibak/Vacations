@@ -39,6 +39,10 @@ export class AddComponent {
     return allowedExtensions.includes(file.type);
   }
 
+  public validateDates(): boolean {
+    return this.vacation?.startDate < this.vacation?.endDate;
+  }
+
   public async send(): Promise<void> {
     await this.vacationsService.addVacation(this.vacation, this.image);
     this.router.navigateByUrl("/home");
