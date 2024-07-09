@@ -13,7 +13,6 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
-import { AnimationModule } from "../../../../animation.module";
 import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
 
 @Component({
@@ -49,6 +48,7 @@ import { ConfirmationModalService } from "../../../services/confirmation-modal.s
     ]),
   ],
 })
+
 export class VacationsDataHandlerComponent implements OnInit {
   @Input() public sortBy: string;
   @Input() public filterBy: string;

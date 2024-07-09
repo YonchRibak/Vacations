@@ -1,5 +1,4 @@
 import {
-  ChangeDetectorRef,
   Directive,
   OnDestroy,
   OnInit,
@@ -20,16 +19,19 @@ export class IsAdminDirective implements OnInit, OnDestroy {
   public loggedInSubscription: Subscription;
   private isLoggedIn: boolean;
   private user: UserModel | undefined;
+ 
   public constructor(
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
     private authService: AuthService
   ) {}
+
   public ngOnInit() {
     this.adminSubscription = globalStateManager.currUser$.subscribe((user) => {
       this.user = user;
       this.updateView();
     });
+    
     this.loggedInSubscription = this.authService.isLoggedIn$.subscribe(
       (isLoggedIn) => {
         this.isLoggedIn = isLoggedIn;

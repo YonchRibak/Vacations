@@ -16,7 +16,7 @@ import { Title } from "@angular/platform-browser";
 })
 export class AddComponent implements OnInit {
   public vacation = new VacationModel();
-  public mockImageValue: string;
+  public mockImageValue: string; // Only needed to implement ngModel binding.
   public image: File | null = null;
   public imageError: string | null = null;
   public selectedImageUrl: string;
@@ -27,6 +27,7 @@ export class AddComponent implements OnInit {
     private toast: ToastrService,
     private title: Title
   ) {}
+  
   public ngOnInit(): void {
     this.title.setTitle("SoJourn | Add");
   }

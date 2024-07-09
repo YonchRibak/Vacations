@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { AgCharts } from "ag-charts-angular";
 import { AgChartOptions } from "ag-charts-community";
-import { VacationModel } from "../../../models/VacationModel";
 import { VacationsService } from "../../../services/vacations.service";
 import { globalStateManager } from "../../../services/globalState";
 import { CsvService } from "../../../services/csv.service";

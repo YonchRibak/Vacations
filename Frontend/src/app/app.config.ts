@@ -19,6 +19,7 @@ export const appConfig = {
   ],
 
   registerUrl: "http://localhost:4000/api/register",
+
   vacationsUrl(
     page: number = 1,
     sortBy: string = "startDate",
@@ -29,6 +30,7 @@ export const appConfig = {
       return `http://localhost:4000/api/vacations/${sortBy}/${filterBy}?page=${page}&limit=9`;
     return `http://localhost:4000/api/vacations/${sortBy}/${filterBy}/${searchValue}?page=${page}&limit=9`;
   },
+
   vacationUrlStatic: "http://localhost:4000/api/vacations/",
   loginUrl: "http://localhost:4000/api/login/",
   usersUrl: "http://localhost:4000/api/users/",

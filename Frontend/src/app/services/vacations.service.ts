@@ -3,16 +3,13 @@ import { Injectable } from "@angular/core";
 import { VacationModel } from "../models/VacationModel";
 import { appConfig } from "../app.config";
 import { firstValueFrom } from "rxjs";
-import { TokenService } from "./token.service";
-import { proxy } from "valtio";
 import { globalStateManager } from "./globalState";
 
 @Injectable({
   providedIn: "root",
 })
 export class VacationsService {
-  public vacationsHaveBeenUpdated = 1;
-  constructor(private http: HttpClient, private tokenService: TokenService) {}
+  constructor(private http: HttpClient) {}
 
   public async getAllVacationsWithLimit(
     pages: number,
@@ -77,7 +74,6 @@ export class VacationsService {
       { userId: userId }
     );
     await firstValueFrom(observable);
-    this.vacationsHaveBeenUpdated++;
   }
 
   public async addVacation(

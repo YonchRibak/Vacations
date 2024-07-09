@@ -5,11 +5,13 @@
   @fadeIn
   [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
 >
+  <!-- Layers for grayscale effect: -->
   <div class="layer1"></div>
   <div class="layer2"></div>
   <div class="layer3"></div>
   <div class="layer4"></div>
   <div class="layer5"></div>
+
   <div (click)="user?.roleId ? null : toggle()" class="likes">
     <!-- prettier-ignore -->
     <i-tabler

@@ -2,11 +2,8 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Input,
-  OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges,
   ViewChild,
 } from "@angular/core";
 import { VacationCardComponent } from "../vacation-card/vacation-card.component";
@@ -29,7 +26,6 @@ import { VacationsDataHandlerComponent } from "../vacations-data-handler/vacatio
 import { IconsModule } from "../../../../icons.module";
 import { UserModel } from "../../../models/UserModel";
 import { Subscription } from "rxjs";
-import { NavbarComponent } from "../../layout-area/navbar/navbar.component";
 import { IsLaptopDirective } from "../../../directives/is-laptop.directive";
 import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 import { IsMobileService } from "../../../services/is-mobile.service";
@@ -152,7 +148,7 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
         await this.backwards(); // in case currently in a page with no vacations, go back.
     } catch (err: any) {
       if (err.status === 401) {
-        this.router.navigateByUrl("/login");
+        this.router.navigateByUrl("/login"); // Unauthorized users navigated to login.
       } else {
         this.toast.error(err.error);
         console.log(err);
@@ -167,14 +163,23 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
   public async forwards(): Promise<void> {
     if (this.moreVacationsAvailable) {
       this.currPage++;
-      if (!this.isMobile) window.scrollTo({ top: 0, behavior: "smooth" });
+      if (!this.isMobile) {
+        document
+          .querySelector(".list-container")
+          .parentElement?.parentElement?.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+      }
       await this.fetchVacations();
     }
   }
 
   public async backwards(): Promise<void> {
     this.currPage--;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    document
+      .querySelector(".list-container")
+      .parentElement?.parentElement?.scrollTo({ top: 0, behavior: "smooth" });
     await this.fetchVacations();
   }
 

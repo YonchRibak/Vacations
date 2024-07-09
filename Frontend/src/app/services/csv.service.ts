@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import Papa from "papaparse";
 import { VacationModel } from "../models/VacationModel";
 import saveAs from "file-saver";
-import { JsonpInterceptor } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",

@@ -17,7 +17,7 @@ import { Title } from "@angular/platform-browser";
 export class EditComponent implements OnInit {
   public vacation = new VacationModel();
   public _id: string;
-  public mockImageValue: string;
+  public mockImageValue: string; // Only needed to implement ngModel binding.
   public image: File | null = null;
   public imageError: string | null = null;
   public selectedImageUrl: string;

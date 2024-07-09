@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 import { ConfirmationModalService } from "../../../services/confirmation-modal.service";

@@ -11,7 +11,6 @@ import { UserModel } from "../../../models/UserModel";
 import { Subscription } from "rxjs";
 import { CustomCurrencyPipe } from "../../../custom-pipes/custom-currency.pipe";
 import { CustomStyleDirective } from "../../../directives/custom-style.directive";
-import { ToastrService } from "ngx-toastr";
 import { ConfirmationModalComponent } from "../../SharedArea/confirmation-modal/confirmation-modal.component";
 import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
 
@@ -50,7 +49,6 @@ export class VacationCardComponent implements OnInit {
 
   public constructor(
     private vacationService: VacationsService,
-    private toast: ToastrService,
     private confirmationModalService: ConfirmationModalService
   ) {}
 

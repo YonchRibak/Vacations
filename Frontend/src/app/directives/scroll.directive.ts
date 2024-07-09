@@ -1,9 +1,7 @@
 import {
   Directive,
   ElementRef,
-  HostListener,
   Input,
-  OnDestroy,
   OnInit,
   Renderer2,
 } from "@angular/core";
@@ -31,17 +29,6 @@ export class ScrollDirective implements OnInit {
       main.addEventListener("scroll", this.scrollHandler);
     }
   }
-
-  //   public ngOnDestroy(): void {
-  //     // Remove the scroll event listener to avoid memory leaks
-  //     const main =
-  //       this.el?.nativeElement &&
-  //       (this.el?.nativeElement as HTMLElement)?.parentElement.parentElement
-  //         ?.parentElement;
-  //     if (main) {
-  //       main.removeEventListener("scroll", this.scrollHandler);
-  //     }
-  //   }
 
   public onContainerScroll(event: Event) {
     const target = event.target as HTMLElement;

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { UserModel } from "../models/UserModel";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { appConfig } from "../app.config";
 import { BehaviorSubject, firstValueFrom } from "rxjs";
 import { CredentialsModel } from "../models/CredentialsModel";

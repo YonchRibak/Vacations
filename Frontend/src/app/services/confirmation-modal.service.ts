@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Output } from "@angular/core";
-import { BehaviorSubject, Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 import { VacationModel } from "../models/VacationModel";
 
 @Injectable({
