@@ -3,8 +3,7 @@ import { StatusCode } from "../3-models/enums";
 import { vacationService } from "../5-services/vacation-service";
 import { VacationModel } from "../3-models/vacation-model";
 import { securityMiddleware } from "../4-middleware/security-middleware";
-import { UploadedFile } from "express-fileupload";
-import { ValidationError } from "../3-models/client-errors";
+
 
 // Vacation controller:
 class VacationController {

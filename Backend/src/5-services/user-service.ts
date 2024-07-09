@@ -1,5 +1,6 @@
 import { IUserModel, UserModel } from "../3-models/user-model";
 import jwt from "jsonwebtoken";
+
 class UserService {
   public async getAllUsers(): Promise<IUserModel[]> {
     const users = await UserModel.find().exec();

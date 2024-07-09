@@ -3,6 +3,7 @@ import { ValidationError } from "../3-models/client-errors";
 import { IVacationModel, VacationModel } from "../3-models/vacation-model";
 
 class VacationService {
+    // add vacation:
   public async addVacation(
     vacation: IVacationModel,
     image?: Express.Multer.File
@@ -10,13 +11,14 @@ class VacationService {
     try {
       const newVacation = new VacationModel(vacation);
       newVacation.image = image?.originalname;
-      await newVacation.validate(); // Validate using Mongoose validation
-      return await newVacation.save(); // Save the vacation
+      await newVacation.validate(); 
+      return await newVacation.save(); 
     } catch (error) {
-      throw new ValidationError(error.message); // Handle validation errors
+      throw new ValidationError(error.message); 
     }
   }
 
+  // add many vacations:
   public async addManyVacations(vacations: IVacationModel[]): Promise<void> {
     try {
       await Promise.all(vacations.map((vac) => this.addVacation(vac)));
@@ -25,6 +27,7 @@ class VacationService {
     }
   }
 
+  // get all vacations:
   public async getAllVacations(
     page?: number,
     limit?: number,
@@ -88,6 +91,8 @@ class VacationService {
       throw new Error(`Failed to get vacations: ${error.message}`);
     }
   }
+
+  // get single vacation by id:
   public async getVacationById(_id: string): Promise<IVacationModel> {
     const vacation = await VacationModel.findById(_id).populate("image").exec();
     return vacation;
@@ -111,10 +116,10 @@ class VacationService {
       );
 
       if (index === -1) {
-        // userId not found in likesIds, add it
+        // userId not found in likesIds, add it:
         vacation.likesIds.push(new mongoose.Types.ObjectId(userId));
       } else {
-        // userId found in likesIds, remove it
+        // userId found in likesIds, remove it:
         vacation.likesIds.splice(index, 1);
       }
 
@@ -127,6 +132,7 @@ class VacationService {
     }
   }
 
+  // delete vacation:
   public async deleteVacation(_id: string): Promise<IVacationModel> {
     try {
       const deletedVacation = await VacationModel.findByIdAndDelete(_id).exec();
@@ -139,6 +145,7 @@ class VacationService {
     }
   }
 
+  // edit vacation:
   public async editVacation(
     _id: string,
     vacation: IVacationModel,

@@ -31,7 +31,7 @@ class AuthController {
     }
   }
 
-  // POST http://localhost:4000/api/login --> Login Existing new user:
+  // POST http://localhost:4000/api/login --> Login existing user:
   private async login(
     request: Request,
     response: Response,

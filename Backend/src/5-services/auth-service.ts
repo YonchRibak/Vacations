@@ -20,6 +20,8 @@ class AuthService {
     const token = cyber.getNewToken(user);
     return token;
   }
+
+  // Login:
   public async login(credentials: CredentialsModel): Promise<string> {
     credentials.validateLogin();
 

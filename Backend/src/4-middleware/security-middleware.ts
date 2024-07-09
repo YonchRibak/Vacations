@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import { StatusCode } from "../3-models/enums";
 import { cyber } from "../2-utils/cyber";
 import { UnauthorizedError } from "../3-models/client-errors";
 import striptags from "striptags";
