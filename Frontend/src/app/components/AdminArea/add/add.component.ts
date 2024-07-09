@@ -19,6 +19,7 @@ export class AddComponent implements OnInit {
   public mockImageValue: string;
   public image: File | null = null;
   public imageError: string | null = null;
+  public selectedImageUrl: string;
 
   public constructor(
     private vacationsService: VacationsService,
@@ -35,6 +36,11 @@ export class AddComponent implements OnInit {
     if (file && this.validateImage(file)) {
       this.image = file;
       this.imageError = null;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.selectedImageUrl = reader.result as string;
+      };
+      reader.readAsDataURL(file);
     } else {
       this.image = null;
       this.imageError = "Invalid file. Please select an image.";
@@ -46,6 +52,9 @@ export class AddComponent implements OnInit {
     return allowedExtensions.includes(file.type);
   }
 
+  public validateStartDate(): boolean {
+    return this.vacation?.startDate >= new Date();
+  }
   public validateDates(): boolean {
     return this.vacation?.startDate < this.vacation?.endDate;
   }

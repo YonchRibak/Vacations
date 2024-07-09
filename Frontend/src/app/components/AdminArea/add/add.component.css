@@ -3,3 +3,28 @@
   color: white;
   font-weight: 500;
 }
+input[type="file"] {
+  display: none;
+}
+.image-thumbnail {
+  display: flex;
+  margin-bottom: 1rem;
+  min-height: 25vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+.image-upload-container {
+  position: relative;
+}
+
+.image-upload-container .error {
+  position: absolute;
+  top: 50%;
+  right: -100%;
+  width: auto;
+  color: rgb(245, 57, 57);
+  white-space: pre-line;
+}

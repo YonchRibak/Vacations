@@ -29,7 +29,7 @@
       >Missing password</span
     >
     <span
-      *ngIf="passwordBox.touched && passwordBox.errors?.['minLength']"
+      *ngIf="passwordBox.touched && !passwordBox.errors?.['required'] && passwordBox.errors?.['minLength']"
       class="error"
       >Password has to be longer than 4 characters</span
     >

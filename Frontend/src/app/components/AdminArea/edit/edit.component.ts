@@ -76,6 +76,10 @@ export class EditComponent implements OnInit {
     return allowedExtensions.includes(file.type);
   }
 
+  public validateDates(): boolean {
+    return this.vacation?.startDate < this.vacation?.endDate;
+  }
+
   public async send(): Promise<void> {
     try {
       await this.vacationsService.editVacation(this.vacation, this.image);

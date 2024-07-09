@@ -31,6 +31,12 @@ export const VacationSchema = new Schema<IVacationModel>(
     startDate: {
       type: Date,
       required: [true, "Missing start date."],
+      validate: {
+        validator: function (startDate: Date) {
+          return startDate >= new Date();
+        },
+        message: "Start date cannot be earlier than the current date.",
+      },
     },
     endDate: {
       type: Date,

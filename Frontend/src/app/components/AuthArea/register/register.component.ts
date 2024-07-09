@@ -3,13 +3,13 @@ import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { UserModel } from "../../../models/UserModel";
 import { AuthService } from "../../../services/auth.service";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-register",
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.css",
 })

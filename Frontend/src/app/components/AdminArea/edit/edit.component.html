@@ -1,5 +1,6 @@
 <div>
   <form (ngSubmit)="send()" #myForm="ngForm">
+    <!-- Destination Input: -->
     <label for="vacationDestination">Destination:</label>
     <input
       type="text"
@@ -7,25 +8,26 @@
       #destinationBox="ngModel"
       [(ngModel)]="vacation.destination"
       required
-      minLength="2"
-      maxLength="20"
+      minlength="2"
+      maxlength="20"
     />
-    <span
-      *ngIf="destinationBox.touched && destinationBox.errors?.['required']"
-      class="error"
-      >Missing destination</span
-    >
-    <span
-      *ngIf="destinationBox.touched && destinationBox.errors?.['minLength']"
-      class="error"
-      >Destination has to be longer than one character</span
-    >
-    <span
-      *ngIf="destinationBox.touched && destinationBox.errors?.['maxLength']"
-      class="error"
-      >Destination cannot be longer than 20 characters</span
-    >
+    <span *ngIf="destinationBox.touched && destinationBox.errors" class="error">
+      <span *ngIf="destinationBox.errors?.['required']" class="error"
+        >Missing destination</span
+      >
+      <span
+        *ngIf="!destinationBox.errors?.['required'] && destinationBox.errors?.['minlength']"
+        class="error"
+        >Destination has to be longer than one character</span
+      >
+      <span
+        *ngIf="!destinationBox.errors?.['required'] && !destinationBox.errors?.['minlength'] && destinationBox.errors?.['maxlength']"
+        class="error"
+        >Destination cannot be longer than 20 characters</span
+      >
+    </span>
 
+    <!-- Description Input: -->
     <label for="vacationDescription">Description:</label>
     <textarea
       type="text"
@@ -33,24 +35,27 @@
       #descriptionBox="ngModel"
       [(ngModel)]="vacation.description"
       required
-      minLength="2"
-      maxLength="1000"
+      minlength="2"
+      maxlength="1000"
     ></textarea>
-    <span
-      *ngIf="descriptionBox.touched && descriptionBox.errors?.['required']"
-      class="error"
-      >Missing description</span
-    >
-    <span
-      *ngIf="descriptionBox.touched && descriptionBox.errors?.['minLength']"
-      class="error"
-      >Description has to be longer than one character</span
-    >
-    <span
-      *ngIf="descriptionBox.touched && descriptionBox.errors?.['maxLength']"
-      class="error"
-      >Description cannot be longer than 1000 characters</span
-    >
+
+    <span *ngIf="descriptionBox.touched && descriptionBox.errors" class="error">
+      <span *ngIf="descriptionBox.errors?.['required']" class="error"
+        >Missing description</span
+      >
+      <span
+        *ngIf="!descriptionBox.errors?.['required'] && descriptionBox.errors?.['minlength']"
+        class="error"
+        >Description has to be longer than one character</span
+      >
+      <span
+        *ngIf="!descriptionBox.errors?.['required'] && !descriptionBox.errors?.['minlength'] && descriptionBox.errors?.['maxlength']"
+        class="error"
+        >Description cannot be longer than 1000 characters</span
+      >
+    </span>
+
+    <!-- Start Date Input: -->
     <label for="startDate">Start Date:</label>
     <input
       type="date"
@@ -65,6 +70,7 @@
       >Missing start date.</span
     >
 
+    <!-- End Date Input: -->
     <label for="endDate">End Date:</label>
     <input
       type="date"
@@ -78,7 +84,11 @@
       class="error"
       >Missing end date.</span
     >
+    <span *ngIf="endDateBox.touched && !validateDates()" class="error"
+      >End date must be later than start date.</span
+    >
 
+    <!-- Price Input: -->
     <label for="price">Price:</label>
     <input
       type="number"
@@ -88,14 +98,18 @@
       required
       min="0"
     />
-    <span
-      *ngIf="priceBox.touched && priceBox.errors?.['required']"
-      class="error"
-      >Missing price</span
-    >
-    <span *ngIf="priceBox.touched && priceBox.errors?.['min']" class="error"
-      >Price cannot be negative.</span
-    >
+    <span *ngIf="priceBox.touched && priceBox.errors" class="error">
+      <span *ngIf="priceBox.errors?.['required']" class="error"
+        >Missing price</span
+      >
+      <span
+        *ngIf="!priceBox.errors?.['required'] && priceBox.errors?.['min']"
+        class="error"
+        >Price cannot be negative.</span
+      >
+    </span>
+
+    <!-- Image Input -->
     <div class="image-upload-container">
       <div
         [ngStyle]="{
@@ -123,9 +137,11 @@
         >Missing image</span
       >
     </div>
+
+    <!-- Buttons: -->
     <a [routerLink]="['/home']">
-        <button type="button" class="discard">Discard</button></a
-      >
+      <button type="button" class="discard">Discard</button></a
+    >
     <button type="submit" [disabled]="!isFormValid()">Submit Changes</button>
   </form>
 </div>
