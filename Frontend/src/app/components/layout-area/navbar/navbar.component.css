@@ -13,12 +13,16 @@
   background-position: center;
   background-size: contain;
 }
+.navbar-nav {
+  align-items: center;
+}
 .hello-user {
   color: var(--primary);
   font-weight: 600;
 }
 .custom-link {
   cursor: pointer;
+  height: fit-content;
 }
 .custom-link > span {
   color: var(--primary);

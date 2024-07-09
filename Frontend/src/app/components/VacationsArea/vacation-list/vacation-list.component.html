@@ -51,4 +51,12 @@
     />
   </div>
   <div *isMobile #scrollAnchor></div>
+
+  <i-tabler
+    [atScrollDown]
+    *isMobile
+    name="arrow-badge-up"
+    class="scroll-up"
+    (click)="scrollToTop()"
+  />
 </div>

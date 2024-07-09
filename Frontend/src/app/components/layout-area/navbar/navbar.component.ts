@@ -1,11 +1,5 @@
 import { CommonModule } from "@angular/common";
-import {
-  AfterViewInit,
-  ChangeDetectorRef,
-  Component,
-  HostListener,
-  OnInit,
-} from "@angular/core";
+import { AfterViewInit, Component, HostListener, OnInit } from "@angular/core";
 import { AuthService } from "../../../services/auth.service";
 import { globalStateManager } from "../../../services/globalState";
 import { TokenService } from "../../../services/token.service";
@@ -74,6 +68,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   public logout() {
     this.authService.logout();
     this.user = null;
+    this.toggleNavbar();
     this.router.navigateByUrl("/login");
   }
 }

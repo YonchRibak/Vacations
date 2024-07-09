@@ -37,6 +37,8 @@ import { IsMobileDirective } from "../../../directives/is-mobile.directive";
 import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
+import { Title } from "@angular/platform-browser";
+import { ScrollDirective } from "../../../directives/scroll.directive";
 
 @Component({
   selector: "app-vacation-list",
@@ -50,6 +52,7 @@ import { ConfirmationModalService } from "../../../services/confirmation-modal.s
     IsLaptopDirective,
     IsMobileDirective,
     CustomStyleDirective,
+    ScrollDirective,
   ],
   templateUrl: "./vacation-list.component.html",
   styleUrl: "./vacation-list.component.css",
@@ -88,10 +91,12 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
     public isMobileService: IsMobileService,
     private router: Router,
     private toast: ToastrService,
-    private confirmationModalService: ConfirmationModalService
+    private confirmationModalService: ConfirmationModalService,
+    private title: Title
   ) {}
 
   public async ngOnInit(): Promise<void> {
+    this.title.setTitle("SoJourn | Home");
     this.currPage = 1;
     this.subscription = globalStateManager.currUser$.subscribe((user) => {
       this.user = user;
@@ -194,6 +199,11 @@ export class VacationListComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.fetchVacations();
   }
 
+  public scrollToTop(): void {
+    document
+      .querySelector(".list-container")
+      .parentElement?.parentElement?.scrollTo({ top: 0, behavior: "smooth" });
+  }
   public ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();

@@ -27,6 +27,7 @@
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"
         [routerLink]="['/report']"
+        (click)="toggleNavbar()"
       >
         <span>Reports</span>
       </a>
@@ -35,6 +36,7 @@
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"
         [routerLink]="['/add']"
+        (click)="toggleNavbar()"
       >
         <span>Add</span>
       </a>
@@ -43,6 +45,7 @@
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"
         [routerLink]="['/home']"
+        (click)="toggleNavbar()"
       >
         <span>Home</span>
       </a>
@@ -50,6 +53,7 @@
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"
         [routerLink]="['/about']"
+        (click)="toggleNavbar()"
       >
         <span>About</span>
       </a>
@@ -58,6 +62,7 @@
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"
         [routerLink]="['/login']"
+        (click)="toggleNavbar()"
       >
         <span>Login</span>
       </a>
@@ -66,10 +71,17 @@
         class="dropdown-item custom-link"
         [routerLinkActive]="['active']"
         [routerLink]="['/register']"
+        (click)="toggleNavbar()"
       >
         <span>Register</span>
       </a>
-      <a *isLoggedIn class="dropdown-item custom-link" (click)="logout()">
+      <a
+        *isLoggedIn
+        customStyle
+        [mobileStyle]="{ marginBottom: '2rem' }"
+        class="dropdown-item custom-link"
+        (click)="logout()"
+      >
         <span>Logout</span>
       </a>
     </div>

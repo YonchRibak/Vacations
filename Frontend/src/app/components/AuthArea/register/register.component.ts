@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { UserModel } from "../../../models/UserModel";
-import { TokenService } from "../../../services/token.service";
 import { AuthService } from "../../../services/auth.service";
 import { Router } from "@angular/router";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-register",
@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.css",
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   public newUser = new UserModel();
   public passwordWeak: boolean = false;
   public passwordStrong: boolean = false;
@@ -23,9 +23,12 @@ export class RegisterComponent {
 
   public constructor(
     private authService: AuthService,
-    private tokenService: TokenService,
-    public router: Router
+    public router: Router,
+    private title: Title
   ) {}
+  public ngOnInit(): void {
+    this.title.setTitle("SoJourn | Register");
+  }
 
   public checkPasswordStrength() {
     const password = this.newUser.password;

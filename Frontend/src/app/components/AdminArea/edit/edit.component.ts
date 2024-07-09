@@ -5,6 +5,7 @@ import { VacationsService } from "../../../services/vacations.service";
 import { VacationModel } from "../../../models/VacationModel";
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-edit",
@@ -25,7 +26,8 @@ export class EditComponent implements OnInit {
     public vacationsService: VacationsService,
     private route: ActivatedRoute,
     private router: Router,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private title: Title
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -33,6 +35,7 @@ export class EditComponent implements OnInit {
       this._id = params["_id"];
     });
     this.vacation = await this.vacationsService.getVacationById(this._id);
+    this.title.setTitle(`SoJourn | Edit ${this.vacation.destination}`);
   }
 
   public get formattedStartDate(): string {

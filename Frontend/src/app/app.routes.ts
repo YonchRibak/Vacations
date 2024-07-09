@@ -6,6 +6,7 @@ import { VacationListComponent } from "./components/VacationsArea/vacation-list/
 import { AddComponent } from "./components/AdminArea/add/add.component";
 import { EditComponent } from "./components/AdminArea/edit/edit.component";
 import { ReportComponent } from "./components/AdminArea/report/report.component";
+import { AboutComponent } from "./components/AboutArea/about/about.component";
 
 export const routes: Routes = [
   { path: "register", component: RegisterComponent },
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: "add", component: AddComponent },
   { path: "edit/:_id", component: EditComponent },
   { path: "report", component: ReportComponent },
+  { path: "about", component: AboutComponent },
   { path: "home", component: VacationListComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: Page404Component },

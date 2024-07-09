@@ -5,6 +5,7 @@ import { VacationModel } from "../../../models/VacationModel";
 import { VacationsService } from "../../../services/vacations.service";
 import { globalStateManager } from "../../../services/globalState";
 import { CsvService } from "../../../services/csv.service";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-report",
@@ -18,7 +19,8 @@ export class ReportComponent implements OnInit {
 
   public constructor(
     public vacationsService: VacationsService,
-    public csvService: CsvService
+    public csvService: CsvService,
+    public title: Title
   ) {
     this.chartOptions = {
       data: globalStateManager.vacations,
@@ -64,7 +66,7 @@ export class ReportComponent implements OnInit {
   public async ngOnInit(): Promise<void> {
     if (!globalStateManager.vacations.length)
       await this.vacationsService.getAllVacations("likesCount");
-
+    this.title.setTitle("SoJourn | Reports");
     // Recompute chart dimensions on window resize
     this.updateChartSize();
   }

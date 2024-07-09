@@ -1,10 +1,11 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { VacationModel } from "../../../models/VacationModel";
 import { VacationsService } from "../../../services/vacations.service";
 import { Router, RouterLink } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-add",
@@ -13,7 +14,7 @@ import { ToastrService } from "ngx-toastr";
   templateUrl: "./add.component.html",
   styleUrl: "./add.component.css",
 })
-export class AddComponent {
+export class AddComponent implements OnInit {
   public vacation = new VacationModel();
   public mockImageValue: string;
   public image: File | null = null;
@@ -22,8 +23,12 @@ export class AddComponent {
   public constructor(
     private vacationsService: VacationsService,
     public router: Router,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private title: Title
   ) {}
+  public ngOnInit(): void {
+    this.title.setTitle("SoJourn | Add");
+  }
 
   public onFileSelected(event: any): void {
     const file = event.target.files[0];

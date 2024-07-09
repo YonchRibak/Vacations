@@ -55,3 +55,14 @@ header > h3 {
   transform: scale(1.125) translateY(-0.25rem);
   transition: transform ease-in-out 200ms;
 }
+.scroll-up {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  color: white;
+  rotate: none;
+  fill: none;
+  z-index: 10;
+  scale: 150%;
+  transition: opacity 0.5s ease-in-out;
+}

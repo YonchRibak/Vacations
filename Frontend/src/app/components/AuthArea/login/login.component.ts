@@ -1,10 +1,10 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CredentialsModel } from "../../../models/CredentialsModel";
-import { TokenService } from "../../../services/token.service";
 import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../../services/auth.service";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-login",
@@ -13,14 +13,17 @@ import { AuthService } from "../../../services/auth.service";
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   public credentials = new CredentialsModel();
 
   public constructor(
     private authService: AuthService,
-    private tokenService: TokenService,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) {}
+  public ngOnInit(): void {
+    this.title.setTitle("SoJourn | Login");
+  }
 
   public async send(): Promise<void> {
     const token = await this.authService.login(this.credentials);
