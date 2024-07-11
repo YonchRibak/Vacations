@@ -33,7 +33,11 @@ export const VacationSchema = new Schema<IVacationModel>(
       required: [true, "Missing start date."],
       validate: {
         validator: function (startDate: Date) {
-          return startDate >= new Date();
+          // Only validate for new documents (POST requests)
+          if (this.isNew) {
+            return startDate >= new Date();
+          }
+          return true;
         },
         message: "Start date cannot be earlier than the current date.",
       },

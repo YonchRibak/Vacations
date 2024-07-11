@@ -1,0 +1,63 @@
+.container {
+  width: 100%;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  padding-inline: 0.5rem;
+  border-radius: 0.5rem;
+}
+.card-info,
+.personal-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+  padding: 2rem;
+  gap: 1rem;
+  border-radius: 1rem;
+}
+.card-details {
+  border: solid 1px;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.expiration-cvv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.card-number,
+.expiration,
+.cvv {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-number > input .cvv > input {
+  max-width: 4rem;
+}
+.expiration-inputs {
+  display: flex;
+}
+.expiration-inputs > input {
+  max-width: 3rem;
+}
+.expiration-inputs > span {
+  margin-inline: 0.5rem;
+}
+.name,
+.city-zip {
+  display: flex;
+  gap: 1rem;
+}
+button {
+  justify-self: center;
+  grid-column: span 2;
+  width: 30%;
+}

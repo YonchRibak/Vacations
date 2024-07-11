@@ -33,7 +33,7 @@
   </div>
 
   <h3>{{ vacation?.destination }}</h3>
-  <button class="purchase-btn">
+  <button class="purchase-btn" [routerLink]="['/vacations', vacation._id]">
     {{ vacation?.price | customCurrency : "EUR" }}
   </button>
 

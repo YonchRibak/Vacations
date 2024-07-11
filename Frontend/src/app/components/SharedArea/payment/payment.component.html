@@ -1,0 +1,55 @@
+<div class="container">
+  <h3>
+    Purchasing vacation package to {{ vacation.destination }} for
+    {{ vacation.price | customCurrency : "EUR" }}
+  </h3>
+  <form>
+    <div class="card-info">
+      <h3>Card Information</h3>
+      <div class="card-details">
+        <div class="card-number">
+          <label for="">Card Number</label>
+          <input
+            type="text"
+            (input)="formatCardNumber($event)"
+            (keypress)="allowOnlyNumbers($event)"
+            [value]="creditCardValue"
+            maxlength="19"
+            pattern="\d*"
+          />
+        </div>
+        <hr />
+        <div class="expiration-cvv">
+          <div class="expiration">
+            <label for="">Expiration Date</label>
+            <div class="expiration-inputs">
+              <input type="number" />
+              <span> / </span>
+              <input type="number" />
+            </div>
+          </div>
+          <div class="cvv">
+            <label for="">CVV Code</label>
+            <input type="password" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="personal-info">
+      <h3>Personal Information</h3>
+      <div class="name">
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+      </div>
+      <input type="text" placeholder="Country" />
+      <div class="countries-select"></div>
+      <div class="city-zip">
+        <input type="text" placeholder="city" />
+        <input type="text" placeholder="Zip Code" />
+      </div>
+      <input type="email" placeholder="Email" />
+      <input type="number" placeholder="Phone Number" />
+    </div>
+    <button>Pay</button>
+  </form>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+  <div
+    customStyle
+    [mobileStyle]="{ height: '75vh' }"
+    class="card"
+    @fadeIn
+    [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
+  >
+    <!-- Layers for grayscale effect: -->
+    <div class="layer1"></div>
+    <div class="layer2"></div>
+    <div class="layer3"></div>
+    <div class="layer4"></div>
+    <div class="layer5"></div>
+
+    <i-tabler name="arrow-back" class="back" [routerLink]="['/home']" />
+    <div *isAdmin class="admin-actions">
+      <i-tabler name="trash" (click)="openModal(vacation)" />
+      <a [routerLink]="['/edit/', vacation?._id]">
+        <i-tabler name="edit" />
+      </a>
+    </div>
+
+    <h3>{{ vacation?.destination }}</h3>
+    <button class="purchase-btn" [routerLink]="['/payment', vacation._id]">
+      {{ vacation?.price | customCurrency : "EUR" }}
+    </button>
+
+    <p>{{ vacation?.description }}</p>
+    <div
+      class="footer"
+      customStyle
+      [mobileStyle]="{ left: '0', transform: 'translateX(10%)' }"
+    >
+      <div class="date-icon-pair" customStyle [mobileStyle]="{ gap: '0.3rem' }">
+        <i-tabler
+          customStyle
+          [mobileStyle]="{ scale: '75%' }"
+          name="plane-departure"
+        />
+        <span customStyle [mobileStyle]="{ fontSize: '0.75rem' }">
+          {{ vacation?.startDate | date : "dd/MM/YYYY" }}</span
+        >
+      </div>
+
+      <div class="date-icon-pair" customStyle [mobileStyle]="{ gap: '0.3rem' }">
+        <span customStyle [mobileStyle]="{ fontSize: '0.75rem' }">
+          {{ vacation?.endDate | date : "dd/MM/YYYY" }}</span
+        >
+        <i-tabler
+          customStyle
+          [mobileStyle]="{ scale: '75%' }"
+          name="plane-arrival"
+        />
+      </div>
+    </div>
+  </div>
+</div>
