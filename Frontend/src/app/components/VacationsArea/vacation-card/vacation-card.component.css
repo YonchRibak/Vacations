@@ -93,11 +93,12 @@ h3 {
   color: white;
   height: 50px;
   width: 50px;
-  transition: transform ease-in-out 200ms;
+  fill: transparent;
+  transition: all ease-in-out 200ms;
 }
 .heart-icon:hover {
   transform: scale(1.125);
-  transition: transform ease-in-out 200ms;
+  transition: all ease-in-out 200ms;
 }
 .likes .heart-icon.admin-cancel-interaction,
 .likes .heart-icon.admin-cancel-interaction:hover,
@@ -142,6 +143,13 @@ a > i-tabler:hover {
   font-weight: 600;
   z-index: 3;
   margin-bottom: 2rem;
+  transition: all ease-in-out 300ms;
+}
+.purchase-btn:hover {
+  transform: scale(1.15);
+  background-color: rgb(157, 239, 239);
+  color: #ffa11c;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.45);
 }
 p {
   padding: 1rem;
@@ -151,6 +159,11 @@ p {
   font-weight: 700;
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
   margin-bottom: 4rem;
+}
+p > a {
+  font-size: 1rem;
+  color: var(--primary);
+  text-decoration: none;
 }
 img {
   width: 50px;

@@ -11,6 +11,7 @@ import { globalStateManager } from "../../../services/globalState";
 import { IconsModule } from "../../../../icons.module";
 import { ConfirmationModalService } from "../../../services/confirmation-modal.service";
 import { CustomCurrencyPipe } from "../../../custom-pipes/custom-currency.pipe";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-single-vacation",
@@ -35,7 +36,8 @@ export class SingleVacationComponent implements OnInit {
   public constructor(
     private vacationsService: VacationsService,
     private route: ActivatedRoute,
-    private confirmationModalService: ConfirmationModalService
+    private confirmationModalService: ConfirmationModalService,
+    private title: Title
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -46,6 +48,7 @@ export class SingleVacationComponent implements OnInit {
       this._id = params["_id"];
     });
     this.vacation = await this.vacationsService.getVacationById(this._id);
+    this.title.setTitle(`SoJourn | ${this.vacation?.destination}`);
   }
 
   public openModal(vacation: VacationModel): void {

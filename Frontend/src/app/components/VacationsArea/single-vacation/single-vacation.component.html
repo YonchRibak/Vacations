@@ -3,7 +3,6 @@
     customStyle
     [mobileStyle]="{ height: '75vh' }"
     class="card"
-    @fadeIn
     [ngStyle]="{ 'background-image': 'url(' + vacation?.imageUrl + ')' }"
   >
     <!-- Layers for grayscale effect: -->
@@ -22,7 +21,7 @@
     </div>
 
     <h3>{{ vacation?.destination }}</h3>
-    <button class="purchase-btn" [routerLink]="['/payment', vacation._id]">
+    <button class="purchase-btn" [routerLink]="['/payment', vacation?._id]">
       {{ vacation?.price | customCurrency : "EUR" }}
     </button>
 

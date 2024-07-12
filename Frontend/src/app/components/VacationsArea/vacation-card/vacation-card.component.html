@@ -33,11 +33,14 @@
   </div>
 
   <h3>{{ vacation?.destination }}</h3>
-  <button class="purchase-btn" [routerLink]="['/vacations', vacation._id]">
+  <button class="purchase-btn" [routerLink]="['/payment', vacation?._id]">
     {{ vacation?.price | customCurrency : "EUR" }}
   </button>
 
-  <p>{{ vacation?.description?.substring(0, 150) }}...</p>
+  <p>
+    {{ vacation?.description?.substring(0, 150) }}...
+    <a [routerLink]="['/vacations', vacation._id]">Read More</a>
+  </p>
   <div
     class="footer"
     customStyle

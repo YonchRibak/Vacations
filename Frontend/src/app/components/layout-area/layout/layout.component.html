@@ -1,7 +1,7 @@
 <div>
   <app-navbar />
   <app-confirmation-modal />
-  <main>
+  <main customStyle [mobileStyle]="{ overflowX: 'hidden' }">
     <router-outlet></router-outlet>
   </main>
 </div>

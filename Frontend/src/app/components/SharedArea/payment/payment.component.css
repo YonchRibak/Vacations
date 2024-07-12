@@ -1,5 +1,9 @@
 .container {
-  width: 100%;
+  width: 100vw;
+}
+h3 {
+  color: var(--primary);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 form {
   display: grid;
@@ -18,19 +22,34 @@ input {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: antiquewhite;
+  background-color: rgb(255, 247, 238);
   padding: 2rem;
   gap: 1rem;
   border-radius: 1rem;
 }
+.card-info {
+  align-items: center;
+}
+.card-details > img {
+  position: absolute;
+  height: 20%;
+  top: 0.5rem;
+  right: 0.5rem;
+}
 .card-details {
+  position: relative;
+  background-color: antiquewhite;
   border: solid 1px;
   border-radius: 0.5rem;
   padding: 1rem;
+  padding-top: 2rem;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+  width: 70%;
 }
 .expiration-cvv {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 }
 .card-number,
 .expiration,
@@ -38,9 +57,16 @@ input {
   display: flex;
   flex-direction: column;
 }
-
-.card-number > input .cvv > input {
-  max-width: 4rem;
+.expiration,
+.cvv {
+  align-items: center;
+}
+.cvv {
+  grid-column: 3;
+}
+.cvv > input {
+  max-width: 3rem;
+  text-align: center;
 }
 .expiration-inputs {
   display: flex;
@@ -51,10 +77,42 @@ input {
 .expiration-inputs > span {
   margin-inline: 0.5rem;
 }
+.countries-container {
+  position: relative;
+}
+.countries-container > input {
+  width: 100%;
+}
+.countries-select {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 10rem;
+  overflow-y: auto;
+  background-color: white;
+  border: solid 1px;
+  border-radius: 0.5rem;
+  padding-inline-start: 0.5rem;
+  padding-block: 0.5rem;
+}
 .name,
 .city-zip {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+.name > input,
+.city-zip > input {
+  width: calc((100% - 1rem) / 2);
+}
+.phone {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+}
+.phone > input {
+  width: 100%;
 }
 button {
   justify-self: center;

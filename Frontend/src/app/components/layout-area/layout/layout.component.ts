@@ -10,6 +10,7 @@ import { globalStateManager } from "../../../services/globalState";
 import { NavbarComponent } from "../navbar/navbar.component";
 import { Subscription } from "rxjs";
 import { ConfirmationModalComponent } from "../../SharedArea/confirmation-modal/confirmation-modal.component";
+import { CustomStyleDirective } from "../../../directives/custom-style.directive";
 
 @Component({
   selector: "app-layout",
@@ -20,6 +21,7 @@ import { ConfirmationModalComponent } from "../../SharedArea/confirmation-modal/
     FormsModule,
     NavbarComponent,
     ConfirmationModalComponent,
+    CustomStyleDirective,
   ],
   templateUrl: "./layout.component.html",
   styleUrl: "./layout.component.css",
@@ -27,7 +29,7 @@ import { ConfirmationModalComponent } from "../../SharedArea/confirmation-modal/
 export class LayoutComponent implements OnInit {
   public user: UserModel;
   public subscription: Subscription;
-  
+
   public constructor(
     private tokenService: TokenService,
     public authService: AuthService,
