@@ -82,7 +82,7 @@ describe("VacationController", () => {
       contentType: "image/jpeg",
     });
 
-    // Add textVacation to DB to be handled in tests and later deleted
+    // Add testVacation to DB to be handled in tests and later deleted
     const res = await supertest(app.server)
       .post("/api/vacations")
       .set("Authorization", `Bearer ${adminToken}`)
