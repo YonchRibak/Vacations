@@ -6,7 +6,6 @@ import fs from "fs";
 import { app } from "../src/app";
 import jwt from "jsonwebtoken";
 
-
 describe("VacationController", () => {
   interface UserPayload {
     _id: string;
@@ -53,7 +52,7 @@ describe("VacationController", () => {
     }
 
     regularUser_id = payload.user._id;
-   
+
     // Login as admin
     const adminResponse = await supertest(app.server)
       .post("/api/login")
@@ -63,7 +62,7 @@ describe("VacationController", () => {
     // Read test image
     image = fs.readFileSync(__dirname + "\\resources\\madrid.jpg");
 
-    // Set startDate to tomorrow midnight. 
+    // Set startDate to tomorrow midnight.
     startDate = new Date();
     startDate.setDate(startDate.getDate() + 1);
     startDate.setHours(0, 0, 0, 0); // Set to midnight
@@ -206,6 +205,9 @@ describe("VacationController", () => {
         .send({ userId: regularUser_id });
 
       expect(res.status).to.equal(200);
+      expect(res.body)
+        .to.have.property("likesIds")
+        .that.includes(regularUser_id);
     });
   });
 
