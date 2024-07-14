@@ -15,7 +15,7 @@ import { vacationRouter } from "./6-controllers/vacations-controller";
 // Main application class:
 class App {
   // Express server:
-  private server = express();
+  public server = express();
 
   // Start app:
   public async start(): Promise<void> {
@@ -76,5 +76,5 @@ class App {
   }
 }
 
-const app = new App();
+export const app = new App();
 app.start();
