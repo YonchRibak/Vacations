@@ -5,8 +5,7 @@ import FormData from "form-data";
 import fs from "fs";
 import { app } from "../src/app";
 import jwt from "jsonwebtoken";
-import { IUserModel } from "../src/3-models/user-model";
-import mongoose, { ObjectId } from "mongoose";
+
 
 describe("VacationController", () => {
   interface UserPayload {
