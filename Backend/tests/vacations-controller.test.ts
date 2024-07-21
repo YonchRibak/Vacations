@@ -114,12 +114,6 @@ describe("VacationController", () => {
         .set("Authorization", `Bearer ${token}`)
         .set("Content-Type", "application/json");
 
-      console.log("Response status:", res.status);
-      console.log(
-        "Response body:",
-        JSON.stringify(res.body, null, 2).substring(0, 250)
-      );
-
       expect(res.status).to.equal(200);
       expect(res.body.length).to.be.greaterThan(0);
       if (res.body.length > 0) {
